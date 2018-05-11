@@ -1,6 +1,6 @@
--- MySQL dump 10.13  Distrib 5.7.20, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
--- Host: localhost    Database: mydb
+-- Host: 0.0.0.0    Database: mydb
 -- ------------------------------------------------------
 -- Server version	5.5.60
 
@@ -75,6 +75,7 @@ CREATE TABLE `COMENTARIO` (
   `fechaComentario` datetime DEFAULT NULL,
   `LECTOR_ID_LECTOR` int(11) NOT NULL,
   `NOTICIA_ID_NOTICIA` int(11) NOT NULL,
+  `comentarioComentario` text COLLATE latin1_spanish_ci,
   PRIMARY KEY (`ID_COMENTARIO`),
   KEY `fk_COMENTARIO_LECTOR_idx` (`LECTOR_ID_LECTOR`),
   KEY `fk_COMENTARIO_NOTICIA1_idx` (`NOTICIA_ID_NOTICIA`),
@@ -132,7 +133,6 @@ DROP TABLE IF EXISTS `LECTOR`;
 CREATE TABLE `LECTOR` (
   `ID_LECTOR` int(11) NOT NULL AUTO_INCREMENT,
   `nombreLector` varchar(20) COLLATE latin1_spanish_ci DEFAULT NULL,
-  `comentarioLector` text COLLATE latin1_spanish_ci,
   PRIMARY KEY (`ID_LECTOR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -256,4 +256,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-10 23:53:39
+-- Dump completed on 2018-05-11  8:52:48
