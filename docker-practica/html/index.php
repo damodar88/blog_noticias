@@ -1,7 +1,6 @@
 
 
 <?php
-echo "hola";
- phpinfo();
+echo "El index ";
 
- ?>
+?>
