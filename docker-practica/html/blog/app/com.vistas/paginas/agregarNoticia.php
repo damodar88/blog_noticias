@@ -12,17 +12,21 @@
   <form action="" method="post" enctype="" name="formNoticia">
     <table>
       <!--Titulo de la noticia-->
-      <tr>
-        <td>Titulo noticia:<label for="noticiaTitulo"></label>
-        <td><input type="text" name="noticiaTitulo" id="noticiaTitulo" placeholder="Idea principal"></td>
-        </td>
-      </tr>
-
+        <div class="input-group input-group-sm mb-3">
+          <tr>
+            <div class="input-group-prepend">
+              <td> <span class="input-group-text" id="inputGroup-sizing-sm">Titulo noticia</span></td>
+          </div>
+            <td><input type="text"  name="noticiaTitulo" size="20" class="form-control" placeholder="Idea principal" ></td>
+          </tr>
+        </div>
       <!--Comentario de la noticia-->
-      <div class="form-group">
+      <div class="input-group">
         <tr>
-          <td>Noticia:<label for="areaNoticia" ></label></td>
-          <td><textarea name="noticia" id="areaNoticia" cols="50" rows="10" placeholder="Texto de noticia explayado"></textarea></td>
+            <div class="input-group-prepend">
+              <td><span class="input-group-text">Noticaia</span></td>
+            </div>
+          <td><textarea class="form-control" aria-label="With textarea" rows="10" cols="50"></textarea></td>
         </tr>
       </div>
 
