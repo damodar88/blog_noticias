@@ -8,6 +8,17 @@
   </head>
   <body>
 
+
+    <?php
+      foreach ($matrizUsuario as $registro) {
+        // code...
+        echo $registro["Usuarios"];
+      }
+     ?>
+
+
+
+
     <table class="table">
     <thead>
       <tr>
