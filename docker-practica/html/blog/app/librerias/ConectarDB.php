@@ -1,12 +1,11 @@
 <?php
 
   //clase para conectarse a la base de datos y ejecutar consultas PDO
-  /**
-   *
-   */
+
+  require("config/config.php");
 
 
-  class conectarseDB{
+  class conectarDB{
 
 
     private $host = DB_HOST;
@@ -25,14 +24,18 @@
 
         try{
 
-        $conexion=new PDO($dsn,$usuario,$password);
+            $conexion=new PDO($dsn,$usuario,$password);
 
+            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            $conexion->exec("SET CHARACTER SET UTF8");
 
         }catch(Exception $e){
           die("Error--:".$e->getMessage());
           echo "Linea de error--:".$e->getLine();
 
         }catch(PDOException $e1){
+
         }
 
       return $conexion;
