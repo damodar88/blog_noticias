@@ -1,11 +1,5 @@
 <?php
 
-  //clase para conectarse a la base de datos y ejecutar consultas PDO
-  /**
-   *
-   */
-
-
   class conectarDB{
 
 
@@ -28,7 +22,7 @@
            $conexion=new PDO($dsn,$usuario,$password);
            $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPION);
            $conexion->exec("SET CHARACTER SET UTF8");
-
+           echo "conexion";
         }catch(Exception $e){
            die("Error--:".$e->getMessage());
            echo "Linea de error--:".$e->getLine();

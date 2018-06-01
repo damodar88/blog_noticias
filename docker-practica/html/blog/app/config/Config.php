@@ -1,6 +1,6 @@
 <?php
 
-  define('DB_HOST','localhost');
+  define('DB_HOST','dockerpractica_mysql_1');
 
   define('DB_USUARIO','root');
 
