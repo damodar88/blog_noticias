@@ -1,16 +1,8 @@
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-
   <?php
 
-    include('../modelo/ManejoObjetos.php');
-    include('../modelo/FormularioNoticiaModel.php');
+    include('../model/ManejoObjetos.php');
+    include('../model/EntidadNoticia.php');
 
     try {
 
@@ -71,17 +63,17 @@
 
     $ManejoObjetos = new ManejoObjetos($miconexion);
 
-    $blog = new FormularioNoticiaModel();
+    $blog = new EntidadNoticia();
 
-    $blog->set_imagen();
+    $blog->set_imagen(htmlentities(addslashes($_POST["imagen"])));
 
-    $blog->set_fechaNoticia();
+    $blog->set_fechaNoticia(Date("Y-m-d H:i:s"));
 
-    $blog->set_seccionNoticia();
+    $blog->set_seccionNoticia(htmlentities(addslashes($_POST["campo_Seccion"])));
 
-    $blog->set_noticia();
+    $blog->set_noticia(htmlentities(addslashes($_POST["area_comentarios"])));
 
-    $blog->set_tituloNoticia();
+    $blog->set_tituloNoticia(htmlentities(addslashes($_POST["campo_titulo"])));
 
 
     } catch (Exception $e) {
@@ -94,6 +86,3 @@
 
 
   ?>
-
-  </body>
-</html>

@@ -23,7 +23,9 @@
     //require_once('controller/NoticiaControler.php');
 
     //formulario Ingreso noticias
-    require_once('controller/FormularioNoticia.php');
+    //require_once('controller/TransaccionControler.php');
+
+
 
     ?>
 

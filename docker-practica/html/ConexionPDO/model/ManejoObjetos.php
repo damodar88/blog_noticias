@@ -1,6 +1,6 @@
 <?php
 
-include('FormularioNoticiaModel.php');
+include('EntidadNoticia.php');
 
 
 class ManejoObjetos
@@ -8,7 +8,7 @@ class ManejoObjetos
 
   private $conexion;
 
-  public function __construct(){
+  public function __construct($conexion){
 
       $this->setConexion($conexion);
   }
@@ -28,7 +28,7 @@ class ManejoObjetos
 
     while ($registro = $resultado->fetch(PDO::FETCH_ASSOC)) {
 
-      $blog = new FormularioNoticiaModel();
+      $blog = new EntidadNoticia();
 
       $blog->set_id($registro["ID_NOTICIA"]);
       $blog->set_imagen($registro["referenciaImagenNoticia"]);
@@ -49,7 +49,7 @@ class ManejoObjetos
 
 
 
-  public function insertaContenido(FormularioNoticiaModel $blog){
+  public function insertaContenido(EntidadNoticia $blog){
 
     $sql="INSERT INTO NOTICIA(referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia,tituloNoticia) VALUES ('".$blog->get_imagen()."','".$blog->get_fechaNoticia()."','".$blog->get_seccionNoticia()."','".$blog->get_noticia()."','".$blog->get_tituloNoticia()."')";
 
