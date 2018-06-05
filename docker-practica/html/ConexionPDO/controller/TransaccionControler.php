@@ -44,13 +44,13 @@
 
             echo "No hay errores en la transferencia de archivos. <br/>";
 
-            if ((isset($_FILE['imagen']['name']) && ($_FILE['imagen']['error']==UPLOAD_ERR_OK))){
+            if ((isset($_FILES['imagen']['name']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK))){
 
-                $destino_de_ruta='imagenes/';
+                $destino_de_ruta='../imagenes/';
 
-                move_uploaded_file($_FILE['imagen']['tmp_name'],$destino_de_ruta.$_FILE['imagen']['name']);
+                move_uploaded_file($_FILES['imagen']['tmp_name'],$destino_de_ruta.$_FILES['imagen']['name']);
 
-                echo "El archivo".$_FILE['imagen']['name']."Se a copiado en el directorio de imagenes";
+                echo "El archivo".$_FILES['imagen']['name']."Se a copiado en el directorio de imagenes";
 
             }else {
 
@@ -77,7 +77,7 @@
 
     $ManejoObjetos->insertaContenido($blog);
 
-    echo "Entrada de bloga de blog ingresada correctamente";
+    echo "<br> Entrada de bloga de blog ingresada correctamente </br>";
 
 
     } catch (Exception $e) {
