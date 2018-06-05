@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"  />
+  <body>
 
 <?php
 
@@ -34,13 +42,12 @@
 
             if ($valor->get_imagen()!="") {
               // code...
-              echo "<img src='../imagenes/";
 
-              echo $valor->get_imagen()."'width='300px' height='200px'/>";
+              echo "<img src='../imagenes/".$valor->get_imagen()."' ' width='300px' height='200px'/>";
 
             }
 
-          echo "<hr/><br>";
+          echo "<br><hr/><br>";
           }
 
         }
@@ -53,3 +60,30 @@
       die("Error---:".$e->getMessage());
 
       }
+
+
+
+
+
+?>
+
+
+<!--Paginacion-->
+<?php
+
+require('../model/Paginacion.php');
+//------------------paginacion-----------
+  for ($i=1; $i <= $total_pagina ; $i++) {
+    // code...
+    echo "<a href='?pagina=".$i."'>".$i."</a>   ";
+
+    }
+ ?>
+
+
+
+
+
+
+  </body>
+</html>

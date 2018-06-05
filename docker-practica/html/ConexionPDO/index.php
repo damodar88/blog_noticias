@@ -24,11 +24,9 @@
 
     //formulario Ingreso noticias
     //require_once('controller/TransaccionControler.php');
-
-
-
     ?>
 
+    <img src="../imagenes" width="300px" height="" alt="200px">
 
 
     <!--<//?php require_once(''); ?>-->

@@ -13,7 +13,7 @@
 
         if ($_FILES['imagen']['error']) {
           // code...
-          switch ($_FILE['imagen']['error']) {
+          switch ($_FILES['imagen']['error']) {
 
             case '1': //error exceso tamaño de la imagen
 

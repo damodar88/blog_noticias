@@ -24,7 +24,7 @@
 
   $empezar_desde = ($pagina-1)*$tamano_pagina;
 
-  $sql_total = "SELECT * FROM USUARIO";
+  $sql_total = "SELECT * FROM NOTICIA";
 
   $resultado = $base->prepare($sql_total);
 
