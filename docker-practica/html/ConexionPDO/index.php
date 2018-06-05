@@ -20,7 +20,7 @@
     //require_once('controller/Usuario_controller.php');
 
     //Lectura Noticia
-    //require_once('controller/NoticiaControler.php');
+    require_once('controller/NoticiaControler.php');
 
     //formulario Ingreso noticias
     //require_once('controller/TransaccionControler.php');

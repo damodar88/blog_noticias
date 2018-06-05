@@ -28,7 +28,7 @@ td{
 
 <body>
 <h2>Nueva entrada</h2>
-<form action="../controller/Transacion.php" method="post" enctype="multipart/form-data" name="form1">
+<form action="../controller/TransaccionControler.php" method="post" enctype="multipart/form-data" name="form1">
 <table >
   <tr>
     <td>Título:
@@ -41,14 +41,6 @@ td{
     <label for="campo_seccion"></label></td>
 		<td><input type="text" name="campo_Seccion" id="campo_seccion"></td>
 	</tr>
-
-	<tr>
-		<td>Fecha:
-    <label for="campo_fecha"></label></td>
-		<td><input type="text" name="campo_fecha" id="campo_fecha"></td>
-	</tr>
-
-
 
   <tr><td>Comentarios:
     <label for="area_comentarios"></label></td>

@@ -13,17 +13,6 @@ class EntidadNoticia {
       private $tituloNoticia;
       private $imagen;
 
-      public function __construct($id,$fechaNoticia,$seccionNoticia,$noticia,$tituloNoticia,$imagen)
-      {
-          $this->id = $id;
-          $this->fechaNoticia = $fechaNoticia;
-          $this->seccionNoticia = $seccionNoticia;
-          $this->noticia = $noticia;
-          $this->tituloNoticia = $tituloNoticia;
-          $this->imagen = $imagen;
-      }
-
-
         //get obtencion de datos
         public function get_id(){
             return $this->id;

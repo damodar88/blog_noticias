@@ -1,8 +1,8 @@
 
   <?php
 
-    include('../model/ManejoObjetos.php');
-    include('../model/EntidadNoticia.php');
+    include_once('../model/ManejoObjetos.php');
+    include_once('../model/EntidadNoticia.php');
 
     try {
 
@@ -65,7 +65,7 @@
 
     $blog = new EntidadNoticia();
 
-    $blog->set_imagen(htmlentities(addslashes($_POST["imagen"])));
+    $blog->set_imagen(htmlentities(addslashes($_FILES["imagen"]['name'])));
 
     $blog->set_fechaNoticia(Date("Y-m-d H:i:s"));
 
@@ -74,6 +74,10 @@
     $blog->set_noticia(htmlentities(addslashes($_POST["area_comentarios"])));
 
     $blog->set_tituloNoticia(htmlentities(addslashes($_POST["campo_titulo"])));
+
+    $ManejoObjetos->insertaContenido($blog);
+
+    echo "Entrada de bloga de blog ingresada correctamente";
 
 
     } catch (Exception $e) {
