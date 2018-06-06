@@ -20,13 +20,33 @@
     //require_once('controller/Usuario_controller.php');
 
     //Lectura Noticia
-    require_once('controller/NoticiaControler.php');
+    //require_once('controller/NoticiaControler.php');
 
     //formulario Ingreso noticias
     //require_once('controller/TransaccionControler.php');
-    ?>
 
-    <img src="../imagenes" width="300px" height="" alt="200px">
+
+    //login
+    //require_one('controler/loginControler.php');
+
+    //echo $_SERVER['REQUEST_URI'];
+
+    require('system/core/Router.php');
+    $router = new Router();
+
+    echo "<pre>";
+    print_r($router->getUri());
+    echo"<pre>";
+    $controlador = $router->getController();
+    $metodo = $router->getMethod();
+    $param = $router->getParam();
+
+    echo "controlador: {$controlador} <br>";
+    echo "metodo: {$metodo} <br>";
+    echo "Param: {$param} <br>";
+
+
+    ?>
 
 
     <!--<//?php require_once(''); ?>-->
