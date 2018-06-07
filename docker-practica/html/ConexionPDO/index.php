@@ -31,6 +31,7 @@
 
     //echo $_SERVER['REQUEST_URI'];
 
+    require('system/Config.php');
     require('system/core/Router.php');
     $router = new Router();
 
@@ -47,9 +48,6 @@
 
 
     ?>
-
-
-    <!--<//?php require_once(''); ?>-->
 
 
 
