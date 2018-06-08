@@ -8,5 +8,11 @@
 
     <h3> <br> vista index</h3>
 
+    <?php
+
+        var_dump($dato);
+
+     ?>
+
   </body>
 </html>
