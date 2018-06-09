@@ -5,16 +5,29 @@
 class Index extends Controller{
 
 
-  public $response;
+  //public $response;
 
   public function __construct(){
 
-    $response = "";
+    //$response = "";
     parent::__construct();
 
   }
 
 
+  public function index(){
+
+    $this->view->render($this,'Index');
+    //var_dump($this->view);
+
+  }
+
+
+
+
+
+
+  /*
   public function index(){
 
     $this->response = $this->model->datosPersonales();
@@ -43,6 +56,7 @@ class Index extends Controller{
     require VIEW."Index.php";
 
   }
+  */
 
 
 }

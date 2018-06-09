@@ -9,6 +9,14 @@ define('URI', $_SERVER['REQUEST_URI']);
 
 const LBS = 'app/Library/';
 const VIEW = 'app/View/';
+//***************************************
+//el footer y heder de las vistas
+define('DFT','Default/');
+//***************************************
+
+define('URL','http://localhost/webNoticias/');
+
+
 //****************************************
 ///////////////////////////////////////////
 //Conexion a la base de datos mysql
