@@ -3,24 +3,9 @@
 
 
 
-
-
-
-
-<center>
+  <center>
   <p>&copy;PDHN</p>
-</center>
-
-
-
-
-
-
-
-
-
-
-
+  </center>
 
 </body>
 </html>

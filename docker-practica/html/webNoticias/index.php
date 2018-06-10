@@ -4,20 +4,21 @@
   require('System/Core/Router.php');
   $router = new Router();
 
-  echo "<pre>";
-  print_r($router->getUrl());
-  echo"<pre>";
+
+  //echo "<pre>";
+  //print_r($router->getUrl());
+  //echo"<pre>";
   $controlador = $router->getController();
   $metodo = $router->getMethod();
   $param = $router->getParam();
-
+/*
   echo "controlador: {$controlador} <br>";
   echo "metodo: {$metodo} <br>";
   echo "Param: {$param} <br>";
-
+*/
 
   //evaluar si hay una clase cargada
-  spl_autoload_register(function($class){
+spl_autoload_register(function($class){
       //si la clase esta cargada , ejecuta libreria clase
       if(file_exists(LBS.$class.".php")){
         require LBS.$class.".php";
@@ -33,6 +34,7 @@ $controllerPath = 'app/Controller/'.$controlador.'.php';
 
       require $controllerPath;
       $controlador = new $controlador();
+
       //si esta variable contiene metodo
     if (isset($metodo)) {
 
@@ -61,10 +63,6 @@ $controllerPath = 'app/Controller/'.$controlador.'.php';
   }else {
         echo "<br>No existe el controlador";
   }
-
-
-
-
 
 
  ?>
