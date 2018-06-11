@@ -10,7 +10,7 @@
     public static function conexion(){
       try {
 
-      $conexion= new PDO('mysql:host=docker-practica_mysql_1; port=3306; dbname=mydb', 'root', 'pass');
+      $conexion= new PDO('mysql:host=DB_HOST; port=3306; dbname=DB_NOMBRE', 'DB_USUARIO', 'DB_PASSWORD');
 
       $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

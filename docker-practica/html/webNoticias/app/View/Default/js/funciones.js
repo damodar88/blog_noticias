@@ -11,6 +11,8 @@ $().ready(function(){
           minlength:6
         }
       },
+
+
     })
 
 
