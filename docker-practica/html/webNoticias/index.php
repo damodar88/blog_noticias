@@ -11,11 +11,11 @@
   $controlador = $router->getController();
   $metodo = $router->getMethod();
   $param = $router->getParam();
-/*
+
   echo "controlador: {$controlador} <br>";
   echo "metodo: {$metodo} <br>";
   echo "Param: {$param} <br>";
-*/
+
 
   //evaluar si hay una clase cargada
 spl_autoload_register(function($class){
