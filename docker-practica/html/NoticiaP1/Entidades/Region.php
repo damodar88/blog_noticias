@@ -8,12 +8,16 @@ class Region {
     private $idRegin;
     private $nombreRegion;
     private $nuemroRegion;
-    
-    public function __construct($idRegin, $nombreRegion, $nuemroRegion) {
-        $this->idRegin = $idRegin;
-        $this->nombreRegion = $nombreRegion;
-        $this->nuemroRegion = $nuemroRegion;
+    private $comunaRegion;
+
+    public function getComunaRegion() {
+        return $this->comunaRegion;
     }
+
+    public function setComunaRegion($comunaRegion) {
+        $this->comunaRegion = $comunaRegion;
+    }
+
     public function getIdRegin() {
         return $this->idRegin;
     }
@@ -39,7 +43,7 @@ class Region {
     }
 
 
-  
+
 }
 
 

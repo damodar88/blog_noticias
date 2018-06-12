@@ -14,6 +14,7 @@ class Usuario {
     private $administradorUsuario;
     private $usuarioUsuario;
     private $passwordUsuario;
+    private $ocupacionUsuario;
 
 
     public function getIdUsuario(){
@@ -80,7 +81,18 @@ public function setPasswordUsuario($passwordUsuario){
   $this->passwordUsuario = $passwordUsuario;
 }
 
-  }
+public function getOcupacionUsuario(){
+  return $this->ocupacionUsuario;
+}
+
+public function setOcupacionUsuario($passwordUsuario){
+  $this->ocupacionUsuario = $ocupacionUsuario;
+}
+
+
+
+
+}
 
 
 

@@ -24,9 +24,20 @@ class UsuarioDAO extends Conectar
 
   }
 
-    public static function login($usuarioEvaluar){
+  public function insertaUsuario(Usuario $usuario){
+
+    $sql="INSERT INTO USUARIO(administrador,nombreUsuario,apellidoPaternoUsuario,apellidoMaternoUsuario,usuarioUsuario,passwordUsuario,ocupacionUsuario) VALUES ('".$usuario->getAdministradorUsuario()."','".$usuario->getNombreUsuario()."','".$usuario->getApellidoPaternoUsuario()."','".$usuario->getApellidoMaternoUsuario()."','".$usuario->getUsuarioUsuario()."','".$usuario->getPasswordUsuario()."','".$usuario->getFechaModificacionUsuario()."','".$usuario->getOcupacionUsuario()."')";
+
+    self::getConectar();
+
+    $resultado = self::$conectarDB->prepare($sql);
+
+    $resultado->execute();
+
+  }
 
 
+  public static function login($usuarioEvaluar){
 
     $query = "SELECT * FROM USUARIO WHERE usuarioUsuario = :usuario AND passwordUsuario = :password";
 
@@ -53,7 +64,7 @@ class UsuarioDAO extends Conectar
           return true;
         }
 
-      return false;  
+      return false;
 
     }
 

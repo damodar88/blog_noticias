@@ -23,26 +23,17 @@ class RegionDAO extends Conectar
 
   }
 
-  public static function insertarRegion($region){
+  public static function insertarRegion(Region $region){
 
-  $query = "INSERT INTO REGION(nombreRegion,numeroRegion,comunaRegion) VALUES ('".$region->get_imagen()."','".$region->get_fechaNoticia()."','".$region->get_seccionNoticia()."')";
+  $query = "INSERT INTO REGION(nombreRegion,numeroRegion,comunaRegion) VALUES ('".$region->getNombreRegion()."','".$region->getNuemroRegion()."','".$region->getComunaRegion()."')";
 
 
-  self::getConectar();
+  self::getConectarRegion();
 
-  $resultado = self::$conectarDB->prepare($query);
+  $resultadoInsertar = self::$conectarDB->prepare($query);
 
-  $resultado->execute();
+  $resultadoInsertar->execute();
 
-      if ($resultado->rowCount() > 0) {
-
-          return true;
-
-        }else {
-
-        return false;
-
-        }
 
   }
 

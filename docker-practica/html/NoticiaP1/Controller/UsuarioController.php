@@ -16,12 +16,22 @@ class UsuarioController
   public static function ingresrUsuario($administrador,$nombre,$apellidoP,$apellidoM,$usuario,$password,$fechaMod,$ocupacion)
   {
 
+    $usuarioIngresar = new Usuario();
 
-    $usuarioEvaluar = new Usuario();
-    $usuarioEvaluar->setUsuarioUsuario($usuario);
-    $usuarioEvaluar->setPasswordUsuario($password);
+    $usuarioIngresar->setAdministradorUsuario($administrador);
+    $usuarioIngresar->setNombreUsuario($nombre);
+    $usuarioIngresar->setApellidoPaternoUsuario($apellidoP);
+    $usuarioIngresar->setApellidoMaternoUsuario($apellidoM);
+    $usuarioIngresar->setUsuarioUsuario($usuario);
+    $usuarioIngresar->setPasswordUsuario($password);
+    $usuarioIngresar->setFechaModificacionUsuario($fechaMod);
+    $usuarioIngresar->setOcupacionUsuario($ocupacion);
 
-    return UsuarioDAO::login($usuarioEvaluar);
+    $ManejoObjetos = new ManejoObjetos($miconexion);
+
+    $ManejoObjetos->insertaContenido($blog);
+
+     UsuarioDAO::insertaUsuario($usuarioIngresar);
 
 
   }
