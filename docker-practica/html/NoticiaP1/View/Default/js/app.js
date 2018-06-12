@@ -11,7 +11,9 @@ $(document).ready(function() {
 
         success: function(response){
 
-            if (response.estado == true) {
+          console.log(response);
+
+            if (response.estado == "true") {
               $("body").overhang({
                 type: "success",
                 message: "Woohoo! Our message works!"

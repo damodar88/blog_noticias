@@ -4,6 +4,7 @@
 include('../Controller/LoginController.php');
 
 
+  header('Conntent-type: application/json');
   $resultado= array();
 
   if(isset($_POST["txtUsuario"]) && isset($_POST["txtPassword"])){
