@@ -26,9 +26,9 @@
       <td><?php echo $usuario[""] ?></td>
       <td><?php echo $usuario[""] ?></td>
       <td><?php echo $usuario[""] ?></td>
-      <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" size="2" value="Eliminar"></a></td>
+      <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" class="btn btn-success" name="del"id="del" size="2" value="Eliminar"></a></td>
       <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>
-        & ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" id="up" size="2" value="actualizar"></a></td>
+        & ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" class="btn btn-success" name="up" id="up" size="2" value="actualizar"></a></td>
     </tr>
 
   </tbody>
@@ -38,9 +38,9 @@
       <td><?php echo $usuario[""] ?></td>
       <td><?php echo $usuario[""] ?></td>
       <td><?php echo $usuario[""] ?></td>
-      <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" size="2" value="Eliminar"></a></td>
+      <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" class="btn btn-success" name="del"id="del" size="2" value="Eliminar"></a></td>
       <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>
-        & ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" id="up" size="2" value="actualizar"></a></td>
+        & ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" class="btn btn-success" name="up" id="up" size="2" value="actualizar"></a></td>
     </tr>
 
 

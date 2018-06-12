@@ -1,23 +1,22 @@
 <?php
 
-
+include('../DAO/RegionDAO.php');
 /**
  *
  */
 class RegionController
 {
 
-  public static function ingresrRegion($administrador,$nombre,$apellidoP,$apellidoM,$usuario,$password,$fechaMod,$ocupacion)
+  public static function ingresrRegion($regionNombre,$regionNumero,$regionComuna)
   {
 
-    $regionIngresar = new Usuario();
+    $regionIngresar = new Region();
 
-    $usuarioIngresar->setAdministradorUsuario($administrador);
-    $usuarioIngresar->setNombreUsuario($nombre);
-    $usuarioIngresar->setApellidoPaternoUsuario($apellidoP);
+    $regionIngresar->setNombreRegion($regionNombre);
+    $regionIngresar->setNuemroRegion($regionNumero);
+    $regionIngresar->setComunaRegion($regionComuna);
 
-     UsuarioDAO::insertaUsuario($usuarioIngresar);
-
+     RegionDAO::insertarRegion($regionIngresar);
 
   }
 

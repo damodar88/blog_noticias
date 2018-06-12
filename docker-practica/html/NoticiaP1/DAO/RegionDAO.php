@@ -1,8 +1,7 @@
 <?php
 
-
-
-include('Conectar.php');
+include('../Librery/Conectar.php');
+include('../Entidades/Region.php');
 /**
  *
  */
@@ -28,7 +27,7 @@ class RegionDAO extends Conectar
   $query = "INSERT INTO REGION(nombreRegion,numeroRegion,comunaRegion) VALUES ('".$region->getNombreRegion()."','".$region->getNuemroRegion()."','".$region->getComunaRegion()."')";
 
 
-  self::getConectarRegion();
+  self::getConectar();
 
   $resultadoInsertar = self::$conectarDB->prepare($query);
 

@@ -1,44 +1,27 @@
 <?php
 
 
-//include('../Controller/RegionController.php');
+include('../Controller/RegionController.php');
 
-echo "Holas";
 
-  header('Conntent-type: application/json');
+  //header('Conntent-type: application/json');
 
   $resultadoRegion= array();
 
-  if( isset($_POST[""]) &&
-      isset($_POST[""]) &&
-      isset($_POST[""])
-
+  if( isset($_POST["txtNombreRegion"]) &&
+      isset($_POST["txtNuemroRegion"]) &&
+      isset($_POST["txtComunaRegion"])
     ){
 
-    $usuario=$_POST["txtUsuario"];
+    $regionNombre = $_POST["txtNombreRegion"];
+    $regionNumero = $_POST["txtNuemroRegion"];
+    $regionComuna = $_POST["txtComunaRegion"];
 
-    $password=$_POST["txtPassword"];
+    //$resultadoRegion = array("estado"=>"true");
 
+    RegionController::ingresrRegion($regionNombre,$regionNumero,$regionComuna);
 
-    $resultado = array("estado"=>"true");
-
-      if (LoginController::login($usuario,$password)){
-
-        return print(json_encode($resultado));
-
-
-      }else {
-        $resultado = array("estado"=>"false");
-        return print(json_encode($resultado));
-
-
-      }
-
-
-
-  }else {
-
-  }
+   }
 
 
 
