@@ -7,19 +7,18 @@
   <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Administrador</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">ApellidoP.</th>
-      <th scope="col">ApellidoM.</th>
-      <th scope="col">Usuario</th>
-      <th scope="col">Password</th>
-      <th scope="col">fechaModif</th>
-      <th scope="col">Ocupacion</th>
+      <th scope="col">Region</th>
+      <th scope="col">Nº</th>
+      <th scope="col">Comuna</th>
 
-      <th scope="col">Telefono</th>
-      <th scope="col">Correo</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Localidad</th>
 
+      <th scope="col">Calle</th>
+      <th scope="col">Nº</th>
+
+      <th scope="col">Nombre Escuela</th>
+      <th scope="col">Codigo Escuela</th>
 
 
     </tr>

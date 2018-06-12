@@ -23,6 +23,7 @@ include('../Controller/LoginController.php');
         $resultado = array("estado"=>"false");
         return print(json_encode($resultado));
 
+
       }
 
 
