@@ -21,6 +21,18 @@ class CalleDAO extends Conectar
 
   }
 
+  public static function insertarCalle(Calle $calle){
+
+  $query = "INSERT INTO CALLE(nombreCalle,numeroCalle) VALUES ('".$calle->getNombreCalle()."','".$calle->getNuemrocalle()."')";
+
+  self::getConectar();
+
+  $resultadoInsertar = self::$conectarDB->prepare($query);
+
+  $resultadoInsertar->execute();
+
+
+  }
 
 
 

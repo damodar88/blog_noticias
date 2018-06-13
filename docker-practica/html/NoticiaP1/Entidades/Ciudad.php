@@ -16,12 +16,6 @@ class Ciudad {
     private $idCiudad;
     private $nombreCiudad;
     private $localidadCiudad;
-    
-    public function __construct($idCiudad, $nombreCiudad, $localidadCiudad) {
-        $this->idCiudad = $idCiudad;
-        $this->nombreCiudad = $nombreCiudad;
-        $this->localidadCiudad = $localidadCiudad;
-    }
 
 
     public function getIdCiudad() {
@@ -52,5 +46,5 @@ class Ciudad {
 
 
 //put your code here
-    
+
 }

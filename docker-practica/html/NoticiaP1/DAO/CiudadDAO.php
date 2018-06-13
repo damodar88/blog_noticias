@@ -23,6 +23,20 @@ class CiudadDAO extends Conectar
 
   }
 
+  public static function insertarCiudad(Ciudad $ciudad){
+
+  $query = "INSERT INTO CIUDAD(nombreCiudad,localidadCiudad) VALUES ('".$ciudad->getNombreCiudad()."','".$ciudad->getLocalidadCiudad()."')";
+
+
+  self::getConectar();
+
+  $resultadoInsertar = self::$conectarDB->prepare($query);
+
+  $resultadoInsertar->execute();
+
+
+  }
+
 
 
 

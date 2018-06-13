@@ -10,14 +10,6 @@
     private $nombreCalle;
     private $numeroCalle;
 
-
-    public function __construct($idCalle,$nombreCalle,$numeroCalle)
-    {
-        $this->idCalle = $idCalle;
-        $this->nombreCalle = $nombreCalle;
-        $this->numeroCalle = $numeroCalle;
-    }
-
     public function getIdCalle(){
         return $this->idCalle;
     }
