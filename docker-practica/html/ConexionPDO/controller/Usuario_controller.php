@@ -9,5 +9,4 @@
 
   require_once('view/Usuario_view.php');
 
-
 ?>

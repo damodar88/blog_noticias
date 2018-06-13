@@ -7,7 +7,7 @@ include('../DAO/CalleDAO.php');
 class CalleController
 {
 
-  public static function ingresrCalle($calleNombre,$calleNumero)
+  public static function ingresarCalle($calleNombre,$calleNumero)
   {
 
     $calleIngresar = new Calle();

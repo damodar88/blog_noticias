@@ -1,6 +1,7 @@
 <?php
 
-include('Conectar.php');
+include('../Librery/Conectar.php');
+include('../Entidades/Calle.php');
 /**
  *
  */
@@ -23,7 +24,7 @@ class CalleDAO extends Conectar
 
   public static function insertarCalle(Calle $calle){
 
-  $query = "INSERT INTO CALLE(nombreCalle,numeroCalle) VALUES ('".$calle->getNombreCalle()."','".$calle->getNuemrocalle()."')";
+  $query = "INSERT INTO CALLE(nombreCalle,numeroCalle) VALUES ('".$calle->getNombreCalle()."','".$calle->getNumeroCalle()."')";
 
   self::getConectar();
 

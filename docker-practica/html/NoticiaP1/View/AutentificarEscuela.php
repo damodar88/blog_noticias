@@ -12,10 +12,10 @@ include('../Controller/EscuelaController.php');
       isset($_POST["txtnombreEscuela"]) &&
       isset($_POST["txtnombrecodigoEscuela"])
     ){
-  
+
     //absorbo en bariables lo que viene por POST de la vista
-    $escuelaNombre = $_POST["txtnombreEscuela"];
-    $escuelaCodigo = $_POST["txtnombrecodigoEscuela"];
+    $escuelaNombre = (htmlentities(addslashes($_POST["txtnombreEscuela"])));
+    $escuelaCodigo = (htmlentities(addslashes($_POST["txtnombrecodigoEscuela"])));
 
     //ejecuto el metodo mandando datos a contolador
     EscuelaController::ingresarEscuela($escuelaNombre,$escuelaCodigo);

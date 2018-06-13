@@ -7,7 +7,7 @@ include('../DAO/RegionDAO.php');
 class RegionController
 {
 
-  public static function ingresrRegion($regionNombre,$regionNumero,$regionComuna)
+  public static function ingresarRegion($regionNombre,$regionNumero,$regionComuna)
   {
 
     $regionIngresar = new Region();
@@ -19,6 +19,19 @@ class RegionController
      RegionDAO::insertarRegion($regionIngresar);
 
   }
+
+  public static function leerRegion(){
+
+    $datosRegion = array();
+
+    $datosRegion = RegionDAO::obtenerRegion();
+
+    return $datosRegion;
+
+  }
+
+
+
 
 
 

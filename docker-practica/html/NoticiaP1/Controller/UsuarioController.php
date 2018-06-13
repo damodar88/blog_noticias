@@ -5,11 +5,16 @@ include('../DAO/UsuarioDAO.php');
 /**
  *
  */
+
 class UsuarioController
 {
 
-  function __construct()
-  {
+
+  public function obtenerUsuario(){
+
+    $usuario = new UsuarioDAO();
+
+    $matrizUsuario = $usuario->get_usuario();
 
   }
 
@@ -32,8 +37,6 @@ class UsuarioController
     $ManejoObjetos->insertaContenido($blog);
 
      UsuarioDAO::insertaUsuario($usuarioIngresar);
-
-
   }
 
 

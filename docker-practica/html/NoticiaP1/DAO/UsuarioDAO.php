@@ -11,10 +11,12 @@ class UsuarioDAO extends Conectar
 {
 
   protected static $conectarDB;
+  public $usuario;
 
   public static function getConectar(){
 
     self::$conectarDB = Conectar::conexion();
+
 
   }
 
@@ -26,7 +28,7 @@ class UsuarioDAO extends Conectar
 
   public function insertaUsuario(Usuario $usuario,Escuela $escuela,Calle $calle,Ciudad $ciudad, Region $region){
 
-    
+
 
     $sql="INSERT INTO USUARIO(administrador,nombreUsuario,apellidoPaternoUsuario,apellidoMaternoUsuario,usuarioUsuario,passwordUsuario,ocupacionUsuario
     ) VALUES
@@ -74,6 +76,10 @@ class UsuarioDAO extends Conectar
 
 
   }
+
+
+
+
 
 }
 

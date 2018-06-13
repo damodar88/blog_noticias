@@ -17,6 +17,7 @@ class Usuario_model
   }
 
   public function get_usuario(){
+    //$this->usuario = array();
 
     //$consultaSQL = $this->db->query('SELECT ID_USUARIO,nombreUsuario,apellidoPaternoUsuario,apellidoMaternoUsuario,ocupacionUsuario FROM USUARIO');
 

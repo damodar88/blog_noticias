@@ -10,7 +10,7 @@
         <div class="panel-body">
 
 
-<form class="" action="AutentificarDireccion.php" method="POST">
+<form class="" action="Autentificar/AutentificarRegion.php" method="POST">
 
   <table class="table">
   <thead>

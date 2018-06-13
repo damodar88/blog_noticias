@@ -1,8 +1,8 @@
 <?php
 
+include('../Librery/Conectar.php');
+include('../Entidades/Ciudad.php');
 
-
-include('Conectar.php');
 /**
  *
  */

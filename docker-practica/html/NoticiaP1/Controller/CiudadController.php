@@ -7,7 +7,7 @@ include('../DAO/CiudadDAO.php');
 class CiudadController
 {
 
-  public static function ingresrCiudad($ciudadNombre,$ciudadLocalidad)
+  public static function ingresarCiudad($ciudadNombre,$ciudadLocalidad)
   {
 
     $ciudadIngresar = new Ciudad();

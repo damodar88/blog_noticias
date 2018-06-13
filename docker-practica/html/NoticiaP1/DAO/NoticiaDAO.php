@@ -24,7 +24,7 @@ class NoticiaDAO extends Conectar
 
   public static function insertarNoticia(Noticia $noticia){
 
-  $query = "INSERT INTO NOTICIA(referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia) VALUES ('".$noticia->getNombreRegion()."','".$noticia->getNuemroRegion()."','".$noticia->getComunaRegion()."',,'".$noticia->getComunaRegion()."')";
+  $query = "INSERT INTO NOTICIA(referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia) VALUES ('".$noticia->getReferenImagenNoticia()."','".$noticia->getFechaNoticia()."','".$noticia->getSecionNoticia()."','".$noticia->getNoticiaNoticia()."','".$noticia->getTituloNoticia()."')";
 
 
   self::getConectar();

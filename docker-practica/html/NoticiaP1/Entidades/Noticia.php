@@ -12,14 +12,7 @@ class Noticia {
     private $noticiaNoticia;
     private $fechaNoticia;
     private $secionNoticia;
-
-    public function __construct($idNoticia, $referenImagenNoticia, $noticiaNoticia, $fechaNoticia, $secionNoticia) {
-        $this->idNoticia = $idNoticia;
-        $this->referenImagenNoticia = $referenImagenNoticia;
-        $this->noticiaNoticia = $noticiaNoticia;
-        $this->fechaNoticia = $fechaNoticia;
-        $this->secionNoticia = $secionNoticia;
-    }
+    private $tituloNoticia;
 
 
     public function getIdNoticia() {
@@ -40,6 +33,14 @@ class Noticia {
 
     public function getSecionNoticia() {
         return $this->secionNoticia;
+    }
+
+    public function getTituloNoticia() {
+        return $this->tituloNoticia;
+    }
+
+    public function setTituloNoticia($tituloNoticia) {
+        $this->tituloNoticia = $tituloNoticia;
     }
 
     public function setIdNoticia($idNoticia) {

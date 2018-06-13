@@ -1,6 +1,7 @@
 <?php
 
-include('Conectar.php');
+include('../Librery/Conectar.php');
+include('../Entidades/Escuela.php');
 /**
  *
  */
