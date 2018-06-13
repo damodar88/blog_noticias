@@ -1,7 +1,7 @@
 <?php
 
 
-include('../Controller/RegionController.php');
+include('../Controller/NoticiaController.php');
 
 
   //header('Conntent-type: application/json');
@@ -20,15 +20,5 @@ include('../Controller/RegionController.php');
   }else {
     echo "error intentelo mas tarde";
   }
-
-
-
-
-
-
-
-
-
-
 
 ?>
