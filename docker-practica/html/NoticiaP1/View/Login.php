@@ -11,7 +11,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
 
-          <form class="" role="form" id="loginform" action="LoginAutentificar.php" method="post">
+          <form class="" role="form" id="loginform" action="AutentificarLogin.php" method="post">
             <legend>Login</legend>
 
             <div class="form-group">

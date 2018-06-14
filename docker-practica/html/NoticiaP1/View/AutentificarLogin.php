@@ -3,8 +3,8 @@
 
 include('../Controller/LoginController.php');
 
+  header('Content-Type: application/json');
 
-  header('Conntent-type: application/json');
   $resultado= array();
 
   if(isset($_POST["txtUsuario"]) && isset($_POST["txtPassword"])){
@@ -19,19 +19,13 @@ include('../Controller/LoginController.php');
 
         return print(json_encode($resultado));
 
-
-      }else {
-        $resultado = array("estado"=>"false");
-        return print(json_encode($resultado));
-
-
       }
 
-
-
-  }else {
-
   }
+
+  $resultado = array("estado"=>"false");
+  return print(json_encode($resultado));
+
 
 
 

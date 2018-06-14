@@ -37,6 +37,41 @@ class NoticiaDAO extends Conectar
   }
 
 
+  public function getContenidoPorFecha(){
+
+    $matriz = array();
+
+    $contador = 0;
+
+    $resultado = $this->conexion->query("SELECT * FROM NOTICIA ORDER BY fechaNoticia");
+
+      while ($registro = $resultado->fetch(PDO::FETCH_ASSOC)) {
+
+        $blog = new EntidadNoticia();
+
+        $blog->set_id($registro["ID_NOTICIA"]);
+        $blog->set_imagen($registro["referenciaImagenNoticia"]);
+        $blog->set_fechaNoticia($registro["fechaNoticia"]);
+        $blog->set_seccionNoticia($registro["secionNoticia"]);
+        $blog->set_noticia($registro["noticiaNoticia"]);
+        $blog->set_tituloNoticia($registro["tituloNoticia"]);
+
+        $matriz[$contador]=$blog;
+
+        $contador++;
+
+      }
+
+    return $matriz;
+
+  }
+
+
+
+
+
+
+
  }
 
 

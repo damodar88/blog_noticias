@@ -8,31 +8,35 @@ $(document).ready(function() {
         type:$(this).attr("method"),
         url:$(this).attr("action"),
         data:$(this).serialize(),
-
+        beforeSend: function(){
+          $("#loginform button[type=submit]").html("enviando.......");
+          $("#loginform button[type=submit]").attr("disabled","disabled");
+        },
         success: function(response){
-
-          console.log(response);
-
-            if (response.estado == "true") {
+            if (response.estado == "true"){
               $("body").overhang({
                 type: "success",
-                message: "Woohoo! Our message works!"
+                message: "Ingreso correcto lo estamos redirigiendo..!",
+                callback: function(){
+                   window.location.href = "homeAdmin.php";
+                }
                 });
 
             }else {
-
                 $("body").overhang({
                   type: "error",
                   message: "Usuario o contraseña incorrectos",
                 });
-
             }
-
+            $("#loginform button[type=submit]").html("Ingresar");
+            $("#loginform button[type=submit]").removeAttr("disabled");
         },
           error: function(){
             $("body").overhang({
               type: "error",
-            })
+            });
+        $("#loginform button[type=submit]").html("Ingresar");
+        $("#loginform button[type=submit]").removeAttr("disabled");
 
         }
 
