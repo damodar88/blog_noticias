@@ -1,12 +1,16 @@
 <?php
 
+require_once('../DAO/RegionDAO.php');
+
+
 $tamano_pagina = 3;
 
     if(isset($_GET["pagina"])){
 
       if ($_GET["pagina"]==1) {
         // code...
-        header("Location:index.php");
+
+        header("Location:IngresarUsuarioAdmin.php");
 
       }else {
         // code...
@@ -20,10 +24,9 @@ $tamano_pagina = 3;
 
     $empezar_desde = ($pagina-1)*$tamano_pagina;
 
+    $matrizRegion = RegionDAO::paginacionRegion();
 
-
-    $matrizRegion = Paginacion::paginacionRegion();
-
+    $num_filas = $matrizRegion;
 
     $total_pagina = ceil($num_filas/$tamano_pagina);
 

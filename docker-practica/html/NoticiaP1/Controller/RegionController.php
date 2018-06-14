@@ -31,6 +31,13 @@ class RegionController
   }
 
 
+  //public static function largoRegion(){
+
+    //$largoRegion = array();
+
+    //$largoRegion = RegionDAO::paginacionRegion()
+
+    //return $largoRegion;
 
 
 

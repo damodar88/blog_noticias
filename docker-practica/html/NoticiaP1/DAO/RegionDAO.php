@@ -42,16 +42,17 @@ class RegionDAO extends Conectar
 
     $region = array();
 
-    require_once('../Librery/Paginacion.php');
+    require_once('../Helper/Paginacion.php');
+
     self::getConectar();
 
-    $consulta = self::$conectarDB->query("SELECT * FROM REGION"); // LIMIT $empezar_desde, $tamano_pagina")
+    $consulta = self::$conectarDB->query("SELECT * FROM REGION LIMIT $empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
 
-    while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
 
-      $region[]=$filas;
+        $region[]=$filas;
 
-    }
+      }
 
     return $region;
 
@@ -59,11 +60,11 @@ class RegionDAO extends Conectar
 
   public static function paginacionRegion(){
 
-    $sql_total = "SELECT * FROM NOTICIA";
+    //require_once('../Helper/Paginacion.php');
+
+    $sql_total = "SELECT * FROM REGION";// LIMIT $empezar_desde, $tamano_pagina";
 
     self::getConectar();
-
-    //$resultado = $base->prepare($sql_total);
 
     $resultado = self::$conectarDB->prepare($sql_total);
 
@@ -75,13 +76,6 @@ class RegionDAO extends Conectar
 
   }
 
-
-
-
-
-
- }
-
-
+}
 
 ?>

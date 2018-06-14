@@ -37,6 +37,29 @@ class CiudadDAO extends Conectar
 
   }
 
+  public function obtenerCiudad(){
+
+    $ciudad = array();
+
+    //require_once('../Helper/Paginacion.php');
+
+    self::getConectar();
+
+    $consulta = self::$conectarDB->query("SELECT * FROM CIUDAD"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+
+      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+
+        $ciudad[]=$filas;
+
+      }
+
+    return $ciudad;
+
+  }
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ include('../Controller/EscuelaController.php');
       isset($_POST["txtnombrecodigoEscuela"])
     ){
 
-    //absorbo en bariables lo que viene por POST de la vista
+    //absorbo en variables lo que viene por POST de la vista
     $escuelaNombre = (htmlentities(addslashes($_POST["txtnombreEscuela"])));
     $escuelaCodigo = (htmlentities(addslashes($_POST["txtnombrecodigoEscuela"])));
 

@@ -34,6 +34,7 @@
                 <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
               </tr>
               <?php endforeach ?>
+
               <!--Input enviaran por submit-->
               <tr>
                 <!--input Region-->
@@ -41,6 +42,37 @@
                 <td><input type="text" name="txtnumeroRegion" size="7" class="centrado"></td>
                 <td><input type="text" name="txtcomunaRegion" size="7" class="centrado"></td>
                 <td class="bot"><button type="submit" class="btn btn-success" name="button">Insertar</button> </td>
+              </tr>
+              <!--<!-----------------><!--inico de paginacion-------->
+              </table>
+              <tr>
+                <td>
+              <?php require('../Helper/Paginacion.php'); ?>
+                  <!------------------------------------------------------------------------------------------>
+              <?php
+                  echo     "<!--Paginacion-->";
+                  echo "<div class='bottom'>";
+                  echo "<nav aria-label='Page navigation example'>";
+                  echo "<ul class='pagination justify-content-center'>";
+                  echo "<li class='page-item disabled'>";
+                  echo "<a class='page-link' href='#' tabindex='-1'>Previous</a>";
+                  echo "</li>";
+              ?>
+              <?php
+                 for ($i=1; $i <= $total_pagina ; $i++) {
+
+                  echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
+                }
+              ?>
+              <?php
+                  echo "<li class='page-item'>";
+                  echo "<a class='page-link' href='#'>Next</a>";
+                  echo "</li>";
+                  echo "</ul>";
+                  echo "</nav>";
+                  echo "</div>";
+                ?>
+                </td>
               </tr>
             </form>
         </div>
@@ -64,16 +96,23 @@
                   <th scope="col">Localidad</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td><?php echo $usuario["ID_USUARIO"] ?></td>
-                  <td><?php echo $usuario["administrador"] ?></td>
+              <tr>
+                  <?php //require('../Controller/CiudadController.php') ?>
+                  <?php //$ciudad = new CiudadController(); ?>
+
+                  <?php //$matrizCiudad = CiudadController::leerCiudad();  ?>
+
+                  <?php
+                  //foreach //($matrizCiudad as $ciudad):
+                  ?>
+                  <td><?php echo $ciudad["nombreCiudad"] ?></td>
+                  <td><?php echo $ciudad["localidadCiudad"] ?></td>
                   <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                   <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
                 </tr>
-              </tbody>
-              <!--Input enviaran por submit-->
-              <tr>
+                <?php //endforeach ?>
+                <!--Input enviaran por submit-->
+                <tr>
                 <!--input Region-->
                 <!--Input ciudad-->
                   <td><input type="text" name="txtnombreCiudad" size="7" class="centrado"></td>
@@ -104,8 +143,8 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><?php echo $usuario["ID_USUARIO"] ?></td>
-                  <td><?php echo $usuario["administrador"] ?></td>
+                  <td><?php echo $calle["nombreCalle"] ?></td>
+                  <td><?php echo $calle["numeroCalle"] ?></td>
                   <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                   <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
                 </tr>
@@ -142,8 +181,8 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><?php echo $usuario["ID_USUARIO"] ?></td>
-                  <td><?php echo $usuario["administrador"] ?></td>
+                  <td><?php echo $escuela["nombreEscuela"] ?></td>
+                  <td><?php echo $escuela["codigoEscuela"] ?></td>
                   <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                   <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
                 </tr>
@@ -188,9 +227,6 @@
               <!--Datos de lectura de la base datos-->
               <tbody>
                 <tr>
-                  <?php
-                  foreach ($matrizUsuario as $usuario):
-                  ?>
                   <!--<td><//?php echo $usuario["ID_USUARIO"] ?></td>-->
                   <td><?php echo $usuario["administrador"] ?></td>
                   <td><?php echo $usuario["nombreUsuario"] ?></td>
@@ -203,7 +239,6 @@
                   <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                   <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
                 </tr>
-                <?php endforeach ?>
               </tbody>
               <!--input envio de datos por submit-->
               <tr>
@@ -217,54 +252,41 @@
                 <td><input type="text" name="txtFechaMod" size="7" class="centrado"></td>
                 <td><input type="text" name="txtOcupacion" size="7" class="centrado"></td>
                 <td class="bot"><button type="submit" class="btn btn-success" name="button">Insertar</button></td>
-
-                <?php require_once('../Helper/PaginacionRegion.php') ?>
-<!--<!-----------------><!--inico de paginacion-------->
-          <table width="50%" border="1" align="center">
+            </table>
                 <tr>
-                  <td >
-                    <?php
-//------------------paginacion-----------
-                      for ($i=1; $i <= $total_pagina ; $i++) {
+                  <td>
+                <?php require('../Helper/Paginacion.php'); ?>
+                    <!------------------------------------------------------------------------------------------>
+                <?php
+                    echo     "<!--Paginacion-->";
+                    echo "<div class='bottom'>";
+                    echo "<nav aria-label='Page navigation example'>";
+                    echo "<ul class='pagination justify-content-center'>";
+                    echo "<li class='page-item disabled'>";
+                    echo "<a class='page-link' href='#' tabindex='-1'>Previous</a>";
+                    echo "</li>";
+                ?>
+                <?php
+                   for ($i=1; $i <= $total_pagina ; $i++) {
 
-                        echo "<a href='?pagina=".$i."'>".$i."</a>   ";
-
-                echo     "<!--Paginacion-->";
-
-                echo "<div class='bottom'>";
-                echo "<nav aria-label='Page navigation example'>";
-                echo "<ul class='pagination justify-content-center'>";
-                echo "<li class='page-item disabled'>";
-                echo "<a class='page-link' href='#' tabindex='-1'>Previous</a>";
-                echo "</li>";
-
-                echo "<li class='page-item'><a class='page-link' href='#'>1</a></li>";
-                echo "<li class='page-item'><a class='page-link' href='#'>2</a></li>";
-                echo "<li class='page-item'><a class='page-link' href='#'>3</a></li>";
-                echo "<li class='page-item'>";
-                echo "<a class='page-link' href='#'>Next</a>";
-
-                echo "</li>";
-                echo "</ul>";
-                echo "</nav>";
-                echo "</div>";
-
-                      }
-                    ?>
-<!------------------------------------------------------------------------------------------->
+                    echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
+                  }
+                ?>
+                <?php
+                    echo "<li class='page-item'>";
+                    echo "<a class='page-link' href='#'>Next</a>";
+                    echo "</li>";
+                    echo "</ul>";
+                    echo "</nav>";
+                    echo "</div>";
+                  ?>
                   </td>
                 </tr>
-          </table>
-
-              </tr>
-            </table>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 
 <?php include('Default/footer.php') ?>

@@ -8,4 +8,8 @@
 
 
 
+
+<?php include('Default/Noticias.php');?>
+
+
 <?php include('Default/footer.php') ?>

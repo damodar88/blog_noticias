@@ -19,6 +19,15 @@ class CiudadController
 
   }
 
+  public static function leerCiudad(){
+
+    $datosCiudad = array();
+
+    $datosCiudad = CiudadDAO::obtenerCiudad();
+
+    return $datosCiudad;
+
+  }
 
 
 }
