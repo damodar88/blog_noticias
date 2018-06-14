@@ -21,24 +21,23 @@ include '../Helper/ValidarCampo.php';
 
         if (LoginController::login($usuario,$password)){
 
-          return print(json_encode($resultado));
+            $usuario = LoginController::getUsuario($usuario,$password);
 
-          $usuario = LoginController::getUsuario($usuario,$password);
-
-          $_SESSION["usuario"] = array(
-
-            "id"=> $usuario->getIdUsuario(),
-            "privilegio"=> $usuario->getAdministradorUsuario(),
-            "nombre"=> $usuario->getNombreUsuario(),
-            "apellidoP"=> $usuario->getApellidoPaternoUsuario(),
-            "apellidoM"=> $usuario->getApellidoMaternoUsuario(),
-            "usuario"=> $usuario->getNombreUsuario(),
-            "fecha"=> $usuario->getFechaModificacionUsuario(),
-            "ocupacion"=> $usuario->getOcupacionUsuario()
-
-          );
+            $_SESSION["usuario"] = array(
+              "ID_USUARIO"              => $usuario->getIdUsuario(),
+              "administrador"           => $usuario->getAdministradorUsuario(),
+              "nombreUsuario"           => $usuario->getNombreUsuario(),
+              "apellidoPaternoUsuario"  => $usuario->getApellidoPaternoUsuario(),
+              "apellidoMaternoUsuario"  => $usuario->getApellidoMaternoUsuario(),
+              "usuarioUsuario"          => $usuario->getNombreUsuario(),
+              "fechaModificacionUsuario"=> $usuario->getFechaModificacionUsuario(),
+              "ocupacionUsuario"        => $usuario->getOcupacionUsuario(),
+            );
 
 
+            //echo var_dump($usuario);
+            //echo $usuario->getNombreUsuario();
+         return print(json_encode($resultado));
 
         }
 
@@ -50,6 +49,6 @@ include '../Helper/ValidarCampo.php';
   }
 
 
-
+ echo $_SESSION["usuario"]["nombre"];
 
 ?>

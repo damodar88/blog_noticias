@@ -82,7 +82,7 @@ class UsuarioDAO extends Conectar
   *
   */
 
-  public static function getUsuario($usuarioEvaluar){
+  public static function getUsuario($usuario){
 
     $query = "SELECT ID_USUARIO,administrador,nombreUsuario,apellidoPaternoUsuario,apellidoMaternoUsuario,usuarioUsuario,fechaModificacionUsuario,ocupacionUsuario FROM USUARIO WHERE usuarioUsuario = :usuario AND passwordUsuario = :password";
 
@@ -90,9 +90,9 @@ class UsuarioDAO extends Conectar
 
     $resultado = self::$conectarDB->prepare($query);
 
-    $resultado->bindParam(":usuario",$usuarioEvaluar->getUsuarioUsuario());
+    $resultado->bindParam(":usuario",$usuario->getUsuarioUsuario());
 
-    $resultado->bindParam(":password",$usuarioEvaluar->getPasswordUsuario());
+    $resultado->bindParam(":password",$usuario->getPasswordUsuario());
 
     $resultado->execute();
 
@@ -100,14 +100,14 @@ class UsuarioDAO extends Conectar
 
     $usuario = new Usuario();
 
-    $usuario->setIdUsuario($idUsuario["ID_USUARIO"]);
-    $usuario->setAdministradorUsuario($administradorUsuario["administrador"]);
-    $usuario->setNombreUsuario($nombreUsuario["nombreUsuario"]);
-    $usuario->setApellidoPaternoUsuario($apellidoPaternoUsuario["apellidoPaternoUsuario"]);
-    $usuario->setApellidoMaternoUsuario($apellidoMaternoUsuario["apellidoMaternoUsuario"]);
-    $usuario->setUsuarioUsuario($usuarioUsuario["usuarioUsuario"]);
-    $usuario->setFechaModificacionUsuario($fechaModificacionUsuario["fechaModificacionUsuario"]);
-    $usuario->setOcupacionUsuario($ocupacionUsuario["ocupacionUsuario"]);
+    $usuario->setIdUsuario($filas["ID_USUARIO"]);
+    $usuario->setAdministradorUsuario($filas["administrador"]);
+    $usuario->setNombreUsuario($filas["nombreUsuario"]);
+    $usuario->setApellidoPaternoUsuario($filas["apellidoPaternoUsuario"]);
+    $usuario->setApellidoMaternoUsuario($filas["apellidoMaternoUsuario"]);
+    $usuario->setUsuarioUsuario($filas["usuarioUsuario"]);
+    $usuario->setFechaModificacionUsuario($filas["fechaModificacionUsuario"]);
+    $usuario->setOcupacionUsuario($filas["ocupacionUsuario"]);
 
     return $usuario;
   }

@@ -8,8 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bare - Start Bootstrap Template</title>
-
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="Default/css/bootstrap.min.css">
     <link rel="stylesheet" href="Default/css/overhang.min.css">
