@@ -18,6 +18,7 @@ class UsuarioController
 
   }
 
+
   public static function ingresrUsuario($administrador,$nombre,$apellidoP,$apellidoM,$usuario,$password,$fechaMod,$ocupacion)
   {
 

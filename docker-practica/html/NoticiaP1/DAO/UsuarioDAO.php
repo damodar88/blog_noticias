@@ -77,6 +77,42 @@ class UsuarioDAO extends Conectar
 
   }
 
+ /*
+  *
+  *
+  */
+
+  public static function getUsuario($usuarioEvaluar){
+
+    $query = "SELECT ID_USUARIO,administrador,nombreUsuario,apellidoPaternoUsuario,apellidoMaternoUsuario,usuarioUsuario,fechaModificacionUsuario,ocupacionUsuario FROM USUARIO WHERE usuarioUsuario = :usuario AND passwordUsuario = :password";
+
+    self::getConectar();
+
+    $resultado = self::$conectarDB->prepare($query);
+
+    $resultado->bindParam(":usuario",$usuarioEvaluar->getUsuarioUsuario());
+
+    $resultado->bindParam(":password",$usuarioEvaluar->getPasswordUsuario());
+
+    $resultado->execute();
+
+    $filas = $resultado->fetch();
+
+    $usuario = new Usuario();
+
+    $usuario->setIdUsuario($idUsuario["ID_USUARIO"]);
+    $usuario->setAdministradorUsuario($administradorUsuario["administrador"]);
+    $usuario->setNombreUsuario($nombreUsuario["nombreUsuario"]);
+    $usuario->setApellidoPaternoUsuario($apellidoPaternoUsuario["apellidoPaternoUsuario"]);
+    $usuario->setApellidoMaternoUsuario($apellidoMaternoUsuario["apellidoMaternoUsuario"]);
+    $usuario->setUsuarioUsuario($usuarioUsuario["usuarioUsuario"]);
+    $usuario->setFechaModificacionUsuario($fechaModificacionUsuario["fechaModificacionUsuario"]);
+    $usuario->setOcupacionUsuario($ocupacionUsuario["ocupacionUsuario"]);
+
+    return $usuario;
+  }
+
+
 
 
 

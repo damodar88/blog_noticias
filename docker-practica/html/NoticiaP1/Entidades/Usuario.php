@@ -85,7 +85,7 @@ public function getOcupacionUsuario(){
   return $this->ocupacionUsuario;
 }
 
-public function setOcupacionUsuario($passwordUsuario){
+public function setOcupacionUsuario($ocupacionUsuario){
   $this->ocupacionUsuario = $ocupacionUsuario;
 }
 

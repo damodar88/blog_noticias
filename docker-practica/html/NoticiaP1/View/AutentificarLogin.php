@@ -23,6 +23,23 @@ include '../Helper/ValidarCampo.php';
 
           return print(json_encode($resultado));
 
+          $usuario = LoginController::getUsuario($usuario,$password);
+
+          $_SESSION["usuario"] = array(
+
+            "id"=> $usuario->getIdUsuario(),
+            "privilegio"=> $usuario->getAdministradorUsuario(),
+            "nombre"=> $usuario->getNombreUsuario(),
+            "apellidoP"=> $usuario->getApellidoPaternoUsuario(),
+            "apellidoM"=> $usuario->getApellidoMaternoUsuario(),
+            "usuario"=> $usuario->getNombreUsuario(),
+            "fecha"=> $usuario->getFechaModificacionUsuario(),
+            "ocupacion"=> $usuario->getOcupacionUsuario()
+
+          );
+
+
+
         }
 
     }

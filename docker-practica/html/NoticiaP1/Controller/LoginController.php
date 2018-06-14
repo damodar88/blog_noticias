@@ -21,8 +21,16 @@ class LoginController
     $usuarioEvaluar->setPasswordUsuario($password);
 
     return UsuarioDAO::login($usuarioEvaluar);
+  }
+
+  public static function getUsuario($usuario,$password){
 
 
+    $usuarioEvaluar = new Usuario();
+    $usuarioEvaluar->setUsuarioUsuario($usuario);
+    $usuarioEvaluar->setPasswordUsuario($password);
+
+    return UsuarioDAO::getUsuario($usuarioEvaluar);
   }
 
 
