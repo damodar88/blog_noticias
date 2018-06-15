@@ -43,7 +43,7 @@ class NoticiaDAO extends Conectar
 
     $contador = 0;
 
-    $resultado = "SELECT * FROM NOTICIA ORDER BY fechaNoticia";
+    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,SUBSTRING(noticiaNoticia ,'1','80'),tituloNoticia FROM NOTICIA";
 
     self::getConectar();
 
@@ -57,7 +57,7 @@ class NoticiaDAO extends Conectar
         $noticia->setReferenImagenNoticia($registro["referenciaImagenNoticia"]);
         $noticia->setFechaNoticia($registro["fechaNoticia"]);
         $noticia->setSecionNoticia($registro["secionNoticia"]);
-        $noticia->setNoticiaNoticia($registro["noticiaNoticia"]);
+        $noticia->setNoticiaNoticia($registro["SUBSTRING(noticiaNoticia ,'1','80')"]);
         $noticia->setTituloNoticia($registro["tituloNoticia"]);
 
         $matriz[$contador]=$noticia;

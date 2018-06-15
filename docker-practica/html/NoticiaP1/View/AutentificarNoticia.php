@@ -28,8 +28,11 @@ if (empty($tabla_noticia)){
     echo "<h1>".$valor->getNoticiaNoticia()."</h1>" ;
     echo "</div>";
 
+
+var_dump($valor->getReferenImagenNoticia());
     if ($valor->getReferenImagenNoticia()!="") {
       // code...
+
 
       echo "<img src='../imagenes/".$valor->getReferenImagenNoticia()."' ' width='300px' height='200px'/>";
 
