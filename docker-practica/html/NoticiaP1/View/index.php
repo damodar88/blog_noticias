@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <?php include('Default/head.php'); ?>
 
 <?php include('Default/menu.php') ?>

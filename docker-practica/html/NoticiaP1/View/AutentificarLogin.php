@@ -23,6 +23,8 @@ include '../Helper/ValidarCampo.php';
 
             $usuario = LoginController::getUsuario($usuario,$password);
 
+            session_start();
+
             $_SESSION["usuario"] = array(
               "ID_USUARIO"              => $usuario->getIdUsuario(),
               "administrador"           => $usuario->getAdministradorUsuario(),

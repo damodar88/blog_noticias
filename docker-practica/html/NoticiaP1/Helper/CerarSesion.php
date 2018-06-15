@@ -4,9 +4,7 @@
   //destrullo la session
   session_destroy();
   //redirigo al home
-
-  //session_unset();
-
+  session_unset();
 //echo '<script> window.location="index.php";</script>';
 
   header("location:../View/index.php");

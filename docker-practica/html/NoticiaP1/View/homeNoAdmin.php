@@ -1,10 +1,6 @@
-
-<?php session_start(); ?>
-
-<?php include 'Default/head.php'; ?>
 <?php
 
-  if(isset($_SESSION["usuario"])){
+  if(isset($_SESSION["usuario"]["nombreUsuario"])){
 
     if ($_SESSION["usuario"]["administrador"]==1) {
 
@@ -17,6 +13,8 @@
   }
 
 ?>
+<?php include 'Default/head.php'; ?>
+
 <?php include 'Default/menu.php' ?>
 
 <div class="satarter-template">
