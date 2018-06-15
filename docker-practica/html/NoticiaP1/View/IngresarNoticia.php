@@ -5,23 +5,23 @@
 
 <br><br>
 
-<form action="../controller/TransaccionControler.php" method="post" enctype="multipart/form-data" name="form1">
+<form action="AutentificarNoticia.php" method="post" enctype="multipart/form-data" name="form1">
 <table >
   <tr>
     <td>Título:
     <label for="campo_titulo"></label></td>
-  	<td><input type="text" name="campo_titulo" id="campo_titulo"></td>
+  	<td><input type="text" name="txttitulo" id="txttitulo"></td>
 	</tr>
 
 	<tr>
 		<td>Seccion:
     <label for="campo_seccion"></label></td>
-		<td><input type="text" name="campo_Seccion" id="campo_seccion"></td>
+		<td><input type="text" name="txtseccion" id="seccionNoticia"></td>
 	</tr>
 
   <tr><td>Comentarios:
     <label for="area_comentarios"></label></td>
-    <td><textarea name="area_comentarios" id="area_comentarios" rows="10" cols="50"></textarea></td>
+    <td><textarea name="txtnotica" id="txtnotica" rows="10" cols="50"></textarea></td>
     </tr>
     <input type="hidden" name="MAX_TAM" value="2097152">
   <tr>

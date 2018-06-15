@@ -24,15 +24,28 @@ class NoticiaDAO extends Conectar
 
   public static function insertarNoticia(Noticia $noticia){
 
-  $query = "INSERT INTO NOTICIA(referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia) VALUES ('".$noticia->getReferenImagenNoticia()."','".$noticia->getFechaNoticia()."','".$noticia->getSecionNoticia()."','".$noticia->getNoticiaNoticia()."','".$noticia->getTituloNoticia()."')";
+  $query = "INSERT INTO NOTICIA(
+    referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia,tituloNoticia) VALUES
+   (:imagen,:fecha,:secion,:noticia,:titulo)";
 
 
   self::getConectar();
 
   $resultadoInsertar = self::$conectarDB->prepare($query);
 
-  $resultadoInsertar->execute();
 
+        $resultadoInsertar->bindParam(":imagen",$noticia->getReferenImagenNoticia());
+        $resultadoInsertar->bindParam(":fecha",$noticia->getFechaNoticia());
+        $resultadoInsertar->bindParam(":secion",$noticia->getSecionNoticia());
+        $resultadoInsertar->bindParam(":noticia",$noticia->getNoticiaNoticia());
+        $resultadoInsertar->bindParam(":titulo",$noticia->getTituloNoticia());
+
+
+
+      if ($resultadoInsertar->execute()) {
+        return true;
+      }
+        return false;
 
   }
 

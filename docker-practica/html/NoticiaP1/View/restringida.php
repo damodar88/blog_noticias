@@ -1,9 +1,15 @@
 <?php
 session_start();
+
 if(isset($_SESSION["usuario"]["nombreUsuario"])){
-echo "Usuario---:".$_SESSION["usuario"] ["nombreUsuario"];
+echo "Usuario---:".$_SESSION["usuario"]["nombreUsuario"];
 echo "<br></br>";
-echo "se puede ver";
+echo "se puede ver has echo sesion correctamente";
+
+
+
+
+
 
 }else{
 	echo "no se puede ver";
@@ -17,8 +23,6 @@ echo "se puede ver";
  </head>
  <body>
 
-
-	 <p>
 	 	<a href="Login.php" class="btn btn-primary btn-lg">Cerrar Sesion</a>
 	 </p>
 <?php

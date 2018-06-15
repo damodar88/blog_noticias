@@ -1,9 +1,6 @@
+
+<?php session_start();?>
 <?php  include 'Default/head.php';?>
-
-
-<?php
-session_start();
-?>
 
 <?php include 'Default/menu.php' ?>
 
@@ -18,7 +15,7 @@ session_start();
         <p>panel de control | <span class="label label-info"><?php echo $_SESSION["usuario"]["administrador"] == 1 ?'Admin':'Cliente';?></span></p>
 
         <p>
-          <a href="Login.php" class="btn btn-primary btn-lg">Cerrar Sesion</a>
+          <a href="../Helper/CerarSesion.php" class="btn btn-primary btn-lg">Cerrar Sesion</a>
         </p>
 
     </div>

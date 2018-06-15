@@ -7,7 +7,7 @@
 
   //session_unset();
 
-echo '<script> window.location="index.php";</script>';
+//echo '<script> window.location="index.php";</script>';
 
   header("location:../View/index.php");
   //echo "serro secion ";
