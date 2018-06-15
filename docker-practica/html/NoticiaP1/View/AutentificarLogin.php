@@ -34,11 +34,9 @@ include '../Helper/ValidarCampo.php';
               "ocupacionUsuario"        => $usuario->getOcupacionUsuario(),
             );
 
-
+            return print(json_encode($resultado));
             //echo var_dump($usuario);
             //echo $usuario->getNombreUsuario();
-         return print(json_encode($resultado));
-
         }
 
     }
@@ -49,6 +47,5 @@ include '../Helper/ValidarCampo.php';
   }
 
 
- echo $_SESSION["usuario"]["nombre"];
 
 ?>

@@ -28,6 +28,7 @@
          <div class="card mb-4">
            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
            <div class="card-body">
+
              <h2 class="card-title">Post Title</h2>
              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
              <a href="#" class="btn btn-primary">Read More &rarr;</a>
@@ -37,6 +38,63 @@
              <a href="#">Start Bootstrap</a>
            </div>
          </div>
+
+
+               <?php
+
+
+               include '../Controller/NoticiaController.php';
+
+
+               $noticia = new  NoticiaController();
+
+               $tabla_noticia = $noticia->getNoticia();
+
+               //var_dump($tabla_noticia);
+
+               if (empty($tabla_noticia)){
+
+                 echo "No hay entradas de blog";
+
+
+               }else{
+
+                 foreach ($tabla_noticia as $valor) {
+                   // code...getIdNoticia()
+
+?>
+
+                 <div class="card mb-4">
+                     <img class="card-img-top" src=<?php '../imagenes/'.$valor->getReferenImagenNoticia(). width='300px' height='200px'/>;?> alt="Card image cap">
+                     <div class="card-body">
+
+                       <h2 class="card-title"><?php echo "<h3>".$valor->getTituloNoticia()."</h3>"; ?></h2>
+                       <p class="card-text"> <?php echo "<h1>".$valor->getNoticiaNoticia()."</h1>" ; ?></p>
+                       <p> <?php echo $valor->getSecionNoticia();  ?> </p>
+                       <a href="#" class="btn btn-primary">Leer mas &rarr;</a>
+                     </div>
+                     <div class="card-footer text-muted">
+                       <?php $valor->getFechaNoticia();?>
+                       <a href="#">Start Bootstrap</a>
+                     </div>
+                   </div>
+                   <?php
+
+                         if ($valor->getReferenImagenNoticia()!="") {
+                           // code...
+
+                           echo "<img src='../imagenes/".$valor->getReferenImagenNoticia()."' ' width='300px' height='200px'/>";
+
+                         }
+
+                       echo "<br><hr/><br>";
+                       }
+
+                     }
+                     ?>
+
+
+
 
          <!-- Blog Post -->
          <div class="card mb-4">

@@ -1,6 +1,6 @@
-<?php include('Default/head.php'); ?>
+<?php include 'Default/head.php'; ?>
 
-<?php include('Default/MenuAdmin.php') ?>
+<?php include 'Default/menu.php' ?>
 
 <div class="starter-template">
     <div class="row">
@@ -289,4 +289,4 @@
   </div>
 </div>
 
-<?php include('Default/footer.php') ?>
+<?php include 'Default/footer.php' ?>

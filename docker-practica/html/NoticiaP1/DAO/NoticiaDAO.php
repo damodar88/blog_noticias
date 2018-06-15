@@ -43,20 +43,24 @@ class NoticiaDAO extends Conectar
 
     $contador = 0;
 
-    $resultado = $this->conexion->query("SELECT * FROM NOTICIA ORDER BY fechaNoticia");
+    $resultado = "SELECT * FROM NOTICIA ORDER BY fechaNoticia";
+
+    self::getConectar();
+
+    $resultado = self::$conectarDB->query($resultado);
 
       while ($registro = $resultado->fetch(PDO::FETCH_ASSOC)) {
 
-        $blog = new EntidadNoticia();
+        $noticia = new Noticia();
 
-        $blog->set_id($registro["ID_NOTICIA"]);
-        $blog->set_imagen($registro["referenciaImagenNoticia"]);
-        $blog->set_fechaNoticia($registro["fechaNoticia"]);
-        $blog->set_seccionNoticia($registro["secionNoticia"]);
-        $blog->set_noticia($registro["noticiaNoticia"]);
-        $blog->set_tituloNoticia($registro["tituloNoticia"]);
+        $noticia->setIdNoticia($registro["ID_NOTICIA"]);
+        $noticia->setReferenImagenNoticia($registro["referenciaImagenNoticia"]);
+        $noticia->setFechaNoticia($registro["fechaNoticia"]);
+        $noticia->setSecionNoticia($registro["secionNoticia"]);
+        $noticia->setNoticiaNoticia($registro["noticiaNoticia"]);
+        $noticia->setTituloNoticia($registro["tituloNoticia"]);
 
-        $matriz[$contador]=$blog;
+        $matriz[$contador]=$noticia;
 
         $contador++;
 
@@ -66,14 +70,32 @@ class NoticiaDAO extends Conectar
 
   }
 
+  public static function getNoticia($noticia){
+
+    $query = "SELECT * FROM NOTICIA ORDER BY fechaNoticia";
+
+    self::getConectar();
+
+    $resultado = self::$conectarDB->query($query);
+
+    $resultado->execute();
+
+    $filas = $resultado->fetch();
+
+    $noticia = new Noticia();
+
+    $noticia->setIdNoticia($registro["ID_NOTICIA"]);
+    $noticia->setReferenImagenNoticia($registro["referenciaImagenNoticia"]);
+    $noticia->setFechaNoticia($registro["fechaNoticia"]);
+    $noticia->setSecionNoticia($registro["secionNoticia"]);
+    $noticia->setNoticiaNoticia($registro["noticiaNoticia"]);
+    $noticia->setTituloNoticia($registro["tituloNoticia"]);
 
 
-
-
+    return $noticia;
+  }
 
 
  }
-
-
 
 ?>

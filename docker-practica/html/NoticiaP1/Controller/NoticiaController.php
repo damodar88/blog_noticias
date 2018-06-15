@@ -1,6 +1,6 @@
 <?php
 
-include('../DAO/CalleDAO.php');
+include('../DAO/NoticiaDAO.php');
 /**
  *
  */
@@ -18,6 +18,17 @@ class NoticiaController
      NoticiaDAO::insertarNoticia($calleIngresar);
 
   }
+
+  public static function getNoticia(){
+
+    $noticia = new Noticia();
+
+    $tabla_blog = NoticiaDAO::getContenidoPorFecha();
+
+  
+    return $tabla_blog;
+  }
+
 
 
 

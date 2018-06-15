@@ -25,7 +25,7 @@ $(document).ready(function() {
             }else {
                 $("body").overhang({
                   type: "error",
-                  message: "Usuario o contraseña incorrectos",
+                  message: "Usuario o contraseña incorrecto",
                 });
             }
             $("#loginform button[type=submit]").html("Ingresar");

@@ -1,66 +1,43 @@
 <?php
 
 
-include('../Controller/NoticiaController.php');
+include '../Controller/NoticiaController.php';
 
 
+$noticia = new  NoticiaController();
 
-      if ($_FILES['imagen']['error']) {
-        // code...
-        switch ($_FILES['imagen']['error']) {
+$tabla_noticia = $noticia->getNoticia();
 
-          case '1': //error exceso tamaño de la imagen
+//var_dump($tabla_noticia);
 
-            echo "El tamaño de la imagen supera el tamaño permitido";
+if (empty($tabla_noticia)){
 
-            break;
-
-          case '2'://eror exceso tamaño de archivo
-
-            echo "El tamaño del archivo supera tamaño permitido (post_max_size de php.ini)";
-
-            break;
-
-          case '3':
-
-            echo "El envio se a interrumpido durante durante la transmicion";
-
-            break;
-
-          case '4': //error no se a enviado el archivo
-
-            echo "El tamaño es nulo o no se a enviado archivo";
-
-            break;
-        }
-
-      }else {
-
-          echo "No hay errores en la transferencia de archivos. <br/>";
-
-          if ((isset($_FILES['imagen']['name']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK))){
-
-              $destino_de_ruta='../imagenes/';
-
-              move_uploaded_file($_FILES['imagen']['tmp_name'],$destino_de_ruta.$_FILES['imagen']['name']);
-
-              echo "El archivo".$_FILES['imagen']['name']."Se a copiado en el directorio de imagenes";
-
-          }else {
-
-              echo "El archivo no se a copiado en el directorio de imagenes";
-
-          }
-
-      }
+  echo "No hay entradas de blog";
 
 
-?>
+}else{
+
+  foreach ($tabla_noticia as $valor) {
+    // code...getIdNoticia()
 
 
+    echo "<h3>".$valor->getTituloNoticia()."</h3>";
+    echo "".$valor->getFechaNoticia() ."<br>";
+    echo $valor->getSecionNoticia();
+    echo "<div style='width:400px'>";
+    echo "<h1>".$valor->getNoticiaNoticia()."</h1>" ;
+    echo "</div>";
 
-<?php
+    if ($valor->getReferenImagenNoticia()!="") {
+      // code...
 
+      echo "<img src='../imagenes/".$valor->getReferenImagenNoticia()."' ' width='300px' height='200px'/>";
 
+    }
+
+  echo "<br><hr/><br>";
+  }
+
+}
 
 ?>
