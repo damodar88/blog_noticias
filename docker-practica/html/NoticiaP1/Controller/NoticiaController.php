@@ -33,6 +33,17 @@ class NoticiaController
   }
 
 
+  public static function getNoticiaEspecifica($idNoticia){
+
+    $noticia = new Noticia();
+
+    $tabla_noticia = NoticiaDAO::getContenidoEspecifico();
+
+
+    return $tabla_noticia;
+  }
+
+
 
 
 }

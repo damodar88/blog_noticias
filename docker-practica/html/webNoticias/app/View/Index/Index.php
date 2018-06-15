@@ -16,6 +16,7 @@
 
 </div>
 
+<a href="<?php echo URL;?>Index/index">recargar</a>
 
 <script>
   function userLogin(){

@@ -83,29 +83,26 @@ class NoticiaDAO extends Conectar
 
   }
 
-  public static function getNoticia($noticia){
+  public static function getContenidoEspecifico(){
 
-    $query = "SELECT * FROM NOTICIA ORDER BY fechaNoticia";
+    $matriz = array();
+
+    $contador = 0;
+
+    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia,tituloNoticia FROM NOTICIA WHERE :idBuscar = ID_NOTICIA,";
 
     self::getConectar();
 
-    $resultado = self::$conectarDB->query($query);
+    $resultadoInsertar = self::$conectarDB->prepare($query);
 
-    $resultado->execute();
+    $resultadoInsertar->bindParam(":idBuscar",$noticia->get());
 
-    $filas = $resultado->fetch();
-
-    $noticia = new Noticia();
-
-    $noticia->setIdNoticia($registro["ID_NOTICIA"]);
-    $noticia->setReferenImagenNoticia($registro["referenciaImagenNoticia"]);
-    $noticia->setFechaNoticia($registro["fechaNoticia"]);
-    $noticia->setSecionNoticia($registro["secionNoticia"]);
-    $noticia->setNoticiaNoticia($registro["noticiaNoticia"]);
-    $noticia->setTituloNoticia($registro["tituloNoticia"]);
+    if ($resultadoInsertar->execute()) {
+      return true;
+    }
+      return false;
 
 
-    return $noticia;
   }
 
 

@@ -1,6 +1,6 @@
 <?php
 
-include('../DAO/CiudadDAO.php');
+include('../../DAO/CiudadDAO.php');
 /**
  *
  */

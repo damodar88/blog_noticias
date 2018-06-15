@@ -14,63 +14,46 @@
 
                <?php
 
+
                include '../Controller/NoticiaController.php';
+
 
                $noticia = new  NoticiaController();
 
-               $tabla_noticia = $noticia->getNoticia();
+               $tabla_noticia = $noticia->getNoticiaEspecifica();
 
                //var_dump($tabla_noticia);
 
-               if (empty($tabla_noticia)){
-
-                 echo "No hay entradas de blog";
-
-               }else{
-
-                  foreach ($tabla_noticia as $valor) {
+                 foreach ($tabla_noticia as $valor) {
                    // code...getIdNoticia()
+
               ?>
 
                  <div class="card mb-4">
-
-                        <?php
-
-                             if ($valor->getReferenImagenNoticia()=="") {
-
-                             echo "<img src='imagenes/68.jpg' width='300px' height='200px'/>";
-
-                           }else {
-
-                            ?>
-                           <img class="card-img-top" src="imagenes/<?php echo $valor->getReferenImagenNoticia() ;?>"width='300px' height='400px' alt="Card image cap">
-                          <?php } ?>
-
+                     <img class="card-img-top" src="imagenes/<?php echo $valor->getReferenImagenNoticia() ;?>"width='300px' height='400px' alt="Card image cap">
                      <div class="card-body">
 
                        <h2 class="card-title"><?php echo "<h1>".$valor->getTituloNoticia()."</h1>"; ?></h2>
                        <p class="card-text"> <?php  echo "<h4>".$valor->getNoticiaNoticia();"</h4>" ; ?></p>
                        <p> <?php echo $valor->getSecionNoticia();  ?> </p>
 
-                    <form  action="AutentificarNoticiaEsp.php" method="post">
-                      <?php $id= $valor->getIdNoticia();?>
-                      <?php echo $id; ?>
-                      <output   name="txt"></output>
-                       <button type="submit" class="btn btn-primary" name="button">Leer mas &rarr;</button>
-                    </form>
-
                      </div>
                      <div class="card-footer text-muted">
                        <?php echo $valor->getFechaNoticia();?>
+
+
                      </div>
                    </div>
                    <?php
 
+                      //   if ($valor->getReferenImagenNoticia()!="") {
+                           // code...
+
+                          // echo "<img src='../imagenes/".$valor->getReferenImagenNoticia()."' ' width='300px' height='200px'/>";
 
                          }
 
-                       echo "<br><hr/><br>";
-                       }
+
 
                      //}
                      ?>

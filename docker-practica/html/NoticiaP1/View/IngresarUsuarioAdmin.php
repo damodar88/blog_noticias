@@ -1,6 +1,8 @@
-<?php include 'Default/head.php'; ?>
+<?php include 'Default/head.php' ?>
 
 <?php include 'Default/menu.php' ?>
+
+<?php include '../Controller/RegionController.php' ?>
 
 <div class="starter-template">
     <div class="row">
@@ -19,8 +21,6 @@
                 </tr>
               </thead>
               <tr>
-
-                <?php require_once('../Controller/RegionController.php') ?>
 
                 <?php $matrizRegion = RegionController::leerRegion();  ?>
 
@@ -97,13 +97,13 @@
                 </tr>
               </thead>
               <tr>
-                  <?php //require('../Controller/CiudadController.php') ?>
-                  <?php //$ciudad = new CiudadController(); ?>
+
+                  <?php // $ciudad = new CiudadController(); ?>
 
                   <?php //$matrizCiudad = CiudadController::leerCiudad();  ?>
 
                   <?php
-                  //foreach //($matrizCiudad as $ciudad):
+                  //foreach ($matrizCiudad as $ciudad):
                   ?>
                   <td><?php echo $ciudad["nombreCiudad"] ?></td>
                   <td><?php echo $ciudad["localidadCiudad"] ?></td>
@@ -236,6 +236,7 @@
                   <td><?php echo $usuario["passwordUsuario"]?></td>
                   <td><?php echo $usuario["fechaModificacionUsuario"]?></td>
                   <td><?php echo $usuario["ocupacionUsuario"]?></td>
+                  <td></td>
                   <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                   <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
                 </tr>

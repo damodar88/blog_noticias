@@ -1,29 +1,36 @@
 <?php
 
 
-include_once('../DAO/UsuarioDAO.php');
+include('../DAO/UsuarioDAO.php');
 /**
  *
  */
-class LoginController extends Controller
+class LoginController
 {
 
   function __construct()
   {
-    parent::__construct();
 
   }
 
   public static function login($usuario,$password){
 
-    $this->view->render($this,'Login');
+
     $usuarioEvaluar = new Usuario();
     $usuarioEvaluar->setUsuarioUsuario($usuario);
     $usuarioEvaluar->setPasswordUsuario($password);
 
     return UsuarioDAO::login($usuarioEvaluar);
+  }
+
+  public static function getUsuario($usuario,$password){
 
 
+    $usuarioEvaluar = new Usuario();
+    $usuarioEvaluar->setUsuarioUsuario($usuario);
+    $usuarioEvaluar->setPasswordUsuario($password);
+
+    return UsuarioDAO::getUsuario($usuarioEvaluar);
   }
 
 

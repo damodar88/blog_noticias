@@ -3,6 +3,6 @@
 
     <?php include('Default/menu.php') ?>
 
-    <?php include('Default/Noticias.php');?>
+    <?php include('Default/noticiaDetalle.php');?>
 
-  <?php include('Default/footer.php') ?>
+<?php include('Default/footer.php') ?>
