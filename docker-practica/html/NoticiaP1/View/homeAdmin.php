@@ -1,11 +1,10 @@
-
+<?php session_start(); ?>
 <?php  include 'Default/head.php';?>
 
 <?php
 
 
 if(isset($_SESSION["usuario"]["nombreUsuario"])){
-
 
 ?>
 

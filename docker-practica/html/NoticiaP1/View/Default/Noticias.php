@@ -78,14 +78,35 @@
 
 
          <!-- Pagination -->
-         <ul class="pagination justify-content-center mb-4">
-           <li class="page-item">
-             <a class="page-link" href="#">&larr; Older</a>
-           </li>
-           <li class="page-item disabled">
-             <a class="page-link" href="#">Newer &rarr;</a>
-           </li>
-         </ul>
+         <tr>
+           <td>
+         <?php include('../Helper/PaginacionNoticias.php'); ?>
+             <!------------------------------------------------------------------------------------------>
+         <?php
+             echo     "<!--Paginacion-->";
+             echo "<div class='bottom'>";
+             echo "<nav aria-label='Page navigation example'>";
+             echo "<ul class='pagination justify-content-center'>";
+             echo "<li class='page-item disabled'>";
+             echo "<a class='page-link' href='#' tabindex='-1'>Previous</a>";
+             echo "</li>";
+         ?>
+         <?php
+            for ($i=1; $i <= $total_pagina ; $i++) {
+
+             echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
+           }
+         ?>
+         <?php
+             echo "<li class='page-item'>";
+             echo "<a class='page-link' href='#'>Next</a>";
+             echo "</li>";
+             echo "</ul>";
+             echo "</nav>";
+             echo "</div>";
+           ?>
+           </td>
+         </tr>
 
        </div>
 

@@ -1,3 +1,6 @@
+
+
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
@@ -27,7 +30,7 @@
                       </li>
 
                       <li class="nav-item">
-                        <a class="nav-link" href="IngresarUsuarioAdmin.php">Admin</a>
+                        <a class="nav-link" href="IngresarUsuario.php">Admin</a>
                       </li>
 
                       <li class="nav-item">

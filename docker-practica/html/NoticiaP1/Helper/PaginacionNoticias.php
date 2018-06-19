@@ -1,6 +1,6 @@
 <?php
 
-require_once('../DAO/UsuarioDAO.php');
+require_once('../DAO/NoticiaDAO.php');
 
 
 $tamano_pagina = 3;
@@ -16,9 +16,9 @@ $tamano_pagina = 3;
 
     $empezar_desde = ($pagina-1) * $tamano_pagina;
 
-    $matrizUsuario = UsuarioDAO::paginacionUsuario();
+    $matrizNoticia = NoticiaDAO::paginacionNoticia();
 
-    $num_filas = $matrizUsuario;
+    $num_filas = $matrizRegion;
 
     $total_pagina = ceil($num_filas/$tamano_pagina);
 

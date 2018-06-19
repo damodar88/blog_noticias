@@ -50,6 +50,8 @@ class NoticiaDAO extends Conectar
   }
 
 
+
+
   public function getContenidoPorFecha(){
 
     $matriz = array();
@@ -104,6 +106,49 @@ class NoticiaDAO extends Conectar
 
 
   }
+
+
+    public static function paginacionNoticia(){
+
+      //require_once('../Helper/Paginacion.php');
+
+      $sql_total = "SELECT * FROM NOTICIA";// ORDER BY numeroRegion LIMIT $tamano_pagina offset $empezar_desde";
+
+      self::getConectar();
+
+      $resultado = self::$conectarDB->prepare($sql_total);
+
+      $resultado->execute(array());
+
+      $num_filas = $resultado->rowCount();
+
+      return $num_filas;
+
+    }
+
+
+
+    /*
+      public function obtenerNoticia(){
+
+        $region = array();
+
+        require_once('../Helper/Paginacion.php');
+
+        self::getConectar();
+
+        $consulta = self::$conectarDB->query("SELECT * FROM REGION ORDER BY numeroRegion LIMIT $tamano_pagina offset $empezar_desde");  // LIMIT $empezar_desde, $tamano_pagina")
+
+          while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+
+            $region[]=$filas;
+
+          }
+
+        return $region;
+
+      }
+      */
 
 
  }

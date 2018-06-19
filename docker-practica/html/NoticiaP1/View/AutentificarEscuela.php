@@ -16,6 +16,17 @@ include('../Controller/EscuelaController.php');
       isset($_POST["txtCalle_id"])
     ){
 
+
+/*
+"txtnombrecodigoEscuela"
+"txtnombreRegion"
+"txtnumeroRegion"
+"txtcomunaRegion"
+"txtnombreCiudad"
+"txtlocalidadCiudad"
+"txtnombreCalle"
+"txtnumeroCalle"
+*/
     //absorbo en variables lo que viene por POST de la vista
     $escuelaNombre = (htmlentities(addslashes($_POST["txtnombreEscuela"])));
     $escuelaCodigo = (htmlentities(addslashes($_POST["txtnombrecodigoEscuela"])));

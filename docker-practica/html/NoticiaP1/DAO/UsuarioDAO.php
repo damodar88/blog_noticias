@@ -113,44 +113,43 @@ class UsuarioDAO extends Conectar
   }
 
 
+    public function obtenerUsuario(){
 
-  public function obtenerUsuario(){
+      $usuario = array();
 
-    $usuario = array();
+      require_once('../Helper/PaginacionUsuario.php');
 
-    //require_once('../Helper/Paginacion.php');
+      self::getConectar();
 
-    self::getConectar();
+      $consulta = self::$conectarDB->query("SELECT * FROM USUARIO ORDER BY ID_USUARIO LIMIT $tamano_pagina offset $empezar_desde");  // LIMIT $empezar_desde, $tamano_pagina")
 
-    $consulta = self::$conectarDB->query("SELECT * FROM USUARIO"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+        while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
 
-      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+          $usuario[]=$filas;
 
-        $usuario[]=$filas;
+        }
 
-      }
+      return $usuario;
 
-    return $usuario;
+    }
 
-  }
+    public static function paginacionUsuario(){
 
-  public static function paginacionUsuario(){
+      $sql_total = "SELECT * FROM USUARIO";
 
-    //require_once('../Helper/Paginacion.php');
+      self::getConectar();
 
-    $sql_total = "SELECT * FROM USUARIO";// LIMIT $empezar_desde, $tamano_pagina";
+      $resultado = self::$conectarDB->prepare($sql_total);
 
-    self::getConectar();
+      $resultado->execute(array());
 
-    $resultado = self::$conectarDB->prepare($sql_total);
+      $num_filas = $resultado->rowCount();
 
-    $resultado->execute(array());
+      return $num_filas;
 
-    $num_filas = $resultado->rowCount();
+    }
 
-    return $num_filas;
 
-  }
 
 
 }

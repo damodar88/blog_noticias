@@ -37,15 +37,22 @@ class EscuelaDAO extends Conectar
 
   }
 
+
+
   public function obtenerEscuela(){
 
     $escuela = array();
 
-    //require_once('../Helper/Paginacion.php');
+    require_once('../Helper/PaginacionEscuela.php');
 
     self::getConectar();
 
-    $consulta = self::$conectarDB->query("SELECT * FROM ESCUELA"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+    $consulta = self::$conectarDB->query("SELECT nombreEscuela,codigoEscuela,nombreRegion,numeroRegion,comunaRegion,nombreCiudad,localidadCiudad,nombreCalle,numeroCalle
+                                          FROM ESCUELA
+                                          INNER JOIN REGION ON REGION_ID_REGION = ID_REGION
+                                          INNER JOIN CIUDAD ON CIUDAD_ID_CIUDAD = ID_CIUDAD
+                                          INNER JOIN CALLE ON CALLE_ID_CALLE = ID_CALLE
+                                          ORDER BY ID_ESCUELA LIMIT $tamano_pagina offset $empezar_desde");  // LIMIT $empezar_desde, $tamano_pagina")
 
       while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
 
@@ -54,6 +61,24 @@ class EscuelaDAO extends Conectar
       }
 
     return $escuela;
+
+  }
+
+  public static function paginacionEscuela(){
+
+    //require_once('../Helper/Paginacion.php');
+
+    $sql_total = "SELECT * FROM ESCUELA";// LIMIT $empezar_desde, $tamano_pagina";
+
+    self::getConectar();
+
+    $resultado = self::$conectarDB->prepare($sql_total);
+
+    $resultado->execute(array());
+
+    $num_filas = $resultado->rowCount();
+
+    return $num_filas;
 
   }
 

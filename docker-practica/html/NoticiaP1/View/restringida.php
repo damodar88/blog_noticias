@@ -1,18 +1,19 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
  <title></title>
 </head>
 <body>
-	<p>se puede ver has echo sesion correctamente</p>
+	<p></p>
 	 <a href="../Helper/CerarSesion.php" class="btn btn-primary btn-lg">Cerrar Sesion</a>
 
 
 <?php
-
-
 if(isset($_SESSION["usuario"]["nombreUsuario"])){
+
+session_start();
+
+echo "<br>******** has echo session *******<br> ";
 
 echo "Usuario---:".$_SESSION["usuario"]["nombreUsuario"];
 echo "<br></br>";
@@ -39,9 +40,10 @@ echo "dato ocupacion---:".$_SESSION["usuario"]["ocupacionUsuario"]."<br></br>";
 
 
 <?php
-
-
 }else{
 	echo "no se puede ver";
  }
+
+
+
  ?>
