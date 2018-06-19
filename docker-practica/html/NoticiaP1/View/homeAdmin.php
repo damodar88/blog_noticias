@@ -1,10 +1,12 @@
 
-
 <?php  include 'Default/head.php';?>
 
 <?php
 
+
 if(isset($_SESSION["usuario"]["nombreUsuario"])){
+
+
 ?>
 
 <?php include 'Default/menu.php' ?>

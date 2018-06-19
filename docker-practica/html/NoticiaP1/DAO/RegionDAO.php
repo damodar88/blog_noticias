@@ -46,7 +46,7 @@ class RegionDAO extends Conectar
 
     self::getConectar();
 
-    $consulta = self::$conectarDB->query("SELECT * FROM REGION LIMIT $empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+    $consulta = self::$conectarDB->query("SELECT * FROM REGION ORDER BY numeroRegion LIMIT $tamano_pagina offset $empezar_desde");  // LIMIT $empezar_desde, $tamano_pagina")
 
       while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
 

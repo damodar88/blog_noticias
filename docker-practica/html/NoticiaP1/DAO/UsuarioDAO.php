@@ -114,7 +114,43 @@ class UsuarioDAO extends Conectar
 
 
 
+  public function obtenerUsuario(){
 
+    $usuario = array();
+
+    //require_once('../Helper/Paginacion.php');
+
+    self::getConectar();
+
+    $consulta = self::$conectarDB->query("SELECT * FROM USUARIO"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+
+      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+
+        $usuario[]=$filas;
+
+      }
+
+    return $usuario;
+
+  }
+
+  public static function paginacionUsuario(){
+
+    //require_once('../Helper/Paginacion.php');
+
+    $sql_total = "SELECT * FROM USUARIO";// LIMIT $empezar_desde, $tamano_pagina";
+
+    self::getConectar();
+
+    $resultado = self::$conectarDB->prepare($sql_total);
+
+    $resultado->execute(array());
+
+    $num_filas = $resultado->rowCount();
+
+    return $num_filas;
+
+  }
 
 
 }

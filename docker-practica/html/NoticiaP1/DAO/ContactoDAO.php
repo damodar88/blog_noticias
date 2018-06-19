@@ -1,11 +1,12 @@
 <?php
 
 include('../Librery/Conectar.php');
-include('../Entidades/Calle.php');
+include('../Entidades/Contacto.php');
+
 /**
  *
  */
-class CalleDAO extends Conectar
+class ContactoDAO extends Conectar
 {
 
   protected static $conectarDB;
@@ -22,9 +23,10 @@ class CalleDAO extends Conectar
 
   }
 
-  public static function insertarCalle(Calle $calle){
+  public static function insertarCiudad(Ciudad $ciudad){
 
-  $query = "INSERT INTO CALLE(nombreCalle,numeroCalle) VALUES ('".$calle->getNombreCalle()."','".$calle->getNumeroCalle()."')";
+  $query = "INSERT INTO CIUDAD(nombreCiudad,localidadCiudad) VALUES ('".$ciudad->getNombreCiudad()."','".$ciudad->getLocalidadCiudad()."')";
+
 
   self::getConectar();
 
@@ -35,25 +37,29 @@ class CalleDAO extends Conectar
 
   }
 
-  public function obtenerCalle(){
+  public function obtenerContacto(){
 
-    $calle = array();
+    $ciudad = array();
 
     //require_once('../Helper/Paginacion.php');
 
     self::getConectar();
 
-    $consulta = self::$conectarDB->query("SELECT * FROM CALLE"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+    $consulta = self::$conectarDB->query("SELECT * FROM CONTACTO"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
 
       while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
 
-        $calle[]=$filas;
+        $contacto[]=$filas;
 
       }
 
-    return $calle;
+    return $contacto;
 
   }
+
+
+
+
 
 
 
@@ -63,4 +69,4 @@ class CalleDAO extends Conectar
 }
 
 
- ?>
+?>

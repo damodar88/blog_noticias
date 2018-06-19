@@ -19,6 +19,21 @@ class CalleController
 
   }
 
+  public static function leerCalle(){
+
+    $datosCalle = array();
+
+    $datosCalle = CalleDAO::obtenerCalle();
+
+    return $datosCalle;
+
+  }
+
+
+
+
+
+
 
 
 }

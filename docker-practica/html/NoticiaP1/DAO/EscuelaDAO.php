@@ -25,7 +25,6 @@ class EscuelaDAO extends Conectar
   public static function insertarEscuela(Escuela $escuela,Calle $calle,Ciudad $ciudad, Region $region){
 
 
-
   $query = "INSERT INTO ESCUELA(nombreEscuela,codigoEscuela,CALLE_ID_CALLE,CIUDAD_ID_CIUDAD,REGION_ID_REGION) VALUES ('".$escuela->getNombreEscuela()."','".$escuela->getCodigoEscuela()."','".$calle->getIdCalle()."','".$ciudad->getIdCiudad()."','".$region->getIdRegion()."')";
 
 
@@ -35,6 +34,26 @@ class EscuelaDAO extends Conectar
 
   $resultadoInsertar->execute();
 
+
+  }
+
+  public function obtenerEscuela(){
+
+    $escuela = array();
+
+    //require_once('../Helper/Paginacion.php');
+
+    self::getConectar();
+
+    $consulta = self::$conectarDB->query("SELECT * FROM ESCUELA"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+
+      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+
+        $escuela[]=$filas;
+
+      }
+
+    return $escuela;
 
   }
 

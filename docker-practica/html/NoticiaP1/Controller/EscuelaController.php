@@ -20,6 +20,16 @@ class EscuelaController
 
   }
 
+  public static function leerEscuela(){
+
+    $datosEscuela = array();
+
+    $datosEscuela = EscuelaDAO::obtenerEscuela();
+
+    return $datosEscuela;
+
+  }
+
 
 
 }

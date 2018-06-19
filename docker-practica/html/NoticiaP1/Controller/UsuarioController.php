@@ -40,6 +40,15 @@ class UsuarioController
      UsuarioDAO::insertaUsuario($usuarioIngresar);
   }
 
+  public static function leerUsuario(){
+
+    $datosUsuario = array();
+
+    $datosUSuario = UsuarioDAO::obtenerUsuario();
+
+    return $datosUsuario;
+
+  }
 
 
 

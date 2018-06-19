@@ -16,7 +16,7 @@ $tamano_pagina = 3;
 
     $empezar_desde = ($pagina-1) * $tamano_pagina;
 
-    $matrizRegion = RegionDAO::paginacionRegion();
+    $matrizRegion = UsuarioDAO::paginacionUsuario();
 
     $num_filas = $matrizRegion;
 
