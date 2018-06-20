@@ -2,6 +2,7 @@
 
 include('../Librery/Conectar.php');
 include('../Entidades/Noticia.php');
+include('../Entidades/Usuario.php');
 /**
  *
  */
@@ -25,8 +26,8 @@ class NoticiaDAO extends Conectar
   public static function insertarNoticia(Noticia $noticia){
 
   $query = "INSERT INTO NOTICIA(
-    referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia,tituloNoticia) VALUES
-   (:imagen,:fecha,:secion,:noticia,:titulo)";
+    referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia,tituloNoticia,USUARIO_ID_USUARIO) VALUES
+   (:imagen,:fecha,:secion,:noticia,:titulo,:idUsuario)";
 
 
   self::getConectar();
@@ -39,9 +40,9 @@ class NoticiaDAO extends Conectar
         $resultadoInsertar->bindParam(":secion",$noticia->getSecionNoticia());
         $resultadoInsertar->bindParam(":noticia",$noticia->getNoticiaNoticia());
         $resultadoInsertar->bindParam(":titulo",$noticia->getTituloNoticia());
+        $resultadoInsertar->bindParam(":idUsuario",$noticia->getUsuarioIdUsuario());
 
-
-
+//$resultadoInsertar->execute()
       if ($resultadoInsertar->execute()) {
         return true;
       }

@@ -13,6 +13,7 @@ class Noticia {
     private $fechaNoticia;
     private $secionNoticia;
     private $tituloNoticia;
+    private $usuarioIdUsuario;
 
 
     public function getIdNoticia() {
@@ -61,6 +62,14 @@ class Noticia {
 
     public function setSecionNoticia($secionNoticia) {
         $this->secionNoticia = $secionNoticia;
+    }
+
+    public function getUsuarioIdUsuario() {
+        return $this->usuarioIdUsuario;
+    }
+
+    public function setUsuarioIdUsuario($usuarioIdUsuario) {
+        $this->usuarioIdUsuario = $usuarioIdUsuario;
     }
 
 

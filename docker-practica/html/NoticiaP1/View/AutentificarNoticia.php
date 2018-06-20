@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
+
 <?php
 
 include '../Controller/NoticiaController.php';
@@ -47,7 +50,7 @@ if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["tx
 
       //  echo "No hay errores en la transferencia de archivos. <br/>";
 
-    
+
 
 
         if ((isset($_FILES['imagen']['name']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK))){
@@ -66,14 +69,16 @@ if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["tx
 
     }
 
+    //echo "dato ID---:".$_SESSION["usuario"]["ID_USUARIO"]."<br></br>";
+    //var_dump($_SESSION["usuario"]);
     $noticiaTitulo  = (htmlentities(addslashes($_POST["txttitulo"])));
     $noticiaSecion  = (htmlentities(addslashes($_POST["txtseccion"])));
     $noticiaNoticia = (htmlentities(addslashes($_POST["txtnotica"])));
     $noticiaImagen  = (htmlentities(addslashes($_FILES["imagen"]['name'])));
     $noticiaFecha   = (Date("Y-m-d H:i:s"));
+    $noticiaIdusuario = (htmlentities(addslashes($_SESSION["usuario"]["ID_USUARIO"])));
 
-
-    NoticiaController::ingresarNoticia($noticiaTitulo,$noticiaSecion,$noticiaNoticia,$noticiaImagen,$noticiaFecha);
+    NoticiaController::ingresarNoticia($noticiaTitulo,$noticiaSecion,$noticiaNoticia,$noticiaImagen,$noticiaFecha,$noticiaIdusuario);
 
 
 
@@ -81,8 +86,12 @@ if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["tx
 }else {
   //echo "error";
 
+}header("location:index.php");?>
+
+
+
+<?php
+}else{
+  echo "no se puede ver";
 }
-header("location:index.php");
-
-
 ?>

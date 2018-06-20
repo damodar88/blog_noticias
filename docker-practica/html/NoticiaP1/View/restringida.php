@@ -8,7 +8,7 @@ echo "<br>******** has echo session *******<br> ";
 echo "Usuario---:".$_SESSION["usuario"]["nombreUsuario"];
 echo "<br></br>";
 
-echo "dato usuario---:".$_SESSION["usuario"]["ID_USUARIO"]."<br></br>";
+echo "dato ID---:".$_SESSION["usuario"]["ID_USUARIO"]."<br></br>";
 echo "dato privielegio---:".$_SESSION["usuario"]["administrador"]."<br></br>";
 echo "dato usuario---:".$_SESSION["usuario"]["nombreUsuario"]."<br></br>";
 echo "dato apellidoP---:".$_SESSION["usuario"]["apellidoPaternoUsuario"]."<br></br>";
