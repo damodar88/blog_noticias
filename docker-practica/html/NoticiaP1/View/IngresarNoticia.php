@@ -24,12 +24,12 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
   <tr>
     <td>Seccion:</td>
     <td>
-    <select class="combobox">
-      <option value="PA">Ciencia</option>
-      <option value="CT">Educacion</option>
-      <option value="NY">Cueltura</option>
-      <option value="MD">Comunidad</option>
-      <option value="VA">Innovacion</option>
+    <select class="combobox" name="txtseccion">
+      <option value="Ciencia">Ciencia</option>
+      <option value="Educacion">Educacion</option>
+      <option value="Cultura">Cultura</option>
+      <option value="Comunidad">Comunidad</option>
+      <option value="Innovacion">Innovacion</option>
     </select>
     </td>
   </tr>
