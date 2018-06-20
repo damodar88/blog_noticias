@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 
@@ -45,13 +46,6 @@ include('../Controller/EscuelaController.php');
   }else {
     echo "error";
   }
-
-
-
-
-
-
-
 
 
 

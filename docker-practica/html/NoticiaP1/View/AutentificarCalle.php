@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 
@@ -23,15 +24,6 @@ include('../Controller/CalleController.php');
   }else {
     echo "error";
   }
-
-
-
-
-
-
-
-
-
 
 
 ?>

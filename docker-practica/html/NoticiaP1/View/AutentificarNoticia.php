@@ -1,9 +1,14 @@
+<?php session_start(); ?>
 <?php
-
 
 include '../Controller/NoticiaController.php';
 
-//header('Conntent-type: application/json');
+
+$date = new DateTime("2018-06-20", new DateTimeZone('America/Santiago'));
+
+date_default_timezone_set('America/Santiago');
+
+
 
 if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["txtnotica"]) && isset($_FILES['imagen'])){
 
@@ -14,32 +19,36 @@ if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["tx
 
         case '1': //error exceso tamaño de la imagen
 
-          echo "El tamaño de la imagen supera el tamaño permitido";
+          //echo "El tamaño de la imagen supera el tamaño permitido";
+          header("location:ingresarNoticia.php");
 
           break;
 
         case '2'://eror exceso tamaño de archivo
 
-          echo "El tamaño del archivo supera tamaño permitido (post_max_size de php.ini)";
-
+          //echo "El tamaño del archivo supera tamaño permitido (post_max_size de php.ini)";
+          header("location:ingresarNoticia.php");
           break;
 
         case '3':
 
-          echo "El envio se a interrumpido durante durante la transmicion";
-
+          //echo "El envio se a interrumpido durante durante la transmicion";
+          header("location:ingresarNoticia.php");
           break;
 
         case '4': //error no se a enviado el archivo
 
-          echo "El tamaño es nulo o no se a enviado archivo";
-
+        //  echo "El tamaño es nulo o no se a enviado archivo";
+        header("location:ingresarNoticia.php");
           break;
       }
 
     }else {
 
-        echo "No hay errores en la transferencia de archivos. <br/>";
+      //  echo "No hay errores en la transferencia de archivos. <br/>";
+
+    
+
 
         if ((isset($_FILES['imagen']['name']) && ($_FILES['imagen']['error']==UPLOAD_ERR_OK))){
 
@@ -47,11 +56,11 @@ if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["tx
 
             move_uploaded_file($_FILES['imagen']['tmp_name'],$destino_de_ruta.$_FILES['imagen']['name']);
 
-            echo "El archivo".$_FILES['imagen']['name']."Se a copiado en el directorio de imagenes";
+            //echo "El archivo".$_FILES['imagen']['name']."Se a copiado en el directorio de imagenes";
 
         }else {
 
-            echo "El archivo no se a copiado en el directorio de imagenes";
+          //  echo "El archivo no se a copiado en el directorio de imagenes";
 
         }
 
@@ -66,10 +75,14 @@ if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["tx
 
     NoticiaController::ingresarNoticia($noticiaTitulo,$noticiaSecion,$noticiaNoticia,$noticiaImagen,$noticiaFecha);
 
-}else {
-  echo "error";
-}
 
+
+
+}else {
+  //echo "error";
+
+}
+header("location:index.php");
 
 
 ?>

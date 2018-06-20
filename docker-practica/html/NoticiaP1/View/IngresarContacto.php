@@ -1,5 +1,7 @@
+<?php
+session_start();
+if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
-<?php session_start(); ?>
   <?php include('Default/head.php'); ?>
 
     <?php include('Default/menu.php') ?>
@@ -53,3 +55,8 @@
 
 
 <?php include('Default/footer.php') ?>
+<?php
+}else{
+	echo "no se puede ver";
+ }
+?>

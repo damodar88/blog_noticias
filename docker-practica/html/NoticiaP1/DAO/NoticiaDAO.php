@@ -58,7 +58,7 @@ class NoticiaDAO extends Conectar
 
     $contador = 0;
 
-    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,SUBSTRING(noticiaNoticia ,'1','80'),tituloNoticia FROM NOTICIA";
+    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,SUBSTRING(noticiaNoticia ,'1','80'),tituloNoticia FROM NOTICIA ORDER BY fechaNoticia DESC";
 
     self::getConectar();
 

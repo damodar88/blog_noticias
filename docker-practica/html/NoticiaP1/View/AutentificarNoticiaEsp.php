@@ -1,7 +1,11 @@
+<?php session_start(); ?>
 <?php
 
 
 include('../Controller/NoticiaController.php');
+
+
+
 
 //header('Conntent-type: application/json');
 

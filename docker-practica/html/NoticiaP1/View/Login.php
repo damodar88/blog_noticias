@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <?php include('Default/head.php'); ?>
 
 <?php include('Default/Carusel.php') ?>
@@ -18,7 +18,7 @@
           <div class="panel-body">
 
             <form class="" role="form" id="loginform" action="AutentificarLogin.php" method="post">
-              <legend>Login</legend>
+              <legend>Iniciar Sesion</legend>
               <div class="form-group">
                 <label for="">Usuario</label>
                 <input type="text" class="form-control" required autofocus name="txtUsuario" value="" placeholder="Usuario" >
@@ -45,9 +45,9 @@
 
 
 <br>
-
-
-
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>

@@ -19,9 +19,14 @@
         <li class="nav-item">
           <a class="nav-link" href="Contacto.php">Contacto</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Historia.php">Historia</a>
+        </li>
+
+
         <?php if (!isset($_SESSION["usuario"]["nombreUsuario"])) {?>
         <li class="nav-item">
-          <a class="nav-link" href="Login.php">Login</a>
+          <a class="nav-link" href="Login.php">Iniciar-Sesion</a>
         </li>
       <?php }else{ ?>
                     <?php if ($_SESSION["usuario"]["administrador"] === '1') {?>

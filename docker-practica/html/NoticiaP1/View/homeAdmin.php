@@ -1,11 +1,8 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <?php  include 'Default/head.php';?>
 
 <?php
-
-
-if(isset($_SESSION["usuario"]["nombreUsuario"])){
-
+if(isset($_SESSION["usuario"]["nombreUsuario"]) && isset($_SESSION["usuario"]["administrador"])==1){
 ?>
 
 <?php include 'Default/menu.php' ?>
@@ -35,6 +32,5 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){
 
 <?php }  else{
 	echo "no se puede ver";
- }
-
+}
 ?>

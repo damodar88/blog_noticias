@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
 
@@ -23,8 +24,6 @@ include '../Helper/ValidarCampo.php';
 
             $usuario = LoginController::getUsuario($usuario,$password);
 
-            session_start();
-
             $_SESSION["usuario"] = array(
               "ID_USUARIO"              => $usuario->getIdUsuario(),
               "administrador"           => $usuario->getAdministradorUsuario(),
@@ -44,12 +43,11 @@ include '../Helper/ValidarCampo.php';
 
         }
 
+      }
     }
+  $resultado = array("estado"=>"false");
+  return print(json_encode($resultado));
 
-    $resultado = array("estado"=>"false");
-    return print(json_encode($resultado));
-
-  }
 
 
 

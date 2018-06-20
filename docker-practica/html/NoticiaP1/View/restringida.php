@@ -1,8 +1,28 @@
+<?php session_start();?>
+<?php
+if(isset($_SESSION["usuario"]["nombreUsuario"])){
+
+
+echo "<br>******** has echo session *******<br> ";
+
+echo "Usuario---:".$_SESSION["usuario"]["nombreUsuario"];
+echo "<br></br>";
+
+echo "dato usuario---:".$_SESSION["usuario"]["ID_USUARIO"]."<br></br>";
+echo "dato privielegio---:".$_SESSION["usuario"]["administrador"]."<br></br>";
+echo "dato usuario---:".$_SESSION["usuario"]["nombreUsuario"]."<br></br>";
+echo "dato apellidoP---:".$_SESSION["usuario"]["apellidoPaternoUsuario"]."<br></br>";
+echo "dato apellidoM---:".$_SESSION["usuario"]["apellidoMaternoUsuario"]."<br></br>";
+echo "dato usuario---:".$_SESSION["usuario"]["usuarioUsuario"]."<br></br>";
+echo "dato fecha---:".$_SESSION["usuario"]["fechaModificacionUsuario"]."<br></br>";
+echo "dato ocupacion---:".$_SESSION["usuario"]["ocupacionUsuario"]."<br></br>";
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
  <title></title>
- <?php session_start(); ?>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -70,31 +90,12 @@
   </div>
   </div>
 
-	<p></p>
-	 <a href="../Helper/CerarSesion.php" class="btn btn-primary btn-lg">Cerrar Sesion</a>
+  <p></p>
+   <a href="../Helper/CerarSesion.php" class="btn btn-primary btn-lg">Cerrar Sesion</a>
 
 
-<?php
-if(isset($_SESSION["usuario"]["nombreUsuario"])){
 
-session_start();
 
-echo "<br>******** has echo session *******<br> ";
-
-echo "Usuario---:".$_SESSION["usuario"]["nombreUsuario"];
-echo "<br></br>";
-
-echo "dato usuario---:".$_SESSION["usuario"]["ID_USUARIO"]."<br></br>";
-echo "dato privielegio---:".$_SESSION["usuario"]["administrador"]."<br></br>";
-echo "dato usuario---:".$_SESSION["usuario"]["nombreUsuario"]."<br></br>";
-echo "dato apellidoP---:".$_SESSION["usuario"]["apellidoPaternoUsuario"]."<br></br>";
-echo "dato apellidoM---:".$_SESSION["usuario"]["apellidoMaternoUsuario"]."<br></br>";
-echo "dato usuario---:".$_SESSION["usuario"]["usuarioUsuario"]."<br></br>";
-echo "dato fecha---:".$_SESSION["usuario"]["fechaModificacionUsuario"]."<br></br>";
-echo "dato ocupacion---:".$_SESSION["usuario"]["ocupacionUsuario"]."<br></br>";
-
-?>
- <
 <?php
 
  echo "Usuario---:".$_SESSION["usuario"]["nombreUsuario"] ;
@@ -109,7 +110,4 @@ echo "dato ocupacion---:".$_SESSION["usuario"]["ocupacionUsuario"]."<br></br>";
 }else{
 	echo "no se puede ver";
  }
-
-
-
- ?>
+?>

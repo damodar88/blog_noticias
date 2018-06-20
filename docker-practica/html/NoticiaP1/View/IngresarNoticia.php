@@ -1,5 +1,10 @@
-<?php  session_start(); ?>
+<?php
+session_start();
+if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
+
+
 <?php include('Default/head.php'); ?>
+<?php include('Default/Carusel.php') ?>
 
 <?php include('Default/menu.php') ?>
 
@@ -7,32 +12,45 @@
 <br><br>
 
 <form action="AutentificarNoticia.php" method="post" enctype="multipart/form-data" name="form1">
-<table >
+  <table>
   <tr>
     <td>Título:
     <label for="campo_titulo"></label></td>
-  	<td><input type="text" name="txttitulo" id="txttitulo"></td>
+  	<td><input type="text" name="txttitulo" required placeholder="El titulo de su noticia" id="txttitulo"></td>
 	</tr>
 
-	<tr>
-		<td>Seccion:
-    <label for="campo_seccion"></label></td>
-		<td><input type="text" name="txtseccion" id="seccionNoticia"></td>
-	</tr>
 
-  <tr><td>Comentarios:
-    <label for="area_comentarios"></label></td>
-    <td><textarea name="txtnotica" id="txtnotica" rows="10" cols="50"></textarea></td>
+
+  <tr>
+    <td>Seccion:</td>
+    <td>
+    <select class="combobox">
+      <option value="PA">Ciencia</option>
+      <option value="CT">Educacion</option>
+      <option value="NY">Cueltura</option>
+      <option value="MD">Comunidad</option>
+      <option value="VA">Innovacion</option>
+    </select>
+    </td>
+  </tr>
+
+<!--input type="text" name="txtseccion" id="seccionNoticia"-->
+
+
+  <div class="form-group">
+    <tr><td>Noticia:<label for="area_comentarios"></label></td>
+      <td><textarea class="form-control" name="txtnotica" id="txtnotica" required placeholder="La noticia desarrollada" rows="10" cols="50"></textarea></td>
     </tr>
+  </div>
+
+
     <input type="hidden" name="MAX_TAM" value="2097152">
-  <tr>
-  <td colspan="2" align="center">Seleccione una imagen con tamaño inferior a 2 MB</td></tr>
-  <tr>
-    <td colspan="2" align="left"><input type="file" name="imagen" id="imagen"></td>
-    </tr>
     <tr>
-    <td colspan="2" align="center">
-    <input type="submit" name="btn_enviar" id="btn_enviar" value="Enviar"></td></tr>
+      <td colspan="2" align="center">Seleccione una imagen con tamaño inferior a 2 MB</td></tr>
+      <tr>
+        <td colspan="2" align="left"><input class="form-control-file" type="file"  name="imagen" id="imagen"></td>
+      </tr>
+      <tr><td colspan="2" align="center"><input type="submit" name="btn_enviar" class="btn btn-success" id="btn_enviar" value="Enviar"></td></tr>
 
   </table>
 </form>
@@ -115,6 +133,13 @@
 
   <?php } ?>
 
-
+<br>
+<br>
+<br><br><br>
 
 <?php include('Default/footer.php') ?>
+<?php
+}else{
+	echo "no se puede ver";
+ }
+?>

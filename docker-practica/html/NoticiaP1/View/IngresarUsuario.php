@@ -1,11 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
-<?php session_start(); ?>
 
-  <?php include('Default/head.php'); ?>
 
-    <?php  include('Default/menu.php') ?>
+<?php include('Default/head.php'); ?>
+<?php include('Default/menu.php') ?>
 
-<?php include '../Controller/UsuarioController.php' ?>
+<?php include '../Controller/UsuarioController.php';?>
 
 <div class="starter-template">
     <div class="row">
@@ -31,11 +33,10 @@
               </thead>
               <tr>
 
-                <?php $matrizUsuario = UsuarioController::leerUsuario();  ?>
+                <?php $matrizUsuario = UsuarioController::leerUsuario();?>
 
                 <?php
-                 foreach ($matrizUsuario as $usuario):
-                ?>
+                 foreach ($matrizUsuario as $usuario):?>
                  <td><?php echo $usuario["ID_USUARIO"] ?></td>
                  <td><?php echo $usuario["administrador"] ?></td>
                  <td><?php echo $usuario["nombreUsuario"] ?></td>
@@ -49,7 +50,7 @@
                 <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                 <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
               </tr>
-              <?php endforeach ?>
+              <?php endforeach?>
 
               <!--Input enviaran por submit-->
               <tr>
@@ -68,7 +69,7 @@
               </table>
               <tr>
                 <td>
-              <?php require('../Helper/PaginacionUsuario.php'); ?>
+              <?php require('../Helper/PaginacionUsuario.php');?>
                   <!------------------------------------------------------------------------------------------>
               <?php
                   echo     "<!--Paginacion-->";
@@ -77,22 +78,20 @@
                   echo "<ul class='pagination justify-content-center'>";
                   echo "<li class='page-item disabled'>";
                   echo "<a class='page-link' href='#' tabindex='-1'>Previous</a>";
-                  echo "</li>";
-              ?>
+                  echo "</li>";?>
               <?php
                  for ($i=1; $i <= $total_pagina ; $i++) {
 
                   echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
-                }
-              ?>
+                }?>
+
               <?php
                   echo "<li class='page-item'>";
                   echo "<a class='page-link' href='#'>Next</a>";
                   echo "</li>";
                   echo "</ul>";
                   echo "</nav>";
-                  echo "</div>";
-                ?>
+                  echo "</div>";?>
                 </td>
               </tr>
             </form>
@@ -105,3 +104,10 @@
 
 
 <?php include 'Default/footer.php' ?>
+
+
+<?php
+}else{
+  echo "no se puede ver";
+}
+?>
