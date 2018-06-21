@@ -131,6 +131,31 @@
     </div>
     <!-- /.container -->
 
-    <br><br><br><br><br>
+  <form action="AutentificarComentario.php" method="post" enctype="multipart/form-data" name="form1">
+    <table>
+      <tr>
+        <td>Nombre:
+        <label for="campo_titulo"></label></td>
+      	<td><input type="text" name="txttitulo"  placeholder="El titulo de su noticia" id="txttitulo" required/></td>
+    	</tr>
+
+      <div class="form-group">
+        <tr><td>Comentario:<label for="area_comentarios"></label></td>
+          <td><textarea class="form-control" name="txtnotica" id="txtnotica"  placeholder="La noticia desarrollada" rows="10" cols="50" required/></textarea></td>
+        </tr>
+      </div>
+
+      <div class="">
+        <tr>
+          <td><input type="submit" name="btn_enviar" class="btn btn-success" id="btn_enviar" value="Enviar"></td>
+        </tr>
+      </div>
+
+    </table>
+  </form>
+
+
+
+
 
 <?php include('Default/footer.php') ?>

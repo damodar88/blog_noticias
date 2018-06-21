@@ -5,9 +5,8 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
 <?php
 include '../Controller/NoticiaController.php';
-
-$date = new DateTime("2018-06-20", new DateTimeZone('America/Santiago'));
-
+//establecemos el horario de la zona para la fecha noticias
+$date = new DateTime(new DateTimeZone('America/Santiago'));
 date_default_timezone_set('America/Santiago');
 
 if(isset($_POST["txttitulo"]) && isset($_POST["txtseccion"]) && isset($_POST["txtnotica"]) && isset($_FILES['imagen'])){
