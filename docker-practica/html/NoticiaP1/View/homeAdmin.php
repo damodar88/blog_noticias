@@ -26,7 +26,15 @@ if(isset($_SESSION["usuario"]["nombreUsuario"]) && isset($_SESSION["usuario"]["a
   </div>
 
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 <?php include 'Default/footer.php' ?>
 

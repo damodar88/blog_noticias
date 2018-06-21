@@ -34,16 +34,15 @@ class NoticiaController
   }
 
 
-  public static function getNoticiaEspecifica($idNoticia){
+  public static function leerNoticiaEspe(){
 
-    $noticia = new Noticia();
+    $datosNoticia = array();
 
-    $tabla_noticia = NoticiaDAO::getContenidoEspecifico();
+    $datosNoticia = NoticiaDAO::obtenerNoticiaEsp();
 
+    return $datosNoticia;
 
-    return $tabla_noticia;
   }
-
 
 
 

@@ -15,65 +15,56 @@
                <?php
 
                include '../Controller/NoticiaController.php';
-
+               //instancio la clase
                $noticia = new  NoticiaController();
-
+               //ejecuto el metodo que carga my array con valores DB
                $tabla_noticia = $noticia->getNoticia();
 
-               //var_dump($tabla_noticia);
+               //verifico si hay contenido en el array
+               if(empty($tabla_noticia)){
+                        echo "No hay entradas de blog";
+                }else{
+                      //recorro array contenido de la noticia
+                    foreach ($tabla_noticia as $valor) {
+                      // code...getIdNoticia()
+               ?>
 
-               if (empty($tabla_noticia)){
+                  <div class="card mb-4">
 
-                 echo "No hay entradas de blog";
-
-               }else{
-
-                  foreach ($tabla_noticia as $valor) {
-                   // code...getIdNoticia()
-              ?>
-
-                 <div class="card mb-4">
-
-                        <?php
-
-                             if ($valor->getReferenImagenNoticia()=="") {
-
+                    <?php
+                        //cargo la imagen en caso de estar vacia cargo una por defecto
+                        if ($valor->getReferenImagenNoticia()=="") {
                              echo "<img src='imagenes/68.jpg' width='300px' height='200px'/>";
-
-                           }else {
-
-                            ?>
+                          }else {
+                      //si no es vacio cargo la imagen seleccionada
+                    ?>
                            <img class="card-img-top" src="imagenes/<?php echo $valor->getReferenImagenNoticia() ;?>"width='300px' height='400px' alt="Card image cap">
                           <?php } ?>
 
-                     <div class="card-body">
-
-                       <h2 class="card-title"><?php echo "<h1>".$valor->getTituloNoticia()."</h1>"; ?></h2>
-                       <p class="card-text"> <?php  echo "<h4>".$valor->getNoticiaNoticia();"</h4>" ; ?></p>
-                       <p> <?php echo $valor->getSecionNoticia();  ?> </p>
-
-                    <form  action="AutentificarNoticiaEsp.php" method="post">
-                      <?php $id= $valor->getIdNoticia();?>
-                      <?php echo $id; ?>
-                      <output   name="txt"></output>
-                       <button type="submit" class="btn btn-primary" name="button">Leer mas &rarr;</button>
-                    </form>
-
-                     </div>
-                     <div class="card-footer text-muted">
-                       <?php echo $valor->getFechaNoticia();?>
-                     </div>
-                   </div>
-                   <?php
+                    <div class="card-body">
+                        <!--Muestro contenido de noticia titulo -->
+                        <h2 class="card-title"><?php echo "<h1>".$valor->getTituloNoticia()."</h1>"; ?></h2>
+                        <p class="card-text"> <?php  echo "<h4>".$valor->getNoticiaNoticia();"</h4>" ; ?></p>
+                        <p> <?php echo $valor->getSecionNoticia();  ?> </p>
 
 
-                         }
+                          <!--Leo id noticia-->
+                          <?php $id= $valor->getIdNoticia();?>
 
+
+                        <td class="bot"><a href="noticiaEspecifica.php?ID_NOTICIA=<?php  echo $valor->getIdNoticia();?>"><button name="" type="submit" class="btn btn-primary" >Leer mas &rarr;</button></a></td>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        <?php echo $valor->getFechaNoticia();?>
+                    </div>
+                  </div>
+              <?php
+                 }//fin del foreach
                        echo "<br><hr/><br>";
-                       }
+                }//fin del else
 
-                     //}
-                     ?>
+              ?>
 
 
 

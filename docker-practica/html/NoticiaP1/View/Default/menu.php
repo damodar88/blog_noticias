@@ -22,6 +22,9 @@
         <li class="nav-item">
           <a class="nav-link" href="Historia.php">Historia</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" target="_blank" href="mision.php">Misión</a>
+        </li>
 
 
         <?php if (!isset($_SESSION["usuario"]["nombreUsuario"])) {?>

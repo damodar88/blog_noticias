@@ -42,7 +42,6 @@ Finalmente, la Villegas expresó sus agradecimientos a cada uno de los presentes
 <br>
 <br>
 
-
-
+<a href="mision.php">Nuestra mición educativa</a>
 
 <?php include('Default/footer.php') ?>

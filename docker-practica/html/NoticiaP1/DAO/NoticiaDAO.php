@@ -86,25 +86,40 @@ class NoticiaDAO extends Conectar
 
   }
 
-  public static function getContenidoEspecifico(){
+  public static function getContenidoEspecifico($noticia){
 
-    $matriz = array();
-
-    $contador = 0;
-
-    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia,tituloNoticia FROM NOTICIA WHERE :idBuscar = ID_NOTICIA,";
+    $query = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,noticiaNoticia,tituloNoticia FROM NOTICIA WHERE ID_NOTICIA= :idNoticia";
 
     self::getConectar();
 
-    $resultadoInsertar = self::$conectarDB->prepare($query);
+    $resultado = self::$conectarDB->prepare($query);
 
-    $resultadoInsertar->bindParam(":idBuscar",$noticia->get());
+    $resultado->bindParam(":idNoticia",$noticia->getIdNoticia());
 
-    if ($resultadoInsertar->execute()) {
-      return true;
-    }
-      return false;
+    $resultado->execute();
 
+    return $noticia;
+
+  }
+
+  public function obtenerNoticiaEsp(){
+
+    $noticia = array();
+
+    //require_once('../Helper/Paginacion.php');
+
+    self::getConectar();
+
+    $consulta = self::$conectarDB->query("SELECT * FROM NOTICIA");// LIMIT $empezar_desde, $tamano_pagina")
+
+
+      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+
+        $noticia[]=$filas;
+
+      }
+
+    return $noticia;
 
   }
 
@@ -126,6 +141,8 @@ class NoticiaDAO extends Conectar
       return $num_filas;
 
     }
+
+
 
 
 

@@ -16,7 +16,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
   <tr>
     <td>Título:
     <label for="campo_titulo"></label></td>
-  	<td><input type="text" name="txttitulo" required placeholder="El titulo de su noticia" id="txttitulo"></td>
+  	<td><input type="text" name="txttitulo"  placeholder="El titulo de su noticia" id="txttitulo" required/></td>
 	</tr>
 
 
@@ -39,7 +39,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
   <div class="form-group">
     <tr><td>Noticia:<label for="area_comentarios"></label></td>
-      <td><textarea class="form-control" name="txtnotica" id="txtnotica" required placeholder="La noticia desarrollada" rows="10" cols="50"></textarea></td>
+      <td><textarea class="form-control" name="txtnotica" id="txtnotica"  placeholder="La noticia desarrollada" rows="10" cols="50" required/></textarea></td>
     </tr>
   </div>
 
