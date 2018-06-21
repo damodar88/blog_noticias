@@ -45,7 +45,7 @@
                         <!--Muestro contenido de noticia titulo -->
                         <h2 class="card-title"><?php echo "<h1>".$valor->getTituloNoticia()."</h1>"; ?></h2>
                         <p class="card-text"> <?php  echo "<h4>".$valor->getNoticiaNoticia();"</h4>" ; ?></p>
-                        <p> <?php echo $valor->getSecionNoticia();  ?> </p>
+                        <h6><?php echo $valor->getSecionNoticia();  ?></h6>
 
 
                           <!--Leo id noticia-->

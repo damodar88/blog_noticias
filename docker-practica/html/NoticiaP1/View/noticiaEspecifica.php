@@ -49,11 +49,6 @@
                          <h2 class="card-title"><?php echo $noticia["tituloNoticia"]."</h1>"; ?></h2>
                          <p class="card-text"><?php echo $noticia["noticiaNoticia"]."</h4>" ; ?></p>
                          <p> <?php echo $noticia["secionNoticia"]?></p>
-
-
-                           <!--Leo id noticia-->
-                         <td class="bot"><a href="AutentificarNoticiaEsp.php?ID_NOTICIA=<?php  echo $valor->getIdNoticia();?>"><button name="" type="submit" class="btn btn-primary" >Leer mas &rarr;</button></a></td>
-
                      </div>
                      <div class="card-footer text-muted">
                          <?php echo $noticia["fechaNoticia"] ?>
@@ -63,8 +58,6 @@
 
                  <?php  } ?>
 
-                    <td></td>
-                    </tr>
                 <?php endforeach?>
 
 
@@ -138,9 +131,6 @@
     </div>
     <!-- /.container -->
 
-
-
-
-
+    <br><br><br><br><br>
 
 <?php include('Default/footer.php') ?>
