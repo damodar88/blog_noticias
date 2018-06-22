@@ -1,10 +1,11 @@
 <?php session_start(); ?>
 <?php include('Default/head.php'); ?>
 
-<?php include('Default/Carusel.php') ?>
+<?php include('Default/Carusel.php'); ?>
 
-    <?php include('Default/menu.php') ?>
+    <?php include('Default/menu.php'); ?>
 
+<?php include('../Controller/NoticiaController.php');?>
 
     <div class="container">
 
@@ -21,7 +22,7 @@
 
                 <?php
 
-                include '../Controller/NoticiaController.php';
+
                 //instancio la clase
                 $idNoticia=$_GET['ID_NOTICIA'];
 
@@ -131,26 +132,60 @@
     </div>
     <!-- /.container -->
 
-  <form action="AutentificarComentario.php" method="post" enctype="multipart/form-data" name="form1">
+
+    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div>
+
+        <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.0';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+
+    <?php $matrizComentario = NoticiaController::leerComentario();  ?>
+
+    <?php
+    foreach ($matrizComentario as $comentario):
+    ?>
+
+
+      <div class="panel panel-info">
+        <img  src="imagenes/comentario.png" width='40px' height='30px' >
+        <h4 class="card-title"><?php echo $comentario["nombreLector"]."</h1>"; ?></h4>
+        <p class="card-text"><?php echo $comentario["comentarioComentario"];?></p>
+        <?php echo $comentario["fechaComentario"]?>
+
+      </div>
+
+    <?php endforeach?>
+
+
+
+  <form action="AutentificarComentario.php" method="get" enctype="multipart/form-data" name="form1">
     <table>
       <tr>
         <td>Nombre:
         <label for="campo_titulo"></label></td>
-      	<td><input type="text" name="txttitulo"  placeholder="El titulo de su noticia" id="txttitulo" required/></td>
+      	<td><input type="text" name="txtNombre"  placeholder="Nombre"  required/></td>
     	</tr>
-
       <div class="form-group">
         <tr><td>Comentario:<label for="area_comentarios"></label></td>
-          <td><textarea class="form-control" name="txtnotica" id="txtnotica"  placeholder="La noticia desarrollada" rows="10" cols="50" required/></textarea></td>
+          <td><textarea class="form-control" name="txtcomentario" id="txtnotica"  placeholder="El comentario" rows="10" cols="50" required/></textarea></td>
         </tr>
       </div>
-
       <div class="">
         <tr>
-          <td><input type="submit" name="btn_enviar" class="btn btn-success" id="btn_enviar" value="Enviar"></td>
+          <input type="hidden" name="id" value="<?php echo $idNoticia;?>">
+
+        <td class="bot"><a href="AutentificarComentario.php?txtNombre&txtcomentario&id"><button name="" type="submit" class="btn btn-primary" >Comentar</button></a></td>
         </tr>
       </div>
-
     </table>
   </form>
 

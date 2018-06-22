@@ -3,6 +3,7 @@
 include('../Librery/Conectar.php');
 include('../Entidades/Noticia.php');
 include('../Entidades/Usuario.php');
+include('../Entidades/Comentario.php');
 /**
  *
  */
@@ -143,30 +144,28 @@ class NoticiaDAO extends Conectar
     }
 
 
+        public function obtenerComentario(){
 
+          $comentario = array();
 
+          //require_once('../Helper/Paginacion.php');
 
-    /*
-      public function obtenerNoticia(){
+          self::getConectar();
 
-        $region = array();
+          $consulta = self::$conectarDB->query("SELECT ID_LECTOR,nombreLector,ID_COMENTARIO,fechaComentario,LECTOR_ID_LECTOR,NOTICIA_ID_NOTICIA,comentarioComentario
+                                                FROM LECTOR
+                                                INNER JOIN COMENTARIO ON LECTOR_ID_LECTOR = ID_LECTOR
+                                                ORDER BY fechaComentario;"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
 
-        require_once('../Helper/Paginacion.php');
+            while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
 
-        self::getConectar();
+              $comentario[]=$filas;
 
-        $consulta = self::$conectarDB->query("SELECT * FROM REGION ORDER BY numeroRegion LIMIT $tamano_pagina offset $empezar_desde");  // LIMIT $empezar_desde, $tamano_pagina")
+            }
 
-          while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+          return $comentario;
 
-            $region[]=$filas;
-
-          }
-
-        return $region;
-
-      }
-      */
+        }
 
 
  }

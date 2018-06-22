@@ -5,18 +5,22 @@
  *
  */
 class Comentario {
-    
+
     private $idComentario;
     private $fechaComentario;
     private $comentarioComentario;
-    
+    private $idNoticiaComentario;
+    private $idLectorComentario;
 
-    public function __construct($idComentario, $fechaComentario, $comentarioComentario) {
-        $this->idComentario = $idComentario;
-        $this->fechaComentario = $fechaComentario;
-        $this->comentarioComentario = $comentarioComentario;
+
+    public function getIdLectorComentario(){
+      return $this->idLectorComentario;
     }
-    
+
+    public function getIdNoticiaComentario(){
+      return $this->idNoticiaComentario;
+    }
+
     public function getIdComentario() {
         return $this->idComentario;
     }
@@ -41,9 +45,16 @@ class Comentario {
         $this->comentarioComentario = $comentarioComentario;
     }
 
-
-    
-    
-    
+    public function setIdNoticiaComentario($idNoticiaComentario) {
+        $this->idNoticiaComentario = $idNoticiaComentario;
     }
 
+    public function setIdLectorComentario($idLectorComentario) {
+        $this->idLectorComentario = $idLectorComentario;
+    }
+
+
+
+
+
+    }

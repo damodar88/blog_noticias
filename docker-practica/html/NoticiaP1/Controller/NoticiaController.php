@@ -44,14 +44,22 @@ class NoticiaController
 
   }
 
+  public static function leerComentario(){
+
+    $datosComentario = array();
+
+    $datosComentario = NoticiaDAO::obtenerComentario();
+
+    return $datosComentario;
+
+  }
+
+
+
+
 
 
 }
-
-
-
-
-
 
 
  ?>
