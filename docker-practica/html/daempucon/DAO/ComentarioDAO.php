@@ -65,6 +65,26 @@ class ComentarioDAO extends Conectar
 
   }
 
+  public function obtenerLector(){
+
+    $lector = array();
+
+    //require_once('../Helper/Paginacion.php');
+
+    self::getConectar();
+
+    $consulta = self::$conectarDB->query("SELECT * FROM LECTOR"); //$empezar_desde, $tamano_pagina");  // LIMIT $empezar_desde, $tamano_pagina")
+
+      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+
+        $lector[]=$filas;
+
+      }
+
+    return $lector;
+
+  }
+
 
 
 

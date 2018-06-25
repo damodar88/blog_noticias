@@ -7,7 +7,7 @@ include('../DAO/ComentarioDAO.php');
 class ComentarioController
 {
 
-  public static function ingresarComentario($comentario,$idNoticiaComentario,$fechaComentario,$nombreLector)
+  public static function ingresarComentario($fechaComentario,$comentario,$idNoticiaComentario,$nombreLector)
   {
 
     $comentarioIngresar = new Comentario();
@@ -28,6 +28,16 @@ class ComentarioController
     $datosComentario = ComentarioDAO::obtenerComentario();
 
     return $datosComentario;
+
+  }
+
+  public static function leerLector(){
+
+    $datosLector = array();
+
+    $datosLector = ComentarioDAO::obtenerLector();
+
+    return $datosLector;
 
   }
 

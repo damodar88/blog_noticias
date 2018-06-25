@@ -22,11 +22,35 @@ include('../Controller/ComentarioController.php');
 
 
 
+$nombre = $_GET["txtNombre"];
 
-   $nombreLector = (htmlentities(addslashes($_GET["txtNombre"])));
+//array para llenarlo con el contenido de la tabla lector
+$nombreLector = array();
+  //llenamos el array con el contenifo de la tabla lector
+   $matrizLector = ComentarioController::leerLector($nombre);
+   //var_dump($matrizLector);
+
+ if ($matrizLector['nombreLector']==$nombre){
+
+   echo $lector["nombreLector"];
+   //var_dump($nombreLector);
+
+ }
+
+ //}else {
+   //echo "no se encontro";
+ //}
 
 
 
+  //var_dump($idLector);
+
+
+   //$nombreLector = (htmlentities(addslashes($_GET["txtNombre"])));
+
+
+
+   /*
   //establesemos la zona horaria para el ingreso de fechas
   $date = new DateTime("2018-06-20", new DateTimeZone('America/Santiago'));
   date_default_timezone_set('America/Santiago');
@@ -50,6 +74,6 @@ include('../Controller/ComentarioController.php');
   }else {
     echo "error";
   }
-
+  */
 
 ?>
