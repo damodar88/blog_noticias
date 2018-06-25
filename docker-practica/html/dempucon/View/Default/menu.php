@@ -4,13 +4,13 @@
 <!-- Navigation -->
 <!--fixed-top-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-  <div class="container">
-    <a class="navbar-brand" href="#">Noticias Escuelas Municipales</a>
+  <!--div class="container" -->
+    <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
+      <ul class="nav navbar-nav navbar-left"> <!-- -->
         <li class="nav-item active">
           <a class="nav-link" href="index.php">Inicio
             <span class="sr-only">(current)</span>
@@ -25,13 +25,11 @@
         <li class="nav-item">
           <a class="nav-link" target="_blank" href="mision.php">Misión</a>
         </li>
-
-
         <?php if (!isset($_SESSION["usuario"]["nombreUsuario"])) {?>
         <li class="nav-item">
           <a class="nav-link" href="Login.php">Iniciar-Sesion</a>
         </li>
-      <?php }else{ ?>
+        <?php }else{ ?>
                     <?php if ($_SESSION["usuario"]["administrador"] === '1') {?>
 
                       <li class="nav-item">
@@ -55,13 +53,11 @@
                     <?php } ?>
 
 
-        <li class="nav-item">
-          <a class="nav-link" href="../Helper/CerarSesion.php">Salir</a>
+          <li class="nav-item">
+            <a class="nav-link" href="../Helper/CerarSesion.php">Salir</a>
         </li>
-
-
-      <?php } ?>
+         <?php } ?>
       </ul>
     </div>
-  </div>
+  <!--/div-->
 </nav>

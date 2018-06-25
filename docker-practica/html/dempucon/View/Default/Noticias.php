@@ -117,48 +117,41 @@
            </div>
          </div>
 
+
          <!-- Categories Widget -->
          <div class="card my-4">
-           <h5 class="card-header">Categorias</h5>
+           <h5 class="card-header">Informacion</h5>
            <div class="card-body">
              <div class="row">
                <div class="col-lg-6">
-                 <ul class="list-unstyled mb-0">
-                   <li>
-                     <a href="#">Educacion</a>
-                   </li>
-                   <li>
-                     <a href="#">Ciencia</a>
-                   </li>
-                   <li>
-                     <a href="#">Cultura</a>
-                   </li>
-                 </ul>
+
+              <div class="container">
+                 <img src="imagenesContacto/mineduc.jpg" width='300px' height='100px' alt="Card image cap" onClick="openWinMineduc();">
                </div>
-               <div class="col-lg-6">
-                 <ul class="list-unstyled mb-0">
-                   <li>
-                     <a href="#">Escuelas</a>
-                   </li>
-                   <li>
-                     <a href="#">Logros</a>
-                   </li>
-                   <li>
-                     <a href="#">Tutoriales</a>
-                   </li>
-                 </ul>
+
+               <div class="container">
+                 <img src="imagenesContacto/municipalidad.jpg" width='300px' height='100px' alt="Card image cap" onClick="openWinMunicipalidad()" >
                </div>
+
+               <div class="container">
+                 <img src="imagenesContacto/registrocivil.png" width='300px' height='100px' alt="Card image cap" onClick="openWinRegistro()" >
+               </div>
+
+               <div class="container">
+                   <img src="imagenesContacto/notaria.jpg" width='300px' height='100px' alt="Card image cap"  onClick="openWinNotaria()">
+               </div>
+
+               <div class="container">
+                   <img src="imagenesContacto/fiscalia.jpg" width='300px' height='100px' alt="Card image cap"  onClick="openWinFiscalia()">
+               </div>
+
+
              </div>
            </div>
          </div>
 
          <!-- Side Widget -->
-         <div class="card my-4">
-           <h5 class="card-header">Sitio de noticias</h5>
-           <div class="card-body">
-             Sito de noticias creado por la municipalidad para las escuelas de la comuna para fomentar la comunicacion con la zona.
-           </div>
-         </div>
+        
 
        </div>
 
@@ -167,3 +160,5 @@
 
    </div>
    <!-- /.container -->
+
+</div>
