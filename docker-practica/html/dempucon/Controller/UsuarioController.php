@@ -21,13 +21,17 @@ class UsuarioController
 
   }
 
+  public static function eliminarUsuario($idUsuario){
+
+    $usuarioEliminar = new Usuario();
+    $usuarioEliminar->setIdUsuario($idUsuario);
+
+    return UsuarioDAO::borrarUsuario($usuarioEliminar);
+
+  }
 
 
 }
-
-
-
-
 
 
 

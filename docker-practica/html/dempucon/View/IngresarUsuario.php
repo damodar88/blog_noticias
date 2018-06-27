@@ -47,8 +47,8 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                  <td><?php echo $usuario["fechaModificacionUsuario"]?></td>
                  <td><?php echo $usuario["ocupacionUsuario"]?></td>
                   <td></td>
-                <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
-                <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
+                <td class="bot"><a href="EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
+                <td class="bot"><a href="ingresarUsuario/EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
               </tr>
               <?php endforeach?>
 
@@ -100,6 +100,13 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
     </div>
   </div>
 </div>
+
+
+<br>
+<br><br><br><br>
+
+<br>
+<br><br><br><br>
 
 
 

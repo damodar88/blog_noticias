@@ -133,6 +133,26 @@ class UsuarioDAO extends Conectar
 
     }
 
+
+
+
+    public static function borrarUsuario($usuarioEliminar){
+
+
+        $query = "DELETE FROM `mydb`.`USUARIO` WHERE `ID_USUARIO`=:idUsuario";
+
+        self::getConectar();
+
+        $resultado = self::$conectarDB->prepare($query);
+
+        $resultado->bindParam(":idUsuario",$usuarioEliminar->getIdUsuario());
+
+        $resultado->execute();
+
+          //$numeroRegistro = $resultado->rowCount()
+
+    }
+
     public static function paginacionUsuario(){
 
       $sql_total = "SELECT * FROM USUARIO";

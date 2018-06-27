@@ -17,7 +17,7 @@ class Usuario {
     private $ocupacionUsuario;
 
 
-    public function getIdUsuario(){
+public function getIdUsuario(){
   return $this->idUsuario;
 }
 
