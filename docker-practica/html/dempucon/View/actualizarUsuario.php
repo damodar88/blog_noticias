@@ -34,6 +34,9 @@ echo "<br>";
 var_dump($ocupacion);
 echo "<br>";
 
+
+
+
   //me sercioro de que no vengan vacios
   if(isset($_GET['ID_USUARIO'])
   & isset($_GET["administrador"])

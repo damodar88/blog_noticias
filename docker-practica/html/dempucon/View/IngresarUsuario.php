@@ -37,15 +37,15 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
                 <?php
                  foreach ($matrizUsuario as $usuario):?>
-                 <td><?php echo $usuario["ID_USUARIO"] ?></td>
-                 <td><?php echo $usuario["administrador"] ?></td>
-                 <td><?php echo $usuario["nombreUsuario"] ?></td>
-                 <td><?php echo $usuario["apellidoPaternoUsuario"]?></td>
-                 <td><?php echo $usuario["apellidoMaternoUsuario"]?></td>
-                 <td><?php echo $usuario["usuarioUsuario"]?></td>
-                 <td><?php echo $usuario["passwordUsuario"]?></td>
-                 <td><?php echo $usuario["fechaModificacionUsuario"]?></td>
-                 <td><?php echo $usuario["ocupacionUsuario"]?></td>
+                 <td><input type="text" name=""  size="1" value="<?php echo $usuario["ID_USUARIO"] ?>" ></td>
+                 <td><input type="text" name=""  size="1" value="<?php echo $usuario["administrador"] ?>" ></td>
+                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["nombreUsuario"] ?>" ></td>
+                 <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoPaternoUsuario"]?>" ></td>
+                 <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoMaternoUsuario"]?>" ></td>
+                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["usuarioUsuario"]?>" ></td>
+                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["passwordUsuario"]?>" ></td>
+                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["fechaModificacionUsuario"]?>" ></td>
+                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["ocupacionUsuario"]?>" ></td>
                   <td></td>
                 <td class="bot"><a href="EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                 <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
