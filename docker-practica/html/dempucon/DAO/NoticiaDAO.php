@@ -144,7 +144,7 @@ class NoticiaDAO extends Conectar
     }
 
 
-        public function obtenerComentario(){
+    public function obtenerComentario(){
 
           $comentario = array();
 
@@ -165,7 +165,51 @@ class NoticiaDAO extends Conectar
 
           return $comentario;
 
-        }
+    }
+
+
+
+
+
+  public static function borrarNoticia($eliminarNoticia){
+
+  $query = "DELETE FROM `mydb`.`NOTICIA` WHERE `ID_NOTICIA`=:idNoticia";
+
+  self::getConectar();
+
+  $resultado = self::$conectarDB->prepare($query);
+
+  $resultado->bindParam(":idNoticia",$eliminarNoticia->getIdNoticia());
+
+  $resultado->execute();
+
+              //$numeroRegistro = $resultado->rowCount();
+
+
+    if ($resultado->rowCount() > 0) {
+
+        $fila = $resultado->fetch();
+
+            if ($fila["idNoticia"] == $eliminarNoticia->getIdNoticia()){
+                  return true;
+            }
+                return false;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  }
