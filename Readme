@@ -1,10 +1,10 @@
 
 apache 2.4.10
-mysql 5.
+mysql 5.5
 php 5.6
 
 
-
+cd /blog_noticias
 docker-compose up -d
 docker-compose exec mysql sh
 #mysql -u root -p
