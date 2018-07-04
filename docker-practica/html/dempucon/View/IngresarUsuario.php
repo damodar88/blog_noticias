@@ -38,7 +38,36 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                 <?php
                  foreach ($matrizUsuario as $usuario):?>
                  <td><input type="text" name=""  size="1" value="<?php echo $usuario["ID_USUARIO"] ?>" ></td>
-                 <td><input type="text" name=""  size="1" value="<?php echo $usuario["administrador"] ?>" ></td>
+                 <td>
+                   <select class="" name="">
+
+                     <option value="">
+                       <?php
+
+                       if ($usuario["administrador"] == 1) {
+
+                           echo "Admin";
+                           echo "<option value='2'>No admin  </option>";
+
+                       }else {
+                           echo "No admin";
+                           echo "<option value='2'>Admin  </option>";
+                       }
+
+                       ?>
+
+
+
+                     </option>
+
+
+
+
+                   </select>
+
+
+                 </td>
+                 <!--td><input type="text" name=""  size="1" value="<?php //echo $usuario["administrador"] ?>" ></td-->
                  <td><input type="text" name=""  size="7" value="<?php echo $usuario["nombreUsuario"] ?>" ></td>
                  <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoPaternoUsuario"]?>" ></td>
                  <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoMaternoUsuario"]?>" ></td>
