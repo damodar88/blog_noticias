@@ -20,3 +20,7 @@ function openWinMunicipalidad() {
 function openWinFiscalia() {
     myWindow = window.open("http://www.fiscaliadechile.cl/Fiscalia/fiscalias_araucania/noticias_det.do?id=1789", "https://www.mineduc.cl", "width=800,height=1000");   // Opens a new window
 }
+
+function openWinMision() {
+    myWindow = window.open("http://docs.google.com/gview?url=http://www.municipalidadpucon.cl/wp-content/uploads/2016/01/PADEM2015.pdf&embedded=true");   // Opens a new window
+}

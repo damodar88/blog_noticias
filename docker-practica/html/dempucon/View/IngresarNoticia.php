@@ -88,13 +88,24 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
     <?php foreach ($tabla_noticia as $valor){ ?>
 
       <tr>
+        <td><?php echo $valor->getIdNoticia();?></td>
         <td><?php echo $valor->getReferenImagenNoticia();?></td>
         <td><?php echo $valor->getTituloNoticia();?></td>
         <td><?php echo $valor->getNoticiaNoticia();?></td>
         <td><?php echo $valor->getSecionNoticia();?></td>
         <td><?php echo $valor->getFechaNoticia();?></td>
-        <td class="bot"><a href="borrar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
-        <td class="bot"><a href="editar.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
+
+        <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
+        <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
+          & administrador=<?php echo $usuario["administrador"] ?>
+          & nombreUsuario=<?php echo $usuario["nombreUsuario"]?>
+          & apellidoPaternoUsuario= <?php echo $usuario["apellidoPaternoUsuario"]?>
+          & apellidoMaternoUsuario=<?php $usuario["apellidoMaternoUsuario"]?>
+          & usuarioUsuario = <?php echo $usuario["usuarioUsuario"]?>
+          & passwordUsuario=<?php echo $usuario["passwordUsuario"]?>
+          & fechaModificacionUsuario=<?php echo $usuario["fechaModificacionUsuario"]?>
+          & ocupacionUsuario=<?php echo $usuario["ocupacionUsuario"]?>
+          "> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
       </tr>
 
     <?php } ?>

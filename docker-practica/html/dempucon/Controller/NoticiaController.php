@@ -55,6 +55,14 @@ class NoticiaController
   }
 
 
+  public static function eliminarNoticia($idNoticia){
+
+    $eliminarNoticia = new Usuario();
+    $eliminarNoticia->setIdUsuario($idNoticia);
+
+    return NoticiaDAO::borrarNoticia($eliminarNoticia);
+
+  }
 
 
 

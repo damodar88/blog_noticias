@@ -7,7 +7,7 @@
 
 
 
-    <table  class="table">
+  <table  class="table" ALIGN="LEFT">
   <thead>
     <tr>
       <th>Escuela</th>

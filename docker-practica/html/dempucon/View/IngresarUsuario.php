@@ -48,7 +48,16 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                  <td><?php echo $usuario["ocupacionUsuario"]?></td>
                   <td></td>
                 <td class="bot"><a href="EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
-                <td class="bot"><a href="ingresarUsuario/EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?> & nom=<?php echo $usuario["nombreUsuario"]?>& ape= <?php echo $usuario["apellidoPaternoUsuario"]?> & dir=<?php $usuario["apellidoMaternoUsuario"]?>"> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
+                <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
+                  & administrador=<?php echo $usuario["administrador"] ?>
+                  & nombreUsuario=<?php echo $usuario["nombreUsuario"]?>
+                  & apellidoPaternoUsuario= <?php echo $usuario["apellidoPaternoUsuario"]?>
+                  & apellidoMaternoUsuario=<?php $usuario["apellidoMaternoUsuario"]?>
+                  & usuarioUsuario = <?php echo $usuario["usuarioUsuario"]?>
+                  & passwordUsuario=<?php echo $usuario["passwordUsuario"]?>
+                  & fechaModificacionUsuario=<?php echo $usuario["fechaModificacionUsuario"]?>
+                  & ocupacionUsuario=<?php echo $usuario["ocupacionUsuario"]?>
+                  "> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
               </tr>
               <?php endforeach?>
 

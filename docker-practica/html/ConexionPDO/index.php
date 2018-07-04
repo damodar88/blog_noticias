@@ -17,7 +17,7 @@
     //require_once('controller/RegionController.php');
 
     //CREUD USUARIO
-    //require_once('controller/Usuario_controller.php');
+    require_once('controller/Usuario_controller.php');
 
     //Lectura Noticia
     //require_once('controller/NoticiaControler.php');
