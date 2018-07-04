@@ -76,6 +76,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
     <table class="table" align="center">
     <tr>
+      <td class="primera fila">id </td>
       <td class="primera fila">Imagen</td>
       <td class="primera fila">Titulo</td>
       <td class="primera fila">Noticia</td>
@@ -90,21 +91,22 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
       <tr>
         <td><?php echo $valor->getIdNoticia();?></td>
         <td><?php echo $valor->getReferenImagenNoticia();?></td>
-        <td><?php echo $valor->getTituloNoticia();?></td>
-        <td><?php echo $valor->getNoticiaNoticia();?></td>
-        <td><?php echo $valor->getSecionNoticia();?></td>
+        <td><input type="text" name="" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
+        <td><input type="text" name="" value="<?php echo $valor->getNoticiaNoticia();?>"> </td>
+        <td>
+        <select class="combobox" name="txtseccion">
+          <option value=""><?php echo $valor->getSecionNoticia();?></option>
+          <option value="Ciencia">Ciencia</option>
+          <option value="Educacion">Educacion</option>
+          <option value="Cultura">Cultura</option>
+          <option value="Comunidad">Comunidad</option>
+          <option value="Innovacion">Innovacion</option>
+        </select>
+        </td>
         <td><?php echo $valor->getFechaNoticia();?></td>
 
         <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
-        <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
-          & administrador=<?php echo $usuario["administrador"] ?>
-          & nombreUsuario=<?php echo $usuario["nombreUsuario"]?>
-          & apellidoPaternoUsuario= <?php echo $usuario["apellidoPaternoUsuario"]?>
-          & apellidoMaternoUsuario=<?php $usuario["apellidoMaternoUsuario"]?>
-          & usuarioUsuario = <?php echo $usuario["usuarioUsuario"]?>
-          & passwordUsuario=<?php echo $usuario["passwordUsuario"]?>
-          & fechaModificacionUsuario=<?php echo $usuario["fechaModificacionUsuario"]?>
-          & ocupacionUsuario=<?php echo $usuario["ocupacionUsuario"]?>
+        <td class="bot"><a href="actualizarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>
           "> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
       </tr>
 
@@ -112,7 +114,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
     <tr>
       <!--input Region-->
-      <td><input type="text" name="txtnombreRegion" size="10" class="centrado"></td>
+      <td></td>
       <td><input type="text" name="txtnombreRegion" size="10" class="centrado"></td>
       <td><input type="text" name="txtnombreRegion" size="10" class="centrado"></td>
       <td><input type="text" name="txtnumeroRegion" size="10" class="centrado"></td>

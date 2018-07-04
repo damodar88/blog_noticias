@@ -61,7 +61,22 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                 <td><input type="text" name="txtnombreEscuela" size="7" class="centrado"></td>
                 <td><input type="text" name="txtnombrecodigoEscuela" size="7" class="centrado"></td>
                 <td><input type="text" name="txtnombreRegion" size="7" class="centrado"></td>
-                <td><input type="text" name="txtnumeroRegion" size="7" class="centrado"></td>
+                <td>
+                  <select class="" name="">
+                    <option value="1">I</option>
+                    <option value="2">II</option>
+                    <option value="3">III</option>
+                    <option value="4">IV</option>
+                    <option value="5">V</option>
+                    <option value="6">VI</option>
+                    <option value="7">VII</option>
+                    <option value="8">VIII</option>
+                    <option value="9">IX</option>
+                    <option value="10">X</option>
+                    <option value="11">XI</option>
+                    <option value="12">XII</option>
+                  </select>
+                </td>
                 <td><input type="text" name="txtcomunaRegion" size="7" class="centrado"></td>
                 <td><input type="text" name="txtnombreCiudad" size="7" class="centrado"></td>
                 <td><input type="text" name="txtlocalidadCiudad" size="7" class="centrado"></td>

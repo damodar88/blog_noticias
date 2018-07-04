@@ -37,7 +37,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
                 <?php
                  foreach ($matrizUsuario as $usuario):?>
-                 <td><input type="text" name=""  size="1" value="<?php echo $usuario["ID_USUARIO"] ?>" ></td>
+                 <td><?php echo $usuario["ID_USUARIO"] ?></td>
                  <td>
                    <select class="" name="">
 
@@ -51,17 +51,12 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
                        }else {
                            echo "No admin";
-                           echo "<option value='2'>Admin  </option>";
+                           echo "<option value='1'>Admin  </option>";
                        }
 
                        ?>
 
-
-
                      </option>
-
-
-
 
                    </select>
 
@@ -73,9 +68,8 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                  <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoMaternoUsuario"]?>" ></td>
                  <td><input type="text" name=""  size="7" value="<?php echo $usuario["usuarioUsuario"]?>" ></td>
                  <td><input type="text" name=""  size="7" value="<?php echo $usuario["passwordUsuario"]?>" ></td>
-                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["fechaModificacionUsuario"]?>" ></td>
+                 <td><?php echo $usuario["fechaModificacionUsuario"]?></td>
                  <td><input type="text" name=""  size="7" value="<?php echo $usuario["ocupacionUsuario"]?>" ></td>
-                  <td></td>
                 <td class="bot"><a href="EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                 <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
                   & administrador=<?php echo $usuario["administrador"] ?>
@@ -93,13 +87,17 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
               <!--Input enviaran por submit-->
               <tr>
                 <!--input Region-->
-                <td><input type="text" name="txtAdministrador" size="7" class="centrado"></td>
+                <td></td>
+                <td><select class="" name="">
+                  <option value="2">No admin</option>
+                  <option value="1">Admin</option>
+                </select></td>
                 <td><input type="text" name="txtNombre" size="7" class="centrado"></td>
                 <td><input type="text" name="txtApellidoP" size="7" class="centrado"></td>
                 <td><input type="text" name="txtApellidoM" size="7" class="centrado"></td>
                 <td><input type="text" name="txtUsuario" size="7" class="centrado"></td>
                 <td><input type="text" name="txtPassword" size="7" class="centrado"></td>
-                <td><input type="text" name="txtFechaMod" size="7" class="centrado"></td>
+                <td></td>
                 <td><input type="text" name="txtOcupacion" size="7" class="centrado"></td>
                 <td class="bot"><button type="submit" class="btn btn-success" name="button">Insertar</button> </td>
               </tr>
