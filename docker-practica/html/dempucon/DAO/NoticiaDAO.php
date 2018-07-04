@@ -183,31 +183,9 @@ class NoticiaDAO extends Conectar
 
   $resultado->execute();
 
-              //$numeroRegistro = $resultado->rowCount();
+  //$numeroRegistro = $resultado->rowCount();
 
-
-    if ($resultado->rowCount() > 0) {
-
-        $fila = $resultado->fetch();
-
-            if ($fila["idNoticia"] == $eliminarNoticia->getIdNoticia()){
-                  return true;
-            }
-                return false;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 
 
 

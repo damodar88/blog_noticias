@@ -20,6 +20,10 @@ if(isset($_GET['ID_NOTICIA'])){
     //ejecuto el metodo mandando datos a contolador
     NoticiaController::eliminarNoticia($idNoticia);
 
+    //redirige a index
+    echo "<script> location.replace('IngresarNoticia.php');</script>";
+
+
   }else {
     echo "error";
 
@@ -27,4 +31,4 @@ if(isset($_GET['ID_NOTICIA'])){
 
 
 
- ?>
+?>

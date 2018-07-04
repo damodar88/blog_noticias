@@ -151,7 +151,7 @@ class UsuarioDAO extends Conectar
 
           //$numeroRegistro = $resultado->rowCount();
 
-
+          /*
           if ($resultado->rowCount() > 0) {
 
               $fila = $resultado->fetch();
@@ -162,7 +162,7 @@ class UsuarioDAO extends Conectar
 
             return false;
 
-          }
+          }*/
 
 
 
