@@ -17,7 +17,7 @@ $titulo=$_GET['titulo'];
 $noticia=$_GET['noticia'];
 $seccion=$_GET['seccion'];
 $usuarioI=$_SESSION["usuario"]["ID_USUARIO"];
-
+/*
 echo "El ID_Noticia es ---------:";
 var_dump($idNoticia);
 echo "<br>";
@@ -30,10 +30,15 @@ echo "<br>";
 var_dump($seccion);
 echo "<br>";
 var_dump($usuarioI);
+*/
 
-/*
   //me sercioro de que no vengan vacios
-if(isset($_GET['ID_NOTICIA']) & isset($_GET['referenciaImagen']) & isset($_GET['titulo']) & isset($_GET['noticia']) & isset($_GET['seccion'])){
+if(isset($_GET['ID_NOTICIA'])
+  && isset($_GET['referenciaImagen'])
+  && isset($_GET['titulo'])
+  && isset($_GET['noticia'])
+  && isset($_GET['seccion'])
+  && isset($_SESSION["usuario"]["ID_USUARIO"])){
 
     //absorbo en bariables lo que viene por POST de la vista
     $idNoticia=(htmlentities(addslashes($_GET['ID_NOTICIA'])));
@@ -48,15 +53,16 @@ if(isset($_GET['ID_NOTICIA']) & isset($_GET['referenciaImagen']) & isset($_GET['
     //ejecuto el metodo mandando datos a contolador
     NoticiaController::modificarNoticia($idNoticia,$refImagen,$titulo,$noticia,$seccion,$noticiaFecha,$noticiaIdusuario);
 
-    echo "<script> location.replace('IngresarNoticia.php'); </script>";
+    //echo "<script> location.replace('IngresarNoticia.php'); </script>";
 
-
+    echo "salio bien";
   }else {
-  echo "<script> location.replace('index.php'); </script>";
+  //echo "<script> location.replace('index.php'); </script>";
+  echo "error";
 
   }
 
-*/
+
 
 ?>
 

@@ -89,28 +89,29 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
     <?php foreach ($tabla_noticia as $valor){ ?>
 
 <form class="" action="actualizarNoticia.php" method="get">
+
+
       <tr>
-        <td><?php echo $valor->getIdNoticia();?></td>
-        <td><?php echo $valor->getReferenImagenNoticia();?></td>
+        <td> <input type="text" name="ID_NOTICIA" value="<?php echo $valor->getIdNoticia();?>" size="1" readonly> </td>
+        <td><input type="text" name="referenciaImagen" value="<?php echo $valor->getReferenImagenNoticia();?>" size="8" > </td>
         <td><input type="text" name="titulo" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
         <td><input type="text" name="noticia" value="<?php echo $valor->getNoticiaNoticia();?>"> </td>
         <td>
-        <select class="combobox" name="seccion">
-          <option value=""><?php echo $valor->getSecionNoticia();?></option>
-          <option value="Ciencia">Ciencia</option>
-          <option value="Educacion">Educacion</option>
-          <option value="Cultura">Cultura</option>
-          <option value="Comunidad">Comunidad</option>
-          <option value="Innovacion">Innovacion</option>
-        </select>
+          <select class="combobox" name="seccion">
+            <option value="<?php echo $valor->getSecionNoticia();?>"><?php echo $valor->getSecionNoticia();?></option>
+            <option value="Ciencia">Ciencia</option>
+            <option value="Educacion">Educacion</option>
+            <option value="Cultura">Cultura</option>
+            <option value="Comunidad">Comunidad</option>
+            <option value="Innovacion">Innovacion</option>
+          </select>
         </td>
         <td><?php echo $valor->getFechaNoticia();?></td>
-
         <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
 
         <td class="bot"><a href="actualizarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>">
-
-      <input type="submit" value="Enviar" /></a></td>
+        <button type="submit" class="btn btn-success">Enviar</button>
+      <!--<input type="button" value="Enviar" class="btn btn-success" size="2"/>--></a></td>
 </form>
 
 
