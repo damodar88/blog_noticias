@@ -88,13 +88,14 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
     <?php foreach ($tabla_noticia as $valor){ ?>
 
+<form class="" action="actualizarNoticia.php" method="get">
       <tr>
         <td><?php echo $valor->getIdNoticia();?></td>
         <td><?php echo $valor->getReferenImagenNoticia();?></td>
-        <td><input type="text" name="" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
-        <td><input type="text" name="" value="<?php echo $valor->getNoticiaNoticia();?>"> </td>
+        <td><input type="text" name="titulo" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
+        <td><input type="text" name="noticia" value="<?php echo $valor->getNoticiaNoticia();?>"> </td>
         <td>
-        <select class="combobox" name="txtseccion">
+        <select class="combobox" name="seccion">
           <option value=""><?php echo $valor->getSecionNoticia();?></option>
           <option value="Ciencia">Ciencia</option>
           <option value="Educacion">Educacion</option>
@@ -106,8 +107,13 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
         <td><?php echo $valor->getFechaNoticia();?></td>
 
         <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
-        <td class="bot"><a href="actualizarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>
-          "> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
+
+        <td class="bot"><a href="actualizarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>">
+
+      <input type="submit" value="Enviar" /></a></td>
+</form>
+
+
       </tr>
 
     <?php } ?>

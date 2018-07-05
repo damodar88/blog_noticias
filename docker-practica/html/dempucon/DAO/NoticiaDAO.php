@@ -187,6 +187,34 @@ class NoticiaDAO extends Conectar
 
   }
 
+  public static function actualizarNoticia($modificarNoticia){
+
+  $query = "UPDATE `mydb`.`NOTICIA` SET `referenciaImagenNoticia`=':refImagen',
+                                        `fechaNoticia`=':fecha',
+                                        `secionNoticia`=':seccion',
+                                        `noticiaNoticia`=':noticia',
+                                        `tituloNoticia`=':titulo',
+                                        `USUARIO_ID_USUARIO`=':idUsuario'
+                                        WHERE `ID_NOTICIA`=':idNoticia'";
+
+  self::getConectar();
+
+  $resultado = self::$conectarDB->prepare($query);
+
+  $resultado->bindParam(":idNoticia",$modificarNoticia->getIdNoticia());
+  $resultado->bindParam(":refImagen",$modificarNoticia->getReferenImagenNoticia());
+  $resultado->bindParam(":noticia",$modificarNoticia->getNoticiaNoticia());
+  $resultado->bindParam(":fecha",$modificarNoticia->getFechaNoticia());
+  $resultado->bindParam(":seccion",$modificarNoticia->getSecionNoticia());
+  $resultado->bindParam(":titulo",$modificarNoticia->getTituloNoticia());
+  $resultado->bindParam(":idUsuario",$modificarNoticia->getUsuarioIdUsuario());
+
+  $resultado->execute();
+
+  //$numeroRegistro = $resultado->rowCount();
+
+  }
+
 
 
 

@@ -65,6 +65,23 @@ class NoticiaController
   }
 
 
+  public static function modificarNoticia($idNoticia,$refImagen,$titulo,$noticia,$seccion,$noticiaFecha,$noticiaIdusuario){
+
+    $modificarNoticia = new Noticia();
+    $modificarNoticia->setIdNoticia($idNoticia);
+    $modificarNoticia->setTituloNoticia($titulo);
+    $modificarNoticia->setReferenImagenNoticia($refImagen);
+    $modificarNoticia->setNoticiaNoticia($noticia);
+    $modificarNoticia->setFechaNoticia($noticiaFecha);
+    $modificarNoticia->setSecionNoticia($seccion);
+    $modificarNoticia->setUsuarioIdUsuario($noticiaIdusuario);
+
+
+    return NoticiaDAO::actualizarNoticia($modificarNoticia);
+
+  }
+
+
 
 
 }
