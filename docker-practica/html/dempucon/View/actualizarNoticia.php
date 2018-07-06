@@ -10,20 +10,20 @@ $date = new DateTime('1024' ,new DateTimeZone('America/Santiago'));
 date_default_timezone_set('America/Santiago');
 
 
+$ref_Imagen=$_FILES["img"]['name'];
 
-$idNoticia=$_GET['ID_NOTICIA'];
-$refImagen=$_FILES['imagen'];
-$nombreImagen=$_GET['nombreImagen'];
-$titulo=$_GET['titulo'];
-$noticia=$_GET['noticaNoticia'];
-$seccion=$_GET['seccion'];
+$idNoticia=$_POST['ID_NOTICIA'];
+$nombreImagen=$_POST['nombreImagen'];
+$titulo=$_POST['titulo'];
+$noticia=$_POST['noticaNoticia'];
+$seccion=$_POST['seccion'];
 $usuarioI=$_SESSION["usuario"]["ID_USUARIO"];
 
 echo "El ID_Noticia es --:";
 var_dump($idNoticia);
 echo "<br>";
 echo "imagen adjunta--:";
-var_dump($refImagen);
+var_dump($ref_Imagen);
 echo "<br>";
 echo "imagen nombre--:";
 var_dump($nombreImagen);
@@ -40,14 +40,14 @@ echo "<br>";
 echo "usuario id Foranea--:";
 var_dump($usuarioI);
 
-/*
+
   //me sercioro de que no vengan vacios
-if(isset($_GET['ID_NOTICIA'])
-  && isset($_FILES['imagen'])
-  && isset($_GET['titulo'])
-  && isset($_GET['noticia'])
-  && isset($_GET['seccion'])
-  && isset($_SESSION["usuario"]["ID_USUARIO"])){
+if(isset($_FILES["img"])
+&& isset($_POST['ID_NOTICIA'])
+&& isset($_POST['titulo'])
+&& isset($_POST['noticaNoticia'])
+&& isset($_POST['seccion'])){
+
 
     //absorbo en bariables lo que viene por POST de la vista
     $idNoticia=(htmlentities(addslashes($_GET['ID_NOTICIA'])));
@@ -61,16 +61,17 @@ if(isset($_GET['ID_NOTICIA'])
 
     //ejecuto el metodo mandando datos a contolador
     NoticiaController::modificarNoticia($idNoticia,$refImagen,$titulo,$noticia,$seccion,$noticiaFecha,$noticiaIdusuario);
-
+     
     //echo "<script> location.replace('IngresarNoticia.php'); </script>";
-
-    echo "salio bien";
+    echo "<br>";
+    echo "--salio bien";
   }else {
   //echo "<script> location.replace('index.php'); </script>";
-  echo "error";
+  echo "<br>";
+  echo "--error";
 
   }
-*/
+
 
 
 ?>
