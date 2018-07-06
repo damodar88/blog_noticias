@@ -13,29 +13,24 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
 <form action="AutentificarNoticia.php" method="post" enctype="multipart/form-data" name="form1">
   <table>
-  <tr>
-    <td>Título:
-    <label for="campo_titulo"></label></td>
-  	<td><input type="text" name="txttitulo"  placeholder="El titulo de su noticia" id="txttitulo" required/></td>
-	</tr>
+    <tr>
+      <td>Título:
+        <label for="campo_titulo"></label></td>
+  	    <td><input type="text" name="txttitulo"  placeholder="El titulo de su noticia" id="txttitulo" required/></td>
+	  </tr>
 
-
-
-  <tr>
+    <tr>
     <td>Seccion:</td>
-    <td>
-    <select class="combobox" name="txtseccion">
-      <option value="Ciencia">Ciencia</option>
-      <option value="Educacion">Educacion</option>
-      <option value="Cultura">Cultura</option>
-      <option value="Comunidad">Comunidad</option>
-      <option value="Innovacion">Innovacion</option>
-    </select>
-    </td>
-  </tr>
-
-<!--input type="text" name="txtseccion" id="seccionNoticia"-->
-
+      <td>
+        <select class="combobox" name="txtseccion">
+          <option value="Ciencia">Ciencia</option>
+          <option value="Educacion">Educacion</option>
+          <option value="Cultura">Cultura</option>
+          <option value="Comunidad">Comunidad</option>
+          <option value="Innovacion">Innovacion</option>
+        </select>
+      </td>
+    </tr>
 
   <div class="form-group">
     <tr><td>Noticia:<label for="area_comentarios"></label></td>
@@ -78,6 +73,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
     <tr>
       <td class="primera fila">id </td>
       <td class="primera fila">Imagen</td>
+      <td>Actualizar imagen</td>
       <td class="primera fila">Titulo</td>
       <td class="primera fila">Noticia</td>
       <td class="primera fila">Seccion</td>
@@ -88,14 +84,19 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
     <?php foreach ($tabla_noticia as $valor){ ?>
 
-<form class="" action="actualizarNoticia.php" method="get">
+<form  action="actualizarNoticia.php" method="GET">
 
+  <tr>
+      <td> <input type="text" name="ID_NOTICIA" value="<?php echo $valor->getIdNoticia();?>" size="1" readonly> </td>
 
-      <tr>
-        <td> <input type="text" name="ID_NOTICIA" value="<?php echo $valor->getIdNoticia();?>" size="1" readonly> </td>
-        <td><input type="text" name="referenciaImagen" value="<?php echo $valor->getReferenImagenNoticia();?>" size="8" > </td>
-        <td><input type="text" name="titulo" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
-        <td><input type="text" name="noticia" value="<?php echo $valor->getNoticiaNoticia();?>"> </td>
+      <td><input type="text" name="nombreImagen" value="<?php echo $valor->getReferenImagenNoticia();?>" size="8" readonly> </td>
+
+      <td><input class="form-control-file" type="file"  name="imagen" id="imagen"></td>
+
+      <td><input type="text" name="titulo" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
+
+      <td><textarea name="noticaNoticia" id="noticaNoticia"rows="5" cols="16"><?php echo $valor->getNoticiaNoticia();?></textarea></td>
+
         <td>
           <select class="combobox" name="seccion">
             <option value="<?php echo $valor->getSecionNoticia();?>"><?php echo $valor->getSecionNoticia();?></option>
@@ -106,28 +107,22 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
             <option value="Innovacion">Innovacion</option>
           </select>
         </td>
-        <td><?php echo $valor->getFechaNoticia();?></td>
-        <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
+      <td><?php echo $valor->getFechaNoticia();?></td>
 
-        <td class="bot"><a href="actualizarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>">
-        <button type="submit" class="btn btn-success">Enviar</button>
-      <!--<input type="button" value="Enviar" class="btn btn-success" size="2"/>--></a></td>
+      <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
+
+      <td><button type="submit" class="btn btn-success">Actualizar</button></td>
+
+  </tr>
+
 </form>
 
 
-      </tr>
+
 
     <?php } ?>
 
-    <tr>
-      <!--input Region-->
-      <td></td>
-      <td><input type="text" name="txtnombreRegion" size="10" class="centrado"></td>
-      <td><input type="text" name="txtnombreRegion" size="10" class="centrado"></td>
-      <td><input type="text" name="txtnumeroRegion" size="10" class="centrado"></td>
-      <td><input type="text" name="txtcomunaRegion" size="10" class="centrado"></td>
-      <td class="bot"><button type="submit" class="btn btn-success" name="button">Insertar</button> </td>
-    </tr>
+
 
       <tr>
         <td >
