@@ -49,19 +49,31 @@ if(isset($_FILES["img"])
 && isset($_POST['seccion'])){
 
 
+    if($ref_Imagen == ''){
+    //imagen es nula
+    $ref_Imagen=$nombreImagen;
+
+    }
+
+
+
+    $carpetaDestino = $_SERVER['DOCUMENT_ROOT'].'/dempucon/View/imagenes/';
+
+    move_uploaded_file($_FILES['img']['tmp_name'],$carpetaDestino.$ref_Imagen);
+
     //absorbo en bariables lo que viene por POST de la vista
-    $idNoticia=(htmlentities(addslashes($_GET['ID_NOTICIA'])));
-    $refImagen=$_FILES['imagen']['name'];
-    $titulo=(htmlentities(addslashes($_GET['titulo'])));
-    $noticia=(htmlentities(addslashes($_GET['noticia'])));
-    $seccion=(htmlentities(addslashes($_GET['seccion'])));
+    $idNoticia=(htmlentities(addslashes($_POST['ID_NOTICIA'])));
+    $refImagen=$_FILES['img']['name'];
+    $titulo=(htmlentities(addslashes($_POST['titulo'])));
+    $noticia=(htmlentities(addslashes($_POST['noticaNoticia'])));
+    $seccion=(htmlentities(addslashes($_POST['seccion'])));
     $noticiaFecha=(Date("Y-m-d H:i:s"));
     $noticiaIdusuario=(htmlentities(addslashes($_SESSION["usuario"]["ID_USUARIO"])));
 
 
     //ejecuto el metodo mandando datos a contolador
     NoticiaController::modificarNoticia($idNoticia,$refImagen,$titulo,$noticia,$seccion,$noticiaFecha,$noticiaIdusuario);
-     
+
     //echo "<script> location.replace('IngresarNoticia.php'); </script>";
     echo "<br>";
     echo "--salio bien";
