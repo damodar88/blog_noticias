@@ -41,7 +41,7 @@
                       </li>
 
                       <li class="nav-item">
-                        <a class="nav-link" href="IngresarNoticia.php"><h4>Nocias</h4></a>
+                        <a class="nav-link" href="IngresarNoticia.php"><h4>Noticias</h4></a>
                       </li>
 
                     <?php }else{ ?>

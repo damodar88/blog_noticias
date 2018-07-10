@@ -4,7 +4,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
 
 <?php include('Default/head.php'); ?>
-<?php include('Default/Carusel.php') ?>
+<?php //include('Default/Carusel.php') ?>
 
 <?php include('Default/menu.php') ?>
 
@@ -50,7 +50,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
   </table>
 </form>
 
-
+<br>
 
 <?php
 
@@ -64,6 +64,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 ?>
 
 <?php
+
   //require('model/Paginacion.php');
 
 ?>
@@ -117,10 +118,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
 </form>
 
-
-
-
-    <?php } ?>
+<?php } ?>
 
 
 
@@ -137,10 +135,6 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
         </td>
       </tr>
     </table>
-
-
-
-
 
   <?php }else{ ?>
 
