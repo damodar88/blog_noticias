@@ -54,14 +54,17 @@ class NoticiaDAO extends Conectar
 
 
 
+
   public function getContenidoPorFecha(){
 
     $matriz = array();
 
     $contador = 0;
 
-    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,SUBSTRING(noticiaNoticia ,'1','80'),tituloNoticia FROM NOTICIA ORDER BY fechaNoticia DESC";
+    require_once('../Helper/PaginacionNoticias.php');
 
+    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,SUBSTRING(noticiaNoticia ,'1','80'),tituloNoticia FROM NOTICIA ORDER BY fechaNoticia DESC LIMIT $empezar_desde, $tamano_pagina";
+    
     self::getConectar();
 
     $resultado = self::$conectarDB->query($resultado);
@@ -103,6 +106,7 @@ class NoticiaDAO extends Conectar
 
   }
 
+
   public function obtenerNoticiaEsp(){
 
     $noticia = array();
@@ -111,7 +115,7 @@ class NoticiaDAO extends Conectar
 
     self::getConectar();
 
-    $consulta = self::$conectarDB->query("SELECT * FROM NOTICIA");// LIMIT $empezar_desde, $tamano_pagina")
+    $consulta = self::$conectarDB->query("SELECT * FROM NOTICIA");
 
 
       while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
@@ -126,8 +130,6 @@ class NoticiaDAO extends Conectar
 
 
     public static function paginacionNoticia(){
-
-      //require_once('../Helper/Paginacion.php');
 
       $sql_total = "SELECT * FROM NOTICIA";// ORDER BY numeroRegion LIMIT $tamano_pagina offset $empezar_desde";
 
@@ -217,8 +219,29 @@ class NoticiaDAO extends Conectar
   }
 
 
+  public function obtenerNoticiaAdmin(){
+
+    $noticia = array();
+
+    require_once('../Helper/PaginacionNoticias.php');
+
+    self::getConectar();
+
+    $consulta = self::$conectarDB->query("SELECT * FROM NOTICIA ORDER BY ID_NOTICIA LIMIT $tamano_pagina offset $empezar_desde");  // LIMIT $empezar_desde, $tamano_pagina")
+
+      while ($filas=$consulta->fetch(PDO::FETCH_ASSOC)){
+
+        $noticia[]=$filas;
+
+      }
+
+    return $noticia;
+
+  }
 
 
- }
+
+
+}
 
 ?>

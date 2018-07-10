@@ -101,14 +101,14 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                 <td><input type="text" name="txtOcupacion" size="7" class="centrado"></td>
                 <td class="bot"><button type="submit" class="btn btn-success" name="button">Insertar</button> </td>
               </tr>
-              <!--<!-----------------><!--inico de paginacion-------->
               </table>
+              <!--<!-----------------><!--inico de paginacion-------->
               <tr>
                 <td>
               <?php require('../Helper/PaginacionUsuario.php');?>
                   <!------------------------------------------------------------------------------------------>
               <?php
-                  echo     "<!--Paginacion-->";
+                  echo "<!--Paginacion-->";
                   echo "<div class='bottom'>";
                   echo "<nav aria-label='Page navigation example'>";
                   echo "<ul class='pagination justify-content-center'>";
@@ -118,12 +118,14 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
               <?php
                  for ($i=1; $i <= $total_pagina ; $i++) {
 
-                  echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
+                   echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
+
                 }?>
 
               <?php
+
                   echo "<li class='page-item'>";
-                  echo "<a class='page-link' href='#'>Next</a>";
+                  echo "<a class='page-link' href=''>Next</a>";
                   echo "</li>";
                   echo "</ul>";
                   echo "</nav>";

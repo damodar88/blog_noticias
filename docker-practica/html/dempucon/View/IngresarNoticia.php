@@ -63,80 +63,93 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
 ?>
 
-<?php
-
-  //require('model/Paginacion.php');
-
-?>
 <?php if ($_SESSION["usuario"]["administrador"] == '1') {?>
 
-    <table class="table" align="center">
+<table class="table" align="center">
     <tr>
-      <td class="primera fila">id </td>
-      <td class="primera fila">Imagen</td>
-      <td>Actualizar imagen</td>
-      <td class="primera fila">Titulo</td>
-      <td class="primera fila">Noticia</td>
-      <td class="primera fila">Seccion</td>
-      <td class="primera fila">Fecha</td>
-      <td class="primera fila">Eliminar</td>
-      <td class="primera fila">Actualizar</td>
+      <td class="fila 1">id</td>
+      <td class="fila 2">Imagen</td>
+      <td class="fila 3">Actualizar imagen</td>
+      <td class="fila 4">Titulo</td>
+      <td class="fila 5">Noticia</td>
+      <td class="fila 6">Seccion</td>
+      <td class="fila 7">Fecha</td>
+      <td class="fila 8">Eliminar</td>
+      <td class="fila 9">Actualizar</td>
     </tr>
 
     <?php foreach ($tabla_noticia as $valor){ ?>
 
-<form  action="actualizarNoticia.php" method="post" enctype="multipart/form-data" name="form2">
+  <form  action="actualizarNoticia.php" method="post" enctype="multipart/form-data" name="form2">
 
-  <tr>
-      <td> <input type="text"name="ID_NOTICIA" value="<?php echo $valor->getIdNoticia();?>" size="1" readonly> </td>
-
-      <td><input type="text" name="nombreImagen" value="<?php echo $valor->getReferenImagenNoticia();?>" size="8" readonly> </td>
-
-      <td><input type="file" name="img" id="img"></td>
-
-      <td><input type="text" name="titulo" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
-
-      <td><textarea name="noticaNoticia" id="noticaNoticia"rows="5" cols="16"><?php echo $valor->getNoticiaNoticia();?></textarea></td>
-
-        <td>
-          <select class="combobox" name="seccion">
-            <option value="<?php echo $valor->getSecionNoticia();?>"><?php echo $valor->getSecionNoticia();?></option>
-            <option value="Ciencia">Ciencia</option>
-            <option value="Educacion">Educacion</option>
-            <option value="Cultura">Cultura</option>
-            <option value="Comunidad">Comunidad</option>
-            <option value="Innovacion">Innovacion</option>
-          </select>
-        </td>
-      <td><?php echo $valor->getFechaNoticia();?></td>
-
-      <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
-
-      <td><button type="submit" class="btn btn-success">Actualizar</button></td>
-
-  </tr>
-
-</form>
-
-<?php } ?>
+      <tr>
+          <td> <input type="text"name="ID_NOTICIA" value="<?php echo $valor->getIdNoticia();?>" size="1" readonly> </td>
+          <td><input type="text" name="nombreImagen" value="<?php echo $valor->getReferenImagenNoticia();?>" size="8" readonly> </td>
+          <td><input type="file" name="img" id="img"></td>
+          <td><input type="text" name="titulo" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
+          <td><textarea name="noticaNoticia" id="noticaNoticia"rows="5" cols="16"><?php echo $valor->getNoticiaNoticia();?></textarea></td>
+          <td>
+            <select class="combobox" name="seccion">
+                <option value="<?php echo $valor->getSecionNoticia();?>"><?php echo $valor->getSecionNoticia();?></option>
+                <option value="Ciencia">Ciencia</option>
+                <option value="Educacion">Educacion</option>
+                <option value="Cultura">Cultura</option>
+                <option value="Comunidad">Comunidad</option>
+                <option value="Innovacion">Innovacion</option>
+            </select>
+          </td>
+          <td><?php echo $valor->getFechaNoticia();?></td>
+          <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
+          <td><button type="submit" class="btn btn-success">Actualizar</button></td>
+      </tr>
+      <?php } ?>
 
 
 
       <tr>
-        <td >
-          <?php
-//------------------paginacion-----------
-            for ($i=1; $i <= $total_pagina ; $i++) {
-              // code...
-              echo "<a href='?pagina=".$i."'>".$i."</a>   ";
-            }
+        <td>
+      <?php require('../Helper/PaginacionNoticias.php');?>
+          <!------------------------------------------------------------------------------------------>
+      <?php
+          echo "<!--Paginacion-->";
+          echo "<div class='bottom'>";
+          echo "<nav aria-label='Page navigation example'>";
+          echo "<ul class='pagination justify-content-center'>";
+          echo "<li class='page-item disabled'>";
+          echo "<a class='page-link' href='#' tabindex='-1'>Previous</a>";
+          echo "</li>";
+      ?>
 
-          ?>
+      <?php
+
+        for ($i=1; $i <= $total_pagina ; $i++){
+
+        echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
+
+        }?>
+
+      <?php
+          var_dump($total_pagina);
+          var_dump($empezar_desde);
+          var_dump($num_filas);
+          echo "<li class='page-item'>";
+          echo "<a class='page-link' href='?pagina=$i'>Next</a>";
+          echo "</li>";
+          echo "</ul>";
+          echo "</nav>";
+          echo "</div>";?>
         </td>
       </tr>
-    </table>
 
-  <?php }else{ ?>
+  </form>
+
+</table>
+
+
+
+
+
+<?php }else{ ?>
 
 
 

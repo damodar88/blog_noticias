@@ -22,7 +22,4 @@ $tamano_pagina = 3;
 
     $total_pagina = ceil($num_filas/$tamano_pagina);
 
-
-
-
- ?>
+?>

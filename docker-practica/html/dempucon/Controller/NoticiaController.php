@@ -22,16 +22,21 @@ class NoticiaController
 
   }
 
-
+  //trae datos noticia administracion Admin
   public static function getNoticia(){
 
     $noticia = new Noticia();
+    //$tabla_blog = array();
 
     $tabla_blog = NoticiaDAO::getContenidoPorFecha();
 
-
     return $tabla_blog;
   }
+
+
+
+
+
 
 
   public static function leerNoticiaEspe(){

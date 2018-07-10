@@ -17,7 +17,6 @@ class UsuarioDAO extends Conectar
 
     self::$conectarDB = Conectar::conexion();
 
-
   }
 
   public static function desconectar(){
@@ -27,8 +26,6 @@ class UsuarioDAO extends Conectar
   }
 
   public function insertaUsuario(Usuario $usuario,Escuela $escuela,Calle $calle,Ciudad $ciudad, Region $region){
-
-
 
     $sql="INSERT INTO USUARIO(administrador,nombreUsuario,apellidoPaternoUsuario,apellidoMaternoUsuario,usuarioUsuario,passwordUsuario,ocupacionUsuario
     ) VALUES
