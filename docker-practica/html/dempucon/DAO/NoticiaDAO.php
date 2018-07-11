@@ -61,10 +61,10 @@ class NoticiaDAO extends Conectar
 
     $contador = 0;
 
-    require_once('../Helper/PaginacionNoticias.php');
+    //require_once('../Helper/PaginacionNoticias.php');
 
-    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,SUBSTRING(noticiaNoticia ,'1','80'),tituloNoticia FROM NOTICIA ORDER BY fechaNoticia DESC LIMIT $empezar_desde, $tamano_pagina";
-    
+    $resultado = "SELECT ID_NOTICIA,referenciaImagenNoticia,fechaNoticia,secionNoticia,SUBSTRING(noticiaNoticia ,'1','80'),tituloNoticia FROM NOTICIA ORDER BY fechaNoticia DESC";//fechaNoticia ASC"; //LIMIT $empezar_desde, $tamano_pagina";
+
     self::getConectar();
 
     $resultado = self::$conectarDB->query($resultado);
@@ -131,7 +131,7 @@ class NoticiaDAO extends Conectar
 
     public static function paginacionNoticia(){
 
-      $sql_total = "SELECT * FROM NOTICIA";// ORDER BY numeroRegion LIMIT $tamano_pagina offset $empezar_desde";
+      $sql_total = "SELECT * FROM NOTICIA";
 
       self::getConectar();
 
@@ -144,7 +144,6 @@ class NoticiaDAO extends Conectar
       return $num_filas;
 
     }
-
 
     public function obtenerComentario(){
 

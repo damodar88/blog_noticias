@@ -106,41 +106,6 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
 
 
-      <tr>
-        <td>
-      <?php require('../Helper/PaginacionNoticias.php');?>
-          <!------------------------------------------------------------------------------------------>
-      <?php
-          echo "<!--Paginacion-->";
-          echo "<div class='bottom'>";
-          echo "<nav aria-label='Page navigation example'>";
-          echo "<ul class='pagination justify-content-center'>";
-          echo "<li class='page-item disabled'>";
-          echo "<a class='page-link' href='#' tabindex='-1'>Previous</a>";
-          echo "</li>";
-      ?>
-
-      <?php
-
-        for ($i=1; $i <= $total_pagina ; $i++){
-
-        echo "<li class='page-item'><a class='page-link' href='?pagina=".$i."'>".$i."</a></li>";
-
-        }?>
-
-      <?php
-          var_dump($total_pagina);
-          var_dump($empezar_desde);
-          var_dump($num_filas);
-          echo "<li class='page-item'>";
-          echo "<a class='page-link' href='?pagina=$i'>Next</a>";
-          echo "</li>";
-          echo "</ul>";
-          echo "</nav>";
-          echo "</div>";?>
-        </td>
-      </tr>
-
   </form>
 
 </table>

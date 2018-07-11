@@ -63,7 +63,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
 
                  </td>
                  <!--td><input type="text" name=""  size="1" value="<?php //echo $usuario["administrador"] ?>" ></td-->
-                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["nombreUsuario"] ?>" ></td>
+                 <td><input type="text" name="nombre"  size="7" value="<?php echo $usuario["nombreUsuario"] ?>" ></td>
                  <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoPaternoUsuario"]?>" ></td>
                  <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoMaternoUsuario"]?>" ></td>
                  <td><input type="text" name=""  size="7" value="<?php echo $usuario["usuarioUsuario"]?>" ></td>
@@ -72,11 +72,11 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                  <td><input type="text" name=""  size="7" value="<?php echo $usuario["ocupacionUsuario"]?>" ></td>
                 <td class="bot"><a href="EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
                 <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
-                  & administrador=<?php echo $usuario["administrador"] ?>
-                  & nombreUsuario=<?php echo $usuario["nombreUsuario"]?>
-                  & apellidoPaternoUsuario= <?php echo $usuario["apellidoPaternoUsuario"]?>
-                  & apellidoMaternoUsuario=<?php $usuario["apellidoMaternoUsuario"]?>
-                  & usuarioUsuario = <?php echo $usuario["usuarioUsuario"]?>
+                  & administrador=<?php echo $usuario["administrador"]?>
+                  & nombreUsuario=
+                  & apellidoPaternoUsuario=<?php echo $usuario["apellidoPaternoUsuario"]?>
+                  & apellidoMaternoUsuario=<?php echo $usuario["apellidoMaternoUsuario"]?>
+                  & usuarioUsuario=<?php echo $usuario["usuarioUsuario"]?>
                   & passwordUsuario=<?php echo $usuario["passwordUsuario"]?>
                   & fechaModificacionUsuario=<?php echo $usuario["fechaModificacionUsuario"]?>
                   & ocupacionUsuario=<?php echo $usuario["ocupacionUsuario"]?>
@@ -123,7 +123,6 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                 }?>
 
               <?php
-
                   echo "<li class='page-item'>";
                   echo "<a class='page-link' href=''>Next</a>";
                   echo "</li>";

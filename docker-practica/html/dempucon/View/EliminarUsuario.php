@@ -4,13 +4,15 @@ session_start();
 
 include '../Controller/UsuarioController.php';
 
-$idUsuario=$_GET['ID_USUARIO'];
 
-//echo "El ID_USUARIO es ---------:";
 
+//$idUsuario=$_GET['ID_USUARIO'];
+//echo "El ID_USUARIO es ---------:";echo "<br>";
 //var_dump($idUsuario);
 
   //me sercioro de que no vengan vacios
+
+
   if(isset($_GET['ID_USUARIO'])){
 
     //absorbo en bariables lo que viene por POST de la vista

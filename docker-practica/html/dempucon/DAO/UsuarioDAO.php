@@ -183,6 +183,40 @@ class UsuarioDAO extends Conectar
 
 
 
+    public static function actualizarUsuario($modificarUsuario){
+
+    $query = "UPDATE USUARIO SET  administrador=:admin,
+                                  nombreUsuario=:nombre,
+                                  apellidoPaternoUsuario=:apellidoP,
+                                  apellidoMaternoUsuario=:apellidoM,
+                                  usuarioUsuario=:usuario,
+                                  passwordUsuario=:password,
+                                  fechaModificacionUsuario=:fechaModificacion,
+                                  ocupacionUsuario=:ocupacion
+                                  WHERE ID_USUARIO=:idUsuario";
+
+    self::getConectar();
+
+    $resultado = self::$conectarDB->prepare($query);
+
+    $resultado->bindParam(":idUsuario",$modificarUsuario->getIdUsuario());
+    $resultado->bindParam(":admin",$modificarUsuario->getAdministradorUsuario());
+    $resultado->bindParam(":nombre",$modificarUsuario->getNombreUsuario());
+    $resultado->bindParam(":apellidoP",$modificarUsuario->getApellidoPaternoUsuario());
+    $resultado->bindParam(":apellidoM",$modificarUsuario->getApellidoMaternoUsuario());
+    $resultado->bindParam(":usuario",$modificarUsuario->getUsuarioUsuario());
+    $resultado->bindParam(":password",$modificarUsuario->getPasswordUsuario());
+    $resultado->bindParam(":fechaModificacion",$modificarUsuario->getFechaModificacionUsuario());
+    $resultado->bindParam(":ocupacion",$modificarUsuario->getOcupacionUsuario());
+
+    $resultado->execute();
+
+    //$numeroRegistro = $resultado->rowCount();
+
+    }
+
+
+
 
 }
 

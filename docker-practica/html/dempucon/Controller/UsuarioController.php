@@ -30,6 +30,23 @@ class UsuarioController
 
   }
 
+  public static function modificarUsuario($idUsuario,$admin,$nombre,$apellidoP,$apellidoM,$usuario,$password,$fechaModificacion,$ocupacion){
+
+    $modificarUsuario = new Usuario();
+    $modificarUsuario->setIdUsuario($idUsuario);
+    $modificarUsuario->setAdministradorUsuario($admin);
+    $modificarUsuario->setNombreUsuario($nombre);
+    $modificarUsuario->setApellidoPaternoUsuario($apellidoP);
+    $modificarUsuario->setApellidoMaternoUsuario($apellidoM);
+    $modificarUsuario->setUsuarioUsuario($usuario);
+    $modificarUsuario->setPasswordUsuario($password);
+    $modificarUsuario->setFechaModificacionUsuario($fechaModificacion);
+    $modificarUsuario->setOcupacionUsuario($ocupacion);
+
+    UsuarioDAO::actualizarUsuario($modificarUsuario);
+
+  }
+
 
 }
 

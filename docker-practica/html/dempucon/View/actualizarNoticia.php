@@ -18,8 +18,6 @@ $noticia=$_POST['noticaNoticia'];
 $seccion=$_POST['seccion'];
 $usuarioI=$_SESSION["usuario"]["ID_USUARIO"];
 
-
-/*
 echo "El ID_Noticia es --:";
 var_dump($idNoticia);
 echo "<br>";
@@ -40,7 +38,7 @@ var_dump($seccion);
 echo "<br>";
 echo "usuario id Foranea--:";
 var_dump($usuarioI);
-*/
+
 
   //me sercioro de que no vengan vacios
 if(isset($_FILES["img"])
@@ -66,15 +64,15 @@ if(isset($_FILES["img"])
         //ejecuto el metodo mandando datos a contolador
         NoticiaController::modificarNoticia($idNoticia,$refImagen,$titulo,$noticia,$seccion,$noticiaFecha,$noticiaIdusuario);
 
-        echo "<script> location.replace('IngresarNoticia.php'); </script>";
-        //echo "<br>";
-        //echo "--salio bien";
+        //echo "<script> location.replace('IngresarNoticia.php'); </script>";
+        echo "<br>";
+        echo "--salio bien imagen bacia";
 
     }else {
 
       $carpetaDestino = $_SERVER['DOCUMENT_ROOT'].'/dempucon/View/imagenes/';
 
-      move_uploaded_file($_FILES['img']['tmp_name'],$carpetaDestino.$ref_Imagen);
+      move_uploaded_file($_FILES['img']['tmp_name'],$carpetaDestino.$refImagen);
 
       //absorbo en bariables lo que viene por POST de la vista
       $idNoticia=(htmlentities(addslashes($_POST['ID_NOTICIA'])));
@@ -89,8 +87,8 @@ if(isset($_FILES["img"])
       //ejecuto el metodo mandando datos a contolador
       NoticiaController::modificarNoticia($idNoticia,$refImagen,$titulo,$noticia,$seccion,$noticiaFecha,$noticiaIdusuario);
 
-      echo "<script> location.replace('IngresarNoticia.php'); </script>";
-
+      //echo "<script> location.replace('IngresarNoticia.php'); </script>";
+      echo "imagen no bacia";
     }
 
   }else {
@@ -99,7 +97,6 @@ if(isset($_FILES["img"])
   echo "--error";
 
   }
-
 
 
 ?>
