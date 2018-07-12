@@ -61,28 +61,20 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
                    </select>
 
 
-                 </td>
+              </td>
                  <!--td><input type="text" name=""  size="1" value="<?php //echo $usuario["administrador"] ?>" ></td-->
-                 <td><input type="text" name="nombre"  size="7" value="<?php echo $usuario["nombreUsuario"] ?>" ></td>
-                 <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoPaternoUsuario"]?>" ></td>
-                 <td><input type="text" name=""  size="8" value="<?php echo $usuario["apellidoMaternoUsuario"]?>" ></td>
-                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["usuarioUsuario"]?>" ></td>
-                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["passwordUsuario"]?>" ></td>
-                 <td><?php echo $usuario["fechaModificacionUsuario"]?></td>
-                 <td><input type="text" name=""  size="7" value="<?php echo $usuario["ocupacionUsuario"]?>" ></td>
-                <td class="bot"><a href="EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
-                <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
-                  & administrador=<?php echo $usuario["administrador"]?>
-                  & nombreUsuario=
-                  & apellidoPaternoUsuario=<?php echo $usuario["apellidoPaternoUsuario"]?>
-                  & apellidoMaternoUsuario=<?php echo $usuario["apellidoMaternoUsuario"]?>
-                  & usuarioUsuario=<?php echo $usuario["usuarioUsuario"]?>
-                  & passwordUsuario=<?php echo $usuario["passwordUsuario"]?>
-                  & fechaModificacionUsuario=<?php echo $usuario["fechaModificacionUsuario"]?>
-                  & ocupacionUsuario=<?php echo $usuario["ocupacionUsuario"]?>
+                  <td><input type="text" name="nombreUsuario"          value="<?php echo $usuario["nombreUsuario"]?>" size="7"></td>
+                  <td><input type="text" name="apellidoPaternoUsuario" value="<?php echo $usuario["apellidoPaternoUsuario"]?>" size="8"></td>
+                  <td><input type="text" name="apellidoMaternoUsuario" value="<?php echo $usuario["apellidoMaternoUsuario"]?>" size="8"></td>
+                  <td><input type="text" name="usuarioUsuario"         value="<?php echo $usuario["usuarioUsuario"]?>"  size="7" ></td>
+                  <td><input type="text" name="passwordUsuario"        value="<?php echo $usuario["passwordUsuario"]?>" size="7"></td>
+                  <td><?php echo $usuario["fechaModificacionUsuario"]?></td>
+                  <td><input type="text" name="ocupacionUsuario"       value="<?php echo $usuario["ocupacionUsuario"]?>" size="7"></td>
+                  <td class="bot"><a href="EliminarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
+                  <td class="bot"><a href="actualizarUsuario.php?ID_USUARIO=<?php echo $usuario["ID_USUARIO"]?>
                   "> <input type="button" name="up" class="btn btn-success" id="up" size="2" value="actualizar"></a></td>
               </tr>
-              <?php endforeach?>
+            <?php endforeach;?>
 
               <!--Input enviaran por submit-->
               <tr>

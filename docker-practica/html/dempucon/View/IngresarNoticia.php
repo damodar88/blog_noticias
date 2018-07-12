@@ -78,12 +78,12 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
       <td class="fila 9">Actualizar</td>
     </tr>
 
-    <?php foreach ($tabla_noticia as $valor){ ?>
+    <?php foreach ($tabla_noticia as $valor): ?>
 
   <form  action="actualizarNoticia.php" method="post" enctype="multipart/form-data" name="form2">
 
       <tr>
-          <td> <input type="text"name="ID_NOTICIA" value="<?php echo $valor->getIdNoticia();?>" size="1" readonly> </td>
+          <td><input type="text" name="ID_NOTICIA" value="<?php echo $valor->getIdNoticia();?>" size="1" readonly> </td>
           <td><input type="text" name="nombreImagen" value="<?php echo $valor->getReferenImagenNoticia();?>" size="8" readonly> </td>
           <td><input type="file" name="img" id="img"></td>
           <td><input type="text" name="titulo" value="<?php echo $valor->getTituloNoticia();?>" size="7" > </td>
@@ -102,7 +102,7 @@ if(isset($_SESSION["usuario"]["nombreUsuario"])){?>
           <td class="bot"><a href="EliminarNoticia.php?ID_NOTICIA=<?php echo $valor->getIdNoticia();?>"> <input type="button" name="del"id="del" class="btn btn-success" size="2" value="Eliminar"></a></td>
           <td><button type="submit" class="btn btn-success">Actualizar</button></td>
       </tr>
-      <?php } ?>
+    <?php endforeach; ?>
 
 
 

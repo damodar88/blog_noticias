@@ -39,7 +39,7 @@ echo "<br>";
 echo "usuario id Foranea--:";
 var_dump($usuarioI);
 
-
+/*
   //me sercioro de que no vengan vacios
 if(isset($_FILES["img"])
 && isset($_POST['ID_NOTICIA'])
@@ -97,7 +97,7 @@ if(isset($_FILES["img"])
   echo "--error";
 
   }
-
+*/
 
 ?>
 
